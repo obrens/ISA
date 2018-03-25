@@ -9,17 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/hello")
-    public String hello(){
+    public String hello() {
         System.out.println("helou");
         return "Hello";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/usa")
-    public Ustanova usa(){
-        Ustanova usaar=new Ustanova();
+    public Ustanova usa() {
+        Ustanova usaar = new Ustanova();
         usaar.setNaziv("obika");
 
         return usaar;
     }
-
 }
