@@ -2,15 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
-    <script src="app.js"></script>
+    <title>Sajt ustanova</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+
+    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="assets/css/Table-with-search1.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles-userProfil.css">
+
+
 </head>
-<body ng-app="apka">
-angularJs
-<div ng-controller="kontro">
-    <button ng-click="submit()">gro </button>
-    <h1>{{inme}}</h1>
-</div>
+<body ng-app="ustanoveApp">
+sve ce to raditi
+<div class="container" ng-view=""></div>
+<ng-view></ng-view>
+
+<script src="app.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
+<script src="poluPages/login.js"></script>
+<script src="poluPages/register.js"></script>
+<script src="poluPages/userProfil.js"></script>
 </body>
 </html>
