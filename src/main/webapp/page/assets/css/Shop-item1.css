@@ -115,8 +115,7 @@ nav.navbar.navbar-default.navbar-fixed-top {
   width:90%;
 }
 
-<div class="checkbox" > <label > <input type="checkbox" / > Label </label > </div > {
-}
+
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   background-color:transparent;
