@@ -22,6 +22,7 @@ public class Ustanova {
 	@OneToMany
 	@JoinColumn(name = "sala_id")
     private ArrayList<Sala> sale;
+	//TODO opet enum
     public enum VrstaUstanove {POZORISTE, BIOSKOP}
     @Column
     private VrstaUstanove vrstaUstanove;
@@ -37,4 +38,7 @@ public class Ustanova {
     public void setNaziv(String naziv) {
         this.naziv = naziv;
     }
+    
+    //TODO seteri i geteri
+	//TODO U logautu videti korisnika ulogovanog, sta mu se resetuje
 }

@@ -21,6 +21,7 @@ public class Korisnik {
     private String grad;
     @Column
     private int brojTelefona;
+    //TODO nesto drugo ide za enumeracije
     public enum Uloga { OBICAN, USTANOVAADMIN, FANZONAADMIN, SISTEMADMIN};
     @Column
     private Uloga uloga;

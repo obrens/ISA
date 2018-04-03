@@ -32,6 +32,7 @@ public class Delo {
     @OneToMany
 	@JoinColumn(name = "sala_id")
     private ArrayList<Sala> saleProjekcije;
+    // TODO Cudno Sandri ovo
     @Column
 	@ElementCollection(targetClass = ZonedDateTime.class)
     private ArrayList<ZonedDateTime> vremenaProjekcije;
