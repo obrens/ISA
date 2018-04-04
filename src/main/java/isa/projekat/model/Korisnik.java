@@ -21,8 +21,73 @@ public class Korisnik {
     private String grad;
     @Column
     private int brojTelefona;
-    //TODO nesto drugo ide za enumeracije
-    public enum Uloga { OBICAN, USTANOVAADMIN, FANZONAADMIN, SISTEMADMIN};
-    @Column
-    private Uloga uloga;
+    
+    //public enum Uloga { OBICAN, USTANOVAADMIN, FANZONAADMIN, SISTEMADMIN};
+    @ManyToOne
+	@JoinColumn
+    private TipKorisnika uloga;
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getImejl() {
+		return imejl;
+	}
+	
+	public void setImejl(String imejl) {
+		this.imejl = imejl;
+	}
+	
+	public String getLozinka() {
+		return lozinka;
+	}
+	
+	public void setLozinka(String lozinka) {
+		this.lozinka = lozinka;
+	}
+	
+	public String getIme() {
+		return ime;
+	}
+	
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+	
+	public String getPrezime() {
+		return prezime;
+	}
+	
+	public void setPrezime(String prezime) {
+		this.prezime = prezime;
+	}
+	
+	public String getGrad() {
+		return grad;
+	}
+	
+	public void setGrad(String grad) {
+		this.grad = grad;
+	}
+	
+	public int getBrojTelefona() {
+		return brojTelefona;
+	}
+	
+	public void setBrojTelefona(int brojTelefona) {
+		this.brojTelefona = brojTelefona;
+	}
+	
+	public TipKorisnika getUloga() {
+		return uloga;
+	}
+	
+	public void setUloga(TipKorisnika uloga) {
+		this.uloga = uloga;
+	}
 }
