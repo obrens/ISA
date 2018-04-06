@@ -2,6 +2,7 @@ package isa.projekat.model;
 
 import javax.persistence.*;
 
+@Entity
 public class Karta {
 	@Id
 	@Column(name = "karta_id")

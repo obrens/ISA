@@ -3,7 +3,9 @@ package isa.projekat.model;
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
+import java.util.Set;
 
+@Entity
 public class Projekcija {
 	@Id
 	@Column(name = "projekcija_id")
@@ -11,8 +13,7 @@ public class Projekcija {
 	private Long id;
 	
 	@ManyToMany
-	@JoinColumn(name = "sala_id")
-	private Sala sala;
+	private Set<Sala> sala;
 	
 	@Column
 	private Date datum;
@@ -31,11 +32,11 @@ public class Projekcija {
 		this.id = id;
 	}
 	
-	public Sala getSala() {
+	public Set<Sala> getSala() {
 		return sala;
 	}
 	
-	public void setSala(Sala sala) {
+	public void setSala(Set<Sala> sala) {
 		this.sala = sala;
 	}
 	

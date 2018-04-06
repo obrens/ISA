@@ -2,8 +2,7 @@ package isa.projekat.model;
 
 import javax.persistence.*;
 import javax.sql.rowset.serial.SerialBlob;
-import java.util.Date;
-import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 public class Delo {
@@ -30,7 +29,7 @@ public class Delo {
     private String opis;
     @OneToMany
 	@JoinColumn(name = "projekcija_id")
-    private ArrayList<Projekcija> projekcije;
+    private Set<Projekcija> projekcije;
     @Column
     private float cena;
     //endregion
@@ -100,11 +99,11 @@ public class Delo {
 		this.opis = opis;
 	}
 	
-	public ArrayList<Projekcija> getProjekcije() {
+	public Set<Projekcija> getProjekcije() {
 		return projekcije;
 	}
 	
-	public void setProjekcije(ArrayList<Projekcija> projekcije) {
+	public void setProjekcije(Set<Projekcija> projekcije) {
 		this.projekcije = projekcije;
 	}
 	

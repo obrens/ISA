@@ -2,6 +2,7 @@ package isa.projekat.model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 public class Ustanova {
@@ -18,9 +19,9 @@ public class Ustanova {
     private String opis;
     @OneToMany
     @JoinColumn(name = "delo_id")
-    private ArrayList<Delo> repertoar;
+    private Set<Delo> repertoar;
 	@OneToMany(mappedBy = "ustanova")
-    private ArrayList<Sala> sale;
+    private Set<Sala> sale;
 	
     //public enum VrstaUstanove {POZORISTE, BIOSKOP}
     @Column
@@ -62,19 +63,19 @@ public class Ustanova {
 		this.opis = opis;
 	}
 	
-	public ArrayList<Delo> getRepertoar() {
+	public Set<Delo> getRepertoar() {
 		return repertoar;
 	}
 	
-	public void setRepertoar(ArrayList<Delo> repertoar) {
+	public void setRepertoar(Set<Delo> repertoar) {
 		this.repertoar = repertoar;
 	}
 	
-	public ArrayList<Sala> getSale() {
+	public Set<Sala> getSale() {
 		return sale;
 	}
 	
-	public void setSale(ArrayList<Sala> sale) {
+	public void setSale(Set<Sala> sale) {
 		this.sale = sale;
 	}
 	
