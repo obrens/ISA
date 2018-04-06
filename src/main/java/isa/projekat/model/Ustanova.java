@@ -11,42 +11,34 @@ public class Ustanova {
 	@GeneratedValue
 	private Long id;
 	
-    @Column
-    private String naziv;
-    @Column
-    private String adresa;
-    @Column
-    private String opis;
-<<<<<<< HEAD
-    //@OneToMany
-    //@JoinColumn(name = "delo_id")
-    //private ArrayList<Delo> repertoar;
-	//@OneToMany(mappedBy = "ustanova")
-    //private ArrayList<Sala> sale;
-=======
-    @OneToMany
-    @JoinColumn(name = "delo_id")
-    private Set<Delo> repertoar;
+	@Column
+	private String naziv;
+	@Column
+	private String adresa;
+	@Column
+	private String opis;
+	@OneToMany
+	@JoinColumn(name = "delo_id")
+	private Set<Delo> repertoar;
 	@OneToMany(mappedBy = "ustanova")
-    private Set<Sala> sale;
->>>>>>> 824699de7f3b11c3ad85f97fba9ee88d8fcd7d2d
+	private Set<Sala> sale;
 	
-    //public enum VrstaUstanove {POZORISTE, BIOSKOP}
-    @Column
-    private boolean vrstaUstanove;
-    
-    @OneToOne
-    @JoinColumn(name = "korisnik_id")
-    private Korisnik admin;
-    
-    public String getNaziv() {
-        return naziv;
-    }
-
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
-    }
-    
+	//public enum VrstaUstanove {POZORISTE, BIOSKOP}
+	@Column
+	private boolean vrstaUstanove;
+	
+	@OneToOne
+	@JoinColumn(name = "korisnik_id")
+	private Korisnik admin;
+	
+	public String getNaziv() {
+		return naziv;
+	}
+	
+	public void setNaziv(String naziv) {
+		this.naziv = naziv;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -71,11 +63,7 @@ public class Ustanova {
 		this.opis = opis;
 	}
 	
-<<<<<<< HEAD
-	/*public ArrayList<Delo> getRepertoar() {
-=======
 	public Set<Delo> getRepertoar() {
->>>>>>> 824699de7f3b11c3ad85f97fba9ee88d8fcd7d2d
 		return repertoar;
 	}
 	
@@ -90,7 +78,7 @@ public class Ustanova {
 	public void setSale(Set<Sala> sale) {
 		this.sale = sale;
 	}
-	*/
+	
 	public boolean isVrstaUstanove() {
 		return vrstaUstanove;
 	}

@@ -6,39 +6,33 @@ import java.util.Set;
 
 @Entity
 public class Delo {
-    //region Atributi
+	//region Atributi
 	@Id
 	@Column(name = "delo_id")
 	@GeneratedValue
 	private Long id;
 	
-    @Column
-    private String naziv;
-    //@Column
-    //@ElementCollection(targetClass = String.class)
-    //private ArrayList<String> glumci;
-    @Column
-    private String zanr;
-    @Column
-    private String reditelj;
-    @Column
-    private float trajanje;
-    @Column
-    private SerialBlob poster;
-    @Column
-    private String opis;
-<<<<<<< HEAD
-    //@OneToMany
-	//@JoinColumn(name = "projekcija_id")
-    //private ArrayList<Projekcija> projekcije;
-=======
-    @OneToMany
+	@Column
+	private String naziv;
+	//@Column
+	//@ElementCollection(targetClass = String.class)
+	//private ArrayList<String> glumci;
+	@Column
+	private String zanr;
+	@Column
+	private String reditelj;
+	@Column
+	private float trajanje;
+	@Column
+	private SerialBlob poster;
+	@Column
+	private String opis;
+	@OneToMany
 	@JoinColumn(name = "projekcija_id")
-    private Set<Projekcija> projekcije;
->>>>>>> 824699de7f3b11c3ad85f97fba9ee88d8fcd7d2d
-    @Column
-    private float cena;
-    //endregion
+	private Set<Projekcija> projekcije;
+	@Column
+	private float cena;
+	//endregion
 	
 	
 	public Long getId() {
@@ -105,17 +99,13 @@ public class Delo {
 		this.opis = opis;
 	}
 	
-<<<<<<< HEAD
-	/*public ArrayList<Projekcija> getProjekcije() {
-=======
 	public Set<Projekcija> getProjekcije() {
->>>>>>> 824699de7f3b11c3ad85f97fba9ee88d8fcd7d2d
 		return projekcije;
 	}
 	
 	public void setProjekcije(Set<Projekcija> projekcije) {
 		this.projekcije = projekcije;
-	}*/
+	}
 	
 	public float getCena() {
 		return cena;
