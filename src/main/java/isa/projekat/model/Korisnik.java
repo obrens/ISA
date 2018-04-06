@@ -24,7 +24,6 @@ public class Korisnik {
     
     //public enum Uloga { OBICAN, USTANOVAADMIN, FANZONAADMIN, SISTEMADMIN};
     @ManyToOne
-	@JoinColumn
     private TipKorisnika uloga;
 	
 	public Long getId() {
