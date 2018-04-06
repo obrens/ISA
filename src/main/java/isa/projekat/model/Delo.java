@@ -15,9 +15,9 @@ public class Delo {
 	
     @Column
     private String naziv;
-    @Column
-    @ElementCollection(targetClass = String.class)
-    private ArrayList<String> glumci;
+    //@Column
+    //@ElementCollection(targetClass = String.class)
+    //private ArrayList<String> glumci;
     @Column
     private String zanr;
     @Column
@@ -52,13 +52,13 @@ public class Delo {
 		this.naziv = naziv;
 	}
 	
-	public ArrayList<String> getGlumci() {
+	/*public ArrayList<String> getGlumci() {
 		return glumci;
 	}
 	
 	public void setGlumci(ArrayList<String> glumci) {
 		this.glumci = glumci;
-	}
+	}*/
 	
 	public String getZanr() {
 		return zanr;
