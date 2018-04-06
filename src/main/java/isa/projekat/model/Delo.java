@@ -28,9 +28,9 @@ public class Delo {
     private SerialBlob poster;
     @Column
     private String opis;
-    @OneToMany
-	@JoinColumn(name = "projekcija_id")
-    private ArrayList<Projekcija> projekcije;
+    //@OneToMany
+	//@JoinColumn(name = "projekcija_id")
+    //private ArrayList<Projekcija> projekcije;
     @Column
     private float cena;
     //endregion
@@ -100,13 +100,13 @@ public class Delo {
 		this.opis = opis;
 	}
 	
-	public ArrayList<Projekcija> getProjekcije() {
+	/*public ArrayList<Projekcija> getProjekcije() {
 		return projekcije;
 	}
 	
 	public void setProjekcije(ArrayList<Projekcija> projekcije) {
 		this.projekcije = projekcije;
-	}
+	}*/
 	
 	public float getCena() {
 		return cena;

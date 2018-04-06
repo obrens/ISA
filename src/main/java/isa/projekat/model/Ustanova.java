@@ -16,11 +16,11 @@ public class Ustanova {
     private String adresa;
     @Column
     private String opis;
-    @OneToMany
-    @JoinColumn(name = "delo_id")
-    private ArrayList<Delo> repertoar;
-	@OneToMany(mappedBy = "ustanova")
-    private ArrayList<Sala> sale;
+    //@OneToMany
+    //@JoinColumn(name = "delo_id")
+    //private ArrayList<Delo> repertoar;
+	//@OneToMany(mappedBy = "ustanova")
+    //private ArrayList<Sala> sale;
 	
     //public enum VrstaUstanove {POZORISTE, BIOSKOP}
     @Column
@@ -62,7 +62,7 @@ public class Ustanova {
 		this.opis = opis;
 	}
 	
-	public ArrayList<Delo> getRepertoar() {
+	/*public ArrayList<Delo> getRepertoar() {
 		return repertoar;
 	}
 	
@@ -77,7 +77,7 @@ public class Ustanova {
 	public void setSale(ArrayList<Sala> sale) {
 		this.sale = sale;
 	}
-	
+	*/
 	public boolean isVrstaUstanove() {
 		return vrstaUstanove;
 	}
