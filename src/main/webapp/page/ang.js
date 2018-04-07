@@ -63,4 +63,9 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             templateUrl:'poluPages/userProfil.html'
 
         })
+        .state('pocetnaNeprijavljeni',{
+            url:'/pocetnaNeprijavljeni',
+            controller: 'pocetnaNeprijavljeniController',
+            templateUrl: 'poluPages/pocetnaNeprijavljeni.html'
+        })
 }])
