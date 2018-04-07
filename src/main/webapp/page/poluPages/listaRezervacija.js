@@ -1,4 +1,4 @@
-ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state', function ($scope,$state) {
+ustanoveApp.controller('listaRezervacijaController', ['$scope','$state', function ($scope,$state) {
 
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");

@@ -51,6 +51,12 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             templateUrl:'poluPages/bioskopiLista.html'
 
         })
+        .state('prijateljiLista',{
+            url:'/prijateljiLista',
+            controller: 'prijateljiListaController',
+            templateUrl:'poluPages/prijateljiLista.html'
+
+        })
         .state('userProfil',{
             url:'/userProfil',
             controller: 'userProfilController',
