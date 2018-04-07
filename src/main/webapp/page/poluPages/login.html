@@ -1,3 +1,8 @@
+<h1>{{title}}</h1>
+<ul>
+    <li  ng-repeat="item in items">{{item}} </li>
+</ul>
+<input type="text" ng-model="title">
 
 <div class="login-clean" style="background-color:rgb(255,255,255);padding-top:130px;">
     <form method="post" style="background-color:rgb(241,247,252);">
@@ -5,6 +10,7 @@
         <input class="form-control" type="email" name="email" required="" placeholder="Email" style="margin-top:0px;margin-bottom:10px;background-color:rgb(255,255,255);">
         <input class="form-control" type="password" name="password" required="" placeholder="Password" maxlength="30" minlength="4" style="background-color:rgb(255,255,255);">
         <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Prijavi se</button>
-        <a href="#" class="forgot">Nemate nalog? Registrujte se.</a>
+        <p class="text-center"> <a ng-click="toRegister()" class="btn">Nemate nalog? Registrujte se.</a></p>
+
     </form>
 </div>

@@ -1,3 +1,8 @@
+<h1>{{title}}</h1>
+<ul>
+    <li  ng-repeat="item in items">{{item}} </li>
+</ul>
+<input type="text" ng-model="title">
 
 <div class="register-photo" style="background-color:rgb(255,255,255);">
     <div class="form-container">
@@ -10,7 +15,7 @@
             <input class="form-control" type="text" name="city" required="" placeholder="Grad" maxlength="30" style="margin-top:10px;background-color:rgb(255,255,255);">
             <input class="form-control" type="tel" name="telephone" required="" placeholder="Broj telefona" maxlength="30" pattern="^[0-9\+]{6,30}$" style="margin-top:10px;background-color:rgb(255,255,255);">
             <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Registruj se</button>
-            <a href="#" class="already">Već imate nalog? Prijavite se.</a>
+            <p class="text-center"> <a ng-click="toLogin()" class="btn">Već imate nalog? Prijavite se.</a></p>
         </form>
     </div>
 </div>

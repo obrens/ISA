@@ -1,8 +1,21 @@
 'use-strict';
 
-var ustanoveApp = angular.module('ustanoveApp', ['ui.router',  'angular-input-stars']);
+/*var ustanoveApp = angular.module('ustanoveApp', ['ui.router',  'angular-input-stars']);
+
+ustanoveApp.controller('kontro', function($scope, $http) {
+    $scope.submit = function () {
+        $http.get('/usa').success(function (data) {
+            console.log('Uspesno dodat ponuđač.');
+            $scope.inme=data.naziv;
+            $scope.cancel();
+        }).error(function () {
+            alert('Greška pri dodavanju ponuđača.');
+        });
+    };
+});
 
 ustanoveApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
+
     $urlRouterProvider.otherwise('/login');
     $stateProvider
         .state('login', {
