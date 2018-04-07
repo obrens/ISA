@@ -1,5 +1,5 @@
-ustanoveApp.controller('bioskopiListaController', ['$scope','$state', function ($scope,$state) {
-
+ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+    //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -21,5 +21,94 @@ ustanoveApp.controller('bioskopiListaController', ['$scope','$state', function (
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    //endregion
+    $http.get('/api/ustanova/1').success(function (data) {
+        $scope.bioskopi = data;
+    });
 
+    $scope.bioskopop = "pop";
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

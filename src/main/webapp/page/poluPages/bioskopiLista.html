@@ -25,54 +25,14 @@
             </thead>
             <tbody>
             <tr>
-                <td><a href="#">Arena</a></td>
-                <td>Pecz</td>
-                <td>250</td>
-            </tr>
-            <tr>
-                <td>Multi Kino</td>
-                <td>Szeged</td>
+                <td>Multi Kino {{bioskopi.naziv}}</td>
+                <td>Szeged {{bioskopop}}</td>
                 <td>11</td>
             </tr>
-            <tr>
-                <td>Cinemax</td>
-                <td>Vrbas</td>
-                <td>33</td>
-            </tr>
-            <tr>
-                <td>Jadran</td>
-                <td>Edinburgh</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <td>Zvezdara</td>
-                <td>Tokyo</td>
-                <td>34</td>
-            </tr>
-            <tr>
-                <td>Arena</td>
-                <td>Pecz</td>
+            <tr ng-repeat="bioskop in bioskopi">
+                <td><a href="#/ustanova/{{bioskop.id}}">{{bioskop.naziv}}</a></td>
+                <td>{{bioskop.adresa}}</td>
                 <td>250</td>
-            </tr>
-            <tr>
-                <td>Multi Kino</td>
-                <td>Szeged</td>
-                <td>11</td>
-            </tr>
-            <tr>
-                <td>Cinemax</td>
-                <td>Vrbas</td>
-                <td>33</td>
-            </tr>
-            <tr>
-                <td>Jadran</td>
-                <td>Edinburgh</td>
-                <td>15</td>
-            </tr>
-            <tr>
-                <td>Zvezdara</td>
-                <td>Tokyo</td>
-                <td>34</td>
             </tr>
             </tbody>
         </table>
