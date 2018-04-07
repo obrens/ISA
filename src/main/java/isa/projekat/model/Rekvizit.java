@@ -6,9 +6,9 @@ import java.util.Date;
 
 
 @Entity
-public class Oglas {
+public class Rekvizit {
     @Id
-    @Column (name="oglas_id")
+    @Column (name="rekvizit_id")
     @GeneratedValue
     private Long id;
 
@@ -24,7 +24,8 @@ public class Oglas {
     private Date aktivanDo;
     @Column
     private SerialBlob slika;
-
+    @Column
+    private boolean oficijalni;
 
 
     public Long getId() {
@@ -73,5 +74,13 @@ public class Oglas {
 
     public void setSlika(SerialBlob slika) {
         this.slika = slika;
+    }
+
+    public boolean isOficijalni() {
+        return oficijalni;
+    }
+
+    public void setOficijalni(boolean oficijalni) {
+        this.oficijalni = oficijalni;
     }
 }
