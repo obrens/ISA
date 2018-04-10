@@ -1,4 +1,4 @@
-ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+ustanoveApp.controller('ustanovaController', ['$scope', '$http', '$state', '$stateParams', function ($scope, $http, $state, $stateParams) {
     //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -23,94 +23,7 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state', 
     }
     //endregion
 
-    $scope.toUstanova = function() {
-        state.go('ustanova');
-    }
-
-    $http.get('/api/ustanova/sve').success(function (data) {
-        $scope.bioskopi = data;
+    $http.get('/api/ustanova/' + $stateParams.id).success(function (data) {
+        $scope.ustanova = data;
     });
 }]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

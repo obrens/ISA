@@ -24,13 +24,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Multi Kino {{bioskopi.naziv}}</td>
-                <td>Szeged {{bioskopop}}</td>
-                <td>11</td>
-            </tr>
             <tr ng-repeat="bioskop in bioskopi">
-                <td><a href="#/ustanova/{{bioskop.id}}">{{bioskop.naziv}}</a></td>
+                <td><a on-click="toUstanova()">{{bioskop.naziv}}</a></td>
                 <td>{{bioskop.adresa}}</td>
                 <td>250</td>
             </tr>

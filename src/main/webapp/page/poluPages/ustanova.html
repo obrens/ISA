@@ -1,0 +1,37 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
+    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
+    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
+    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
+
+</ul>
+<div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
+    <div  class="span3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col">
+                            <h1>{{ustanova.naziv}}</h1>
+                        </div>
+                        <div class="col">
+                            <p>prosečna ocena {{ustanova.ocena}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p>{{ustanova.opis}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="intro">
+                        <p class="text-center">{{ustanova.adresa}}</p>
+                    </div><iframe allowfullscreen="" frameborder="0" width="100%" height="450" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaEw6o8OhJvRQnTF3gI_tibMejtfasOlY&amp;q=Paris%2C+France&amp;zoom=15"></iframe></div>
+            </div>
+        </div>
+    </div>
+</div>
