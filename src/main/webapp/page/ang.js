@@ -78,4 +78,9 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'fanzonaController',
             templateUrl: 'poluPages/fanZona.html'
         })
+        .state('azuriranjeProfila',{
+            url:'/azuriranje',
+            controller: 'azuriranjeProfilaController',
+            templateUrl: 'poluPages/azuriranjeProfila.html'
+        })
 }])
