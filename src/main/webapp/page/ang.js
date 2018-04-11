@@ -73,4 +73,9 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'ustanovaController',
             templateUrl: 'poluPages/ustanova.html'
         })
+        .state('fanzona',{
+            url:'/fanzona',
+            controller: 'fanzonaController',
+            templateUrl: 'poluPages/fanZona.html'
+        })
 }])
