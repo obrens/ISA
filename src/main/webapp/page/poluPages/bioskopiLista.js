@@ -23,8 +23,14 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state', 
     }
     //endregion
 
-    $scope.toUstanova = function() {
-        state.go('ustanova');
+
+
+    $scope.toUstanova = function(id) {
+        $state.go("ustanova", {id: id});
+    }
+
+    $scope.toRegister = function() {
+        $state.go("register");
     }
 
     $http.get('/api/ustanova/sve').success(function (data) {

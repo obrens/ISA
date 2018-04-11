@@ -25,7 +25,7 @@
             </thead>
             <tbody>
             <tr ng-repeat="bioskop in bioskopi">
-                <td><a on-click="toUstanova()">{{bioskop.naziv}}</a></td>
+                <td><a ng-click="toUstanova(bioskop.id)" class="button">{{bioskop.naziv}}</a></td>
                 <td>{{bioskop.adresa}}</td>
                 <td>250</td>
             </tr>

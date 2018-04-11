@@ -69,7 +69,7 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             templateUrl: 'poluPages/pocetnaNeprijavljeni.html'
         })
         .state('ustanova',{
-            url:'/ustanova',
+            url:'/ustanova/:id',
             controller: 'ustanovaController',
             templateUrl: 'poluPages/ustanova.html'
         })
