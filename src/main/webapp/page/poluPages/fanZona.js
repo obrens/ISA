@@ -1,7 +1,4 @@
-ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
-    $scope.toRez2 = function() {
-        $state.go("rezervacijaDruga");
-    }
+ustanoveApp.controller('fanzonaController', ['$scope', '$state', function ($scope, $state) {
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }

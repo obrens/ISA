@@ -1,13 +1,3 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
-    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
-    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
-    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
-    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
-
-</ul>
 <div>
     <div class="legends">
         <input id="legAvailable" type="checkbox" disabled />
@@ -27,5 +17,9 @@
         <h4>Mode</h4>
         <input type="radio" name="mode" value="false" class="flexiSeatsMode" />Single
         <input type="radio" name="mode" value="true" class="flexiSeatsMode" />Multiple
+    </div>
+    <div class="form-row">
+        <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
+        <div class="col"><button ng-click="toRez3()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></div>
     </div>
 </div>

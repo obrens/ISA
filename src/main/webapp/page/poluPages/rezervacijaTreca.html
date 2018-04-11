@@ -1,13 +1,4 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
-    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
-    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
-    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
-    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
 
-</ul>
 <div class="register-photo" style="background-color:rgb(255,255,255);">
     <div class="form-container">
         <form method="post" style="background-color:rgb(241,247,252);">
@@ -22,8 +13,8 @@
                 <li class="list-group-item" style="padding-top:0px;padding-right:0px;padding-bottom:4px;padding-left:8px;"><span style="font-size:12px;">List Group sdadad</span></li>
             </ul>
             <div class="form-row">
-                <div class="col"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
-                <div class="col"><button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Završi</button></div>
+                <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
+                <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Završi</button></div>
             </div>
         </form>
     </div>
