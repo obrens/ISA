@@ -17,4 +17,7 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$state', function ($scop
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    $scope.toNoviOglas = function() {
+        $state.go("noviOglas");
+    }
 }]);
