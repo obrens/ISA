@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.net.ssl.HttpsURLConnection;
+
 @RestController
 @RequestMapping("/api/ustanova")
 public class UstanovaController {
@@ -20,20 +22,24 @@ public class UstanovaController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/sve")
 	public ResponseEntity getSveUstanove() {
-		return new ResponseEntity<>(ustanovaRepository.findAll(), HttpStatus.OK); 	// Ovo je valjda...
+		return new ResponseEntity<>(ustanovaRepository.findAll(), HttpStatus.OK);    // Ovo je valjda...
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity getUstanova(@PathVariable Long id) {
-		return ResponseEntity.ok(ustanovaRepository.findById(id));
+		UstanovaDTO ustanovaDTO = ustanovaService.ustanovaZaSlanje(ustanovaRepository.findById(id));
+		if (ustanovaDTO != null)
+			return ResponseEntity.ok(ustanovaDTO);
+		else
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/dodaj")
 	public ResponseEntity dodajUstanovu(@RequestBody UstanovaDTO ustanovaDTO) {
 		Ustanova ustanova = ustanovaService.napraviUstanovu(ustanovaDTO);
-		if (ustanova!=null){
-			return ResponseEntity.ok(ustanova);										// ...isto kao i ovo
-		}else{
+		if (ustanova != null) {
+			return ResponseEntity.ok(ustanova);                                        // ...isto kao i ovo
+		} else {
 			return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}

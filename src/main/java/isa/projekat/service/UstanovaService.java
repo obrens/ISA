@@ -24,4 +24,14 @@ public class UstanovaService {
 		ustanovaRepository.save(ustanova);
 		return ustanova;
 	}
+	
+	public UstanovaDTO ustanovaZaSlanje(Ustanova ustanova){
+		UstanovaDTO ustanovaDTO = new UstanovaDTO();
+		ustanovaDTO.setNaziv(ustanova.getNaziv());
+		ustanovaDTO.setAdresa(ustanova.getAdresa());
+		ustanovaDTO.setOpis(ustanova.getOpis());
+		//TODO Izračunati ocenu
+		ustanovaDTO.setOcena(4.5f);
+		return ustanovaDTO;
+	}
 }
