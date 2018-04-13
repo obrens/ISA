@@ -3,9 +3,12 @@ package isa.projekat.service;
 import isa.projekat.model.DTO.KartaDTO;
 import isa.projekat.model.Karta;
 import isa.projekat.repository.KartaRepository;
+import isa.projekat.repository.KorisnikRepository;
 import isa.projekat.repository.ProjekcijaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,9 @@ import java.util.List;
 public class KartaService {
 	@Autowired
 	ProjekcijaRepository projekcijaRepository;
+	
+	@Autowired
+	KorisnikRepository korisnikRepository;
 	
 	@Autowired
 	KartaRepository kartaRepository;
@@ -32,5 +38,19 @@ public class KartaService {
 		}
 		
 		return karteDTO;
+	}
+	
+	@Transactional(isolation = Isolation.SERIALIZABLE)
+	public synchronized boolean rezervisiKartu(Long kartaId, Long korisnikId) {
+		Karta karta = kartaRepository.findOne(kartaId);
+		if (karta.isRezervisana()){
+			return false;
+		}
+		else{
+			karta.setRezervisana(true);
+			karta.setKupac(korisnikRepository.findOne(korisnikId));
+			kartaRepository.save(karta);
+			return true;
+		}
 	}
 }
