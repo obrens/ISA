@@ -1,24 +1,29 @@
 <ul class="nav nav-tabs">
     <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
     <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
-    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
-    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
-    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
+    <li class="nav-item"><a ng-click="toIstorijaPoseta()" class="btn">Istorija poseta</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()" class="btn">Bioskopi</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()" class="btn">Pozorišta</a></li>
+    <li class="nav-item"><a ng-click="toPrijateljiLista()" class="btn">Prijatelji</a></li>
+    <li class="nav-item"><a ng-click="toFanzona()" class="btn">Fan zona</a></li>
 </ul>
 
-    <div class="register-photo" style="background-color:rgb(255,255,255);">
-        <div class="form-container">
-            <form method="post" style="background-color:rgb(241,247,252);">
-    <h1 class="text-center" style="height:70px;">Novi oglas</h1>
-            <input type="text" name="name" required placeholder="Ime oglasa" maxlength="30" class="form-control" style="margin-top:10px;background-color:rgb(255,255,255);" />
-            <input type="text" name="surname" required maxlength="30" placeholder="Opis" class="form-control" style="margin-top:10px;background-color:rgb(255,255,255);" />
+<div class="register-photo" style="background-color:rgb(255,255,255);">
+    <div class="form-container">
+        <form method="post" style="background-color:rgb(241,247,252);">
+            <h1 class="text-center" style="height:70px;">Novi oglas</h1>
+            <input type="text" name="name" required placeholder="Ime oglasa" maxlength="30" class="form-control"
+                   style="margin-top:10px;background-color:rgb(255,255,255);"/>
+            <input type="text" name="surname" required maxlength="30" placeholder="Opis" class="form-control"
+                   style="margin-top:10px;background-color:rgb(255,255,255);"/>
             <label style="margin-top:10px;">Datum do kog važi oglas:</label>
-            <input type="date" class="form-control" style="margin-top:10px;" />
+            <input type="date" class="form-control" style="margin-top:10px;"/>
             <label style="margin-top:10px;">Izaberite sliku rekvizita &nbsp; &nbsp;</label>
             <input type="file" style="margin-top:10px;" name="pic" accept="image/*">
-  
-    <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Postavi oglas</button>
-</form></div>
+
+            <button class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Postavi
+                oglas
+            </button>
+        </form>
     </div>
+</div>
