@@ -17,8 +17,7 @@ public class Ustanova {
 	private String adresa;
 	@Column
 	private String opis;
-	@OneToMany
-	@JoinColumn(name = "delo_id")
+	@OneToMany(mappedBy = "ustanova")
 	private Set<Delo> repertoar;
 	@OneToMany(mappedBy = "ustanova")
 	private Set<Sala> sale;

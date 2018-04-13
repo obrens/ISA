@@ -1,5 +1,7 @@
 package isa.projekat.model;
 
+import jdk.nashorn.internal.ir.annotations.Reference;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
@@ -12,8 +14,12 @@ public class Projekcija {
 	@GeneratedValue
 	private Long id;
 	
-	@ManyToMany
-	private Set<Sala> sala;
+	@ManyToOne
+	@JoinColumn
+	private Delo delo;
+	
+	@Column
+	private Sala sala;
 	
 	@Column
 	private Date datum;
@@ -32,11 +38,19 @@ public class Projekcija {
 		this.id = id;
 	}
 	
-	public Set<Sala> getSala() {
+	public Delo getDelo() {
+		return delo;
+	}
+	
+	public void setDelo(Delo delo) {
+		this.delo = delo;
+	}
+	
+	public Sala getSala() {
 		return sala;
 	}
 	
-	public void setSala(Set<Sala> sala) {
+	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
 	

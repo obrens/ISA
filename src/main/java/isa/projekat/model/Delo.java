@@ -13,6 +13,9 @@ public class Delo {
 	private Long id;
 	
 	@Column
+	@JoinColumn
+	private Ustanova ustanova;
+	@Column
 	private String naziv;
 	//@Column
 	//@ElementCollection(targetClass = String.class)
@@ -27,8 +30,7 @@ public class Delo {
 	private SerialBlob poster;
 	@Column
 	private String opis;
-	@OneToMany
-	@JoinColumn(name = "projekcija_id")
+	@OneToMany(mappedBy = "delo")
 	private Set<Projekcija> projekcije;
 	@Column
 	private float cena;

@@ -1,30 +1,10 @@
-package isa.projekat.model;
+package isa.projekat.model.DTO;
 
-import javax.persistence.*;
-
-@Entity
-public class Karta {
-	@Id
-	@Column(name = "karta_id")
-	@GeneratedValue
+public class KartaDTO {
 	private Long id;
-	
-	@ManyToOne
-	@JoinColumn
-	private Projekcija projekcija;
-	
-	@Column
 	private int red;
-	
-	@Column
 	private int sediste;
-	
-	@Column
 	private boolean rezervisana;
-	
-	@ManyToOne
-	@JoinColumn
-	private Korisnik kupac;
 	
 	public Long getId() {
 		return id;
@@ -32,14 +12,6 @@ public class Karta {
 	
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public Projekcija getProjekcija() {
-		return projekcija;
-	}
-	
-	public void setProjekcija(Projekcija projekcija) {
-		this.projekcija = projekcija;
 	}
 	
 	public int getRed() {
@@ -64,13 +36,5 @@ public class Karta {
 	
 	public void setRezervisana(boolean rezervisana) {
 		this.rezervisana = rezervisana;
-	}
-	
-	public Korisnik getKupac() {
-		return kupac;
-	}
-	
-	public void setKupac(Korisnik kupac) {
-		this.kupac = kupac;
 	}
 }
