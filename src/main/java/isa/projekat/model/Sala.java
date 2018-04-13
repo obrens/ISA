@@ -10,7 +10,7 @@ public class Sala {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "ustabnova_id")
+	@JoinColumn(name = "ustanova_id")
 	private Ustanova ustanova;
     @Column
     private String nazivSale;

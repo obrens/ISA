@@ -1,11 +1,8 @@
 package isa.projekat.model;
 
-import jdk.nashorn.internal.ir.annotations.Reference;
-
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 public class Projekcija {
@@ -18,7 +15,8 @@ public class Projekcija {
 	@JoinColumn
 	private Delo delo;
 	
-	@Column
+	@ManyToOne
+	@JoinColumn
 	private Sala sala;
 	
 	@Column

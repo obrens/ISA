@@ -17,10 +17,10 @@ public class Ustanova {
 	private String adresa;
 	@Column
 	private String opis;
-	@OneToMany(mappedBy = "ustanova")
-	private Set<Delo> repertoar;
-	@OneToMany(mappedBy = "ustanova")
-	private Set<Sala> sale;
+	//@OneToMany(mappedBy = "ustanova")
+	//private Set<Delo> repertoar;
+	//@OneToMany(mappedBy = "ustanova")
+	//private Set<Sala> sale;
 	
 	//public enum VrstaUstanove {POZORISTE, BIOSKOP}
 	@Column
@@ -62,21 +62,21 @@ public class Ustanova {
 		this.opis = opis;
 	}
 	
-	public Set<Delo> getRepertoar() {
+	/*public Set<Delo> getRepertoar() {
 		return repertoar;
 	}
 	
 	public void setRepertoar(Set<Delo> repertoar) {
 		this.repertoar = repertoar;
-	}
+	}*/
 	
-	public Set<Sala> getSale() {
+	/*public Set<Sala> getSale() {
 		return sale;
 	}
 	
 	public void setSale(Set<Sala> sale) {
 		this.sale = sale;
-	}
+	}*/
 	
 	public boolean isVrstaUstanove() {
 		return vrstaUstanove;

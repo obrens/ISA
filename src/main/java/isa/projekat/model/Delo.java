@@ -12,8 +12,8 @@ public class Delo {
 	@GeneratedValue
 	private Long id;
 	
-	@Column
-	@JoinColumn
+	@ManyToOne
+	@JoinColumn(name = "ustanova_id")
 	private Ustanova ustanova;
 	@Column
 	private String naziv;
@@ -30,12 +30,11 @@ public class Delo {
 	private SerialBlob poster;
 	@Column
 	private String opis;
-	@OneToMany(mappedBy = "delo")
-	private Set<Projekcija> projekcije;
+	//@OneToMany(mappedBy = "delo")
+	//private Set<Projekcija> projekcije;
 	@Column
 	private float cena;
 	//endregion
-	
 	
 	public Long getId() {
 		return id;
@@ -45,6 +44,14 @@ public class Delo {
 		this.id = id;
 	}
 	
+	public Ustanova getUstanova() {
+		return ustanova;
+	}
+	
+	public void setUstanova(Ustanova ustanova) {
+		this.ustanova = ustanova;
+	}
+	
 	public String getNaziv() {
 		return naziv;
 	}
@@ -52,14 +59,6 @@ public class Delo {
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-	
-	/*public ArrayList<String> getGlumci() {
-		return glumci;
-	}
-	
-	public void setGlumci(ArrayList<String> glumci) {
-		this.glumci = glumci;
-	}*/
 	
 	public String getZanr() {
 		return zanr;
@@ -101,13 +100,13 @@ public class Delo {
 		this.opis = opis;
 	}
 	
-	public Set<Projekcija> getProjekcije() {
+	/*public Set<Projekcija> getProjekcije() {
 		return projekcije;
 	}
 	
 	public void setProjekcije(Set<Projekcija> projekcije) {
 		this.projekcije = projekcije;
-	}
+	}*/
 	
 	public float getCena() {
 		return cena;
