@@ -88,4 +88,19 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'noviOglasController',
             templateUrl: 'poluPages/noviOglas.html'
         })
+        .state('ustanovaIzmena',{
+            url:'/ustanovaIzmena/:id',
+            controller: 'ustanovaIzmenaController',
+            templateUrl: 'poluPages/ustanovaIzmena.html'
+        })
+        .state('brzaRezervacija',{
+            url:'/brzaRezervacija/:idUstanove',
+            controller: 'brzaRezervacijaController',
+            templateUrl: 'poluPages/brzaRezervacija.html'
+        })
+        .state('karteNaPopustuIzmena',{
+            url:'/karteNaPopustuIzmena/:idUstanove',
+            controller: 'karteNaPopustuIzmenaController',
+            templateUrl: 'poluPages/karteNaPopustuIzmena.html'
+        })
 }])

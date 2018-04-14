@@ -1,0 +1,43 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
+    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
+    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
+    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
+
+</ul>
+<div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
+    <div  class="span3">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+					<tr></tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Betmen</td>
+						<td>2018-9-27</td>
+						<td>14.00</td>
+						<td>2</td>
+						<td>5B</td>
+						<td>70</td>
+						<td>50</td>
+						<td><button class="btn btn-primary" type="button">Rezerviši</button></td>
+					</tr>
+					<tr ng-repeat="karta in karte">
+						<td>{{projekcija}}</td>
+						<td>{{datum}}</td>
+						<td>{{vreme}}</td>
+						<td>{{sala}}</td>
+						<td>{{sediste}}</td>
+						<td>{{originalna}}</td>
+						<td>{{snizena}}</td>
+						<td><button class="btn btn-primary" type="button">Rezerviši</button></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -34,4 +34,14 @@ public class UstanovaService {
 		ustanovaDTO.setOcena(4.5f);
 		return ustanovaDTO;
 	}
+	
+	public Long izmeniUstanovu(UstanovaDTO ustanovaDTO){
+		Ustanova ustanova = ustanovaRepository.findOne(ustanovaDTO.getId());
+		ustanova.setId(ustanovaDTO.getId());
+		ustanova.setNaziv(ustanovaDTO.getNaziv());
+		ustanova.setOpis(ustanovaDTO.getOpis());
+		ustanova.setAdresa(ustanovaDTO.getAdresa());
+		ustanovaRepository.save(ustanova);
+		return ustanova.getId();
+	}
 }

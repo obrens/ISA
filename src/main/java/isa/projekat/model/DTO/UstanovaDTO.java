@@ -1,10 +1,19 @@
 package isa.projekat.model.DTO;
 
 public class UstanovaDTO {
+	private Long id;
 	private String naziv;
 	private String opis;
 	private String adresa;
 	private float ocena;
+	
+	public Long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getNaziv() { return naziv; }
 	

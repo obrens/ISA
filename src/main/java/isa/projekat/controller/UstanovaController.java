@@ -34,6 +34,7 @@ public class UstanovaController {
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/dodaj")
 	public ResponseEntity dodajUstanovu(@RequestBody UstanovaDTO ustanovaDTO) {
+		System.out.println(ustanovaDTO.getNaziv());
 		Ustanova ustanova = ustanovaService.napraviUstanovu(ustanovaDTO);
 		if (ustanova != null) {
 			return ResponseEntity.ok(ustanova);                                        // ...isto kao i ovo
@@ -42,5 +43,9 @@ public class UstanovaController {
 		}
 	}
 	
-	
+	@RequestMapping(method = RequestMethod.PUT, value = "/izmeni/{id}")
+	public ResponseEntity izmeniUstanovu(@RequestBody UstanovaDTO ustanovaDTO){
+		Long id = ustanovaService.izmeniUstanovu(ustanovaDTO);
+		return ResponseEntity.ok(id);
+	}
 }
