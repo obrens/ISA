@@ -1,4 +1,4 @@
-ustanoveApp.controller('fanzonaController', ['$scope', '$state', function ($scope, $state) {
+ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -20,4 +20,15 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$state', function ($scop
     $scope.toNoviOglas = function() {
         $state.go("noviOglas");
     }
+    $http.get('/api/rekvizit/svi').success(function (data) {
+        $scope.rekviziti = data;
+        $scope.oficialni=[];
+        $scope.neoficialni=[];
+        $scope.rekviziti.forEach(function (value) {
+            if(value.oficijalni==true)
+                $scope.oficialni.push(value);
+            else
+                $scope.neoficialni.push(value);
+        })
+    });
 }]);

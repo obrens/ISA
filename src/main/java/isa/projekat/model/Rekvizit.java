@@ -26,7 +26,8 @@ public class Rekvizit {
     private SerialBlob slika;
     @Column
     private boolean oficijalni;
-
+    @Column
+    private boolean odobren;
 
     public Long getId() {
         return id;
