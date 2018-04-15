@@ -5,6 +5,7 @@ import isa.projekat.model.Ustanova;
 import isa.projekat.repository.UstanovaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 
@@ -35,13 +36,15 @@ public class UstanovaService {
 		return ustanovaDTO;
 	}
 	
-	public Long izmeniUstanovu(UstanovaDTO ustanovaDTO){
+	@Transactional
+	public void izmeniUstanovu(UstanovaDTO ustanovaDTO){
 		Ustanova ustanova = ustanovaRepository.findOne(ustanovaDTO.getId());
 		ustanova.setId(ustanovaDTO.getId());
 		ustanova.setNaziv(ustanovaDTO.getNaziv());
 		ustanova.setOpis(ustanovaDTO.getOpis());
 		ustanova.setAdresa(ustanovaDTO.getAdresa());
 		ustanovaRepository.save(ustanova);
-		return ustanova.getId();
+		//ustanovaRepository.updateUstanova(ustanovaDTO.getId(), ustanovaDTO.getNaziv(), ustanovaDTO.getOpis(), ustanovaDTO.getAdresa());
+		//return ustanovaDTO.getId();
 	}
 }

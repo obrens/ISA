@@ -45,7 +45,8 @@ public class UstanovaController {
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/izmeni/{id}")
 	public ResponseEntity izmeniUstanovu(@RequestBody UstanovaDTO ustanovaDTO){
-		Long id = ustanovaService.izmeniUstanovu(ustanovaDTO);
-		return ResponseEntity.ok(id);
+		//Long id =
+		ustanovaService.izmeniUstanovu(ustanovaDTO);
+		return ResponseEntity.ok(ustanovaDTO);
 	}
 }

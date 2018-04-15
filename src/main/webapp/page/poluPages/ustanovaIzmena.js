@@ -37,8 +37,8 @@ ustanoveApp.controller('ustanovaIzmenaController', ['$scope', '$http', '$state',
         final.naziv = $scope.ustanova.naziv;
         final.opis = $scope.ustanova.opis;
         final.adresa = $scope.ustanova.adresa;*/
-        $http.post('/api/ustanova/dodaj', $scope.ustanova).success(function (data) {
-            $state.go("ustanova", {id: data});
+        $http.put('/api/ustanova/izmeni/' + $stateParams.id, $scope.ustanova).success(function (data) {
+            $state.go("ustanova", {id: $stateParams.id});
         });
     };
 }]);
