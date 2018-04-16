@@ -76,7 +76,12 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
         .state('fanzona',{
             url:'/fanzona',
             controller: 'fanzonaController',
-            templateUrl: 'poluPages/fanZona.html'
+            templateUrl: 'poluPages/rekviziti.html'
+        })
+        .state('oglasi',{
+            url:'/oglasi',
+            controller: 'oglasiController',
+            templateUrl: 'poluPages/oglasi.html'
         })
         .state('azuriranjeProfila',{
             url:'/azuriranje',
@@ -103,4 +108,5 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'karteNaPopustuIzmenaController',
             templateUrl: 'poluPages/karteNaPopustuIzmena.html'
         })
+
 }])

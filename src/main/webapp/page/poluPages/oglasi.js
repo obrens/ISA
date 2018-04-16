@@ -1,4 +1,4 @@
-ustanoveApp.controller('fController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -19,6 +19,9 @@ ustanoveApp.controller('fController', ['$scope', '$http', '$state', function ($s
     }
     $scope.toNoviOglas = function() {
         $state.go("noviOglas");
+    }
+    $scope.toOglasi = function () {
+        $state.go("oglasi");
     }
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;

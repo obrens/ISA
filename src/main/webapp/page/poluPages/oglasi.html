@@ -1,0 +1,40 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
+    <li class="nav-item"><a ng-click="toIstorijaPoseta()" class="btn">Istorija poseta</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()" class="btn">Bioskopi</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()" class="btn">Pozorišta</a></li>
+    <li class="nav-item"><a ng-click="toPrijateljiLista()" class="btn">Prijatelji</a></li>
+    <li class="nav-item"><a ng-click="toFanzona()" class="btn">Fan zona</a></li>
+</ul>
+<ul class="nav nav-tabs d-flex flex-row justify-content-center">
+    <li class="nav-item"><a ng-click="toFanzona()" class="btn">Rekviziti</a></li>
+    <li class="nav-item"><a ng-click="toOglasi()" class="btn">Oglasi</a></li>
+</ul>
+<div class="d-flex flex-row justify-content-center align-items-start">
+    <div style="width:200px;">
+        <button ng-click="toNoviOglas()" class="btn btn-primary" type="button">Dodaj oglas</button>
+    </div>
+    <div>
+        <div ng-repeat="neofic in neoficialni"class="block span3">
+            <div class="product">
+                <img src="http://placehold.it/295x190/333333/FFFFFF">
+                <div class="buttons">
+                    <a class="buy btn btn-large btn-info" href="#"><i class="icon-shopping-cart"></i> Add to Cart</a>
+                    <a class="preview btn btn-large btn-info" href="#"><i class="icon-eye-open"></i> View item</a>
+                </div>
+            </div>
+
+            <div class="info">
+                <h4>{{neofic.naziv}}</h4>
+                <span class="description">
+          {{neofic.opis}}
+        </span>
+                <span class="price">$62.97</span>
+                <a class="btn btn-info pull-right" href="#"><i class="icon-shopping-cart"></i> Ponudi</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
