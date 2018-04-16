@@ -6,33 +6,32 @@
                 <div class="col">
                     <h4>Bioskop</h4>
                 </div>
-                <div class="col"><select class="form-control"><optgroup label="Bioskopi">
-                    <option ng-repeat="bioskop in bioskopi" >{{bioskop.naziv}}</option>
-                </optgroup></select></div>
+                <div class="col"><select class="form-control" ng-options="bioskop.naziv for bioskop in bioskopi" ng-model="selectedUstanova" ng-change="nadjiProjekcije()"></select></div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <h4>Projekcija</h4>
                 </div>
-                <div class="col"><select class="form-control"><optgroup label="Projekcije"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.nazivDela group by projekcija.nazivDela for projekcija in selectedList.projekcije " ng-model="selectedDelo"></select></div>
             </div>
+            {{selectedList.projekcije}}
             <div class="form-row">
                 <div class="col">
                     <h4>Datum</h4>
                 </div>
-                <div class="col"><input class="form-control" type="date"></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.datum | date for projekcija in selectedList.projekcije" ng-model="selectedDatum"></select></div>
             </div>
             <div class="form-row">
                 <div class="col">
-                    <h4>Termin</h4>
+                    <h4>Vreme</h4>
                 </div>
-                <div class="col"><select class="form-control"><optgroup label="Termini"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.vreme for projekcija in selectedList.projekcije" ng-model="selectedVreme" ></select></div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <h4>Sala</h4>
                 </div>
-                <div class="col"><select class="form-control"><optgroup label="Sale"><option value="12" selected="">This is item 1</option><option value="13">This is item 2</option><option value="14">This is item 3</option></optgroup></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.nazivSale for projekcija in selectedList.projekcije" ng-model="selectedVreme" ></select></div>
             </div>
             <div class="form-row">
                 <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>

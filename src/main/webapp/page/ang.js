@@ -1,4 +1,4 @@
-var ustanoveApp= angular.module('ustanoveApp',['ui.router'])
+var ustanoveApp= angular.module('ustanoveApp',['ui.router','ngMaterial', 'jkAngularRatingStars'])
 
 ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterProvider,$stateProvider) {
     $urlRouterProvider.otherwise('/login');

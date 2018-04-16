@@ -1,8 +1,5 @@
 ustanoveApp.controller('istorijaPosetaController', ['$scope','$state', function ($scope,$state) {
-
-    $scope.toRez2 = function() {
-        $state.go("rezervacijaDruga");
-    }
+    //region meni
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -21,5 +18,6 @@ ustanoveApp.controller('istorijaPosetaController', ['$scope','$state', function 
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
-
+    //endregion
+    $scope.firstRate = 0;
 }]);

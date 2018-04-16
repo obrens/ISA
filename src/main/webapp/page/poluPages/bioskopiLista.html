@@ -11,25 +11,21 @@
 <div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
     <div  class="span3">
         <div class="form-group pull-left">
-            <input type="text" class="search form-control" placeholder="Pretražite bioskope">
+            <input type="text" class="search form-control" placeholder="Pretražite bioskope" ng-model="pretraga">
         </div>
         <span class="counter pull-right"></span>
 
         <table data-toggle="table" class="table table-hover table-striped table-bordered results" >
-            <theand>
             <tr>
-                <th data-sortable="true"> Naziv </th>
-                <th data-sortable="true"> Grad </th>
-                <th  data-sortable="true"> Udaljenost </th>
+                <th ng-click="orderByMe('naziv')" class="btn-link"> Naziv </th>
+                <th ng-click="orderByMe('adresa')"class="btn-link"> Adresa </th>
+                <th ng-click="orderByMe('udaljenost')" class="btn-link"> Udaljenost </th>
             </tr>
-            </theand>
-            <tbody>
-            <tr ng-repeat="bioskop in bioskopi">
-                <td><a ng-click="toUstanova(bioskop.id)" class="button">{{bioskop.naziv}}</a></td>
+            <tr ng-repeat="bioskop in bioskopi | orderBy:myOrderBy | filter:pretraga">
+                <td><a ng-click="toUstanova(bioskop.id)" class="btn-link">{{bioskop.naziv}}</a></td>
                 <td>{{bioskop.adresa}}</td>
                 <td>250</td>
             </tr>
-            </tbody>
         </table>
     </div>
 </div>

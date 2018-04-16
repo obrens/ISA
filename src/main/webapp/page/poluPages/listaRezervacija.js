@@ -1,5 +1,5 @@
 ustanoveApp.controller('listaRezervacijaController', ['$scope','$state', function ($scope,$state) {
-
+    //region meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -21,5 +21,8 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state', functio
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
-
+    //endregion
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
 }]);

@@ -31,8 +31,8 @@
                 <td>21.12.2015</td>
                 <td>Hari Poter</td>
                 <td>Arena</td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
+                <td><jk-rating-stars rating="firstRate" ></jk-rating-stars></td>
+                <td><jk-rating-stars rating="firstRatea" ></jk-rating-stars></td>
             </tr>
             <tr>
                 <td>21.12.2015</td>
@@ -59,4 +59,9 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div layout="column">
+    <jk-rating-stars rating="firstRate" ></jk-rating-stars>
+    <div style="width: 100px">{{firstRate}} Stars</div>
 </div>
