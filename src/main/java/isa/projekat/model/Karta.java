@@ -26,6 +26,50 @@ public class Karta {
 	@JoinColumn
 	private Korisnik kupac;
 	
+	@Column
+	private boolean ocenjenaProjekcija;
+	
+	@Column
+	private int ocenaProjekcije;
+	
+	@Column
+	private boolean ocenjenAmbijent;
+	
+	@Column
+	private int ocenaAmbijenta;
+	
+	public boolean isOcenjenaProjekcija() {
+		return ocenjenaProjekcija;
+	}
+	
+	public void setOcenjenaProjekcija(boolean ocenjenaProjekcija) {
+		this.ocenjenaProjekcija = ocenjenaProjekcija;
+	}
+	
+	public int getOcenaProjekcije() {
+		return ocenaProjekcije;
+	}
+	
+	public void setOcenaProjekcije(int ocenaProjekcije) {
+		this.ocenaProjekcije = ocenaProjekcije;
+	}
+	
+	public boolean isOcenjenAmbijent() {
+		return ocenjenAmbijent;
+	}
+	
+	public void setOcenjenAmbijent(boolean ocenjenAmbijent) {
+		this.ocenjenAmbijent = ocenjenAmbijent;
+	}
+	
+	public int getOcenaAmbijenta() {
+		return ocenaAmbijenta;
+	}
+	
+	public void setOcenaAmbijenta(int ocenaAmbijenta) {
+		this.ocenaAmbijenta = ocenaAmbijenta;
+	}
+	
 	public Long getId() {
 		return id;
 	}
