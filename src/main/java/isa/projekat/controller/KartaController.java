@@ -1,6 +1,8 @@
 package isa.projekat.controller;
 
 import isa.projekat.model.DTO.KartaDTO;
+import isa.projekat.model.DTO.KartaNaPopustuDTO;
+import isa.projekat.model.DTO.PopustDTO;
 import isa.projekat.model.DTO.RezervacijaDTO;
 import isa.projekat.model.Karta;
 import isa.projekat.repository.KartaRepository;
@@ -8,10 +10,7 @@ import isa.projekat.service.KartaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.util.List;
@@ -49,9 +48,29 @@ public class KartaController {
 		return ResponseEntity.ok(posete);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/otkazi/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/otkazi/{id}")
 	public ResponseEntity otkazi(@PathVariable Long id){
 		kartaService.otkazi(id);
 		return new ResponseEntity(HttpStatus.OK);
 	}
+	
+	//region Popusti
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/popusti/{ustanovaId}")
+	public ResponseEntity popusti(@PathVariable Long ustanovaId){
+		List<KartaNaPopustuDTO> popusti = kartaService.popusti(ustanovaId);
+		return ResponseEntity.ok(popusti);
+	}
+	
+	/*@RequestMapping(method = RequestMethod.POST, value = "/dodajPopust")
+	public ResponseEntity dodajPopust(@RequestBody PopustDTO popustDTO){
+		KartaNaPopustuDTO kartaNaPopustuDTO = kartaService.dodajPopust(popustDTO);
+		return ResponseEntity.ok(kartaNaPopustuDTO);
+	}*/
+	
+	//@RequestMapping(method = RequestMethod.DELETE, value = "/obrisiPopust/{id}")
+	//public ResponseEntity obrisiPopust(@PathVariable Long id)
+	
+	//endregion
+	
 }

@@ -10,5 +10,5 @@ import java.util.List;
 public interface KartaRepository extends JpaRepository<Karta, Long> {
 	List<Karta> findByProjekcija(Projekcija projekcija);
 	
-	List<Karta> findByKorisnik(Korisnik korisnik);
+	List<Karta> findByKupac(Korisnik kupac);
 }
