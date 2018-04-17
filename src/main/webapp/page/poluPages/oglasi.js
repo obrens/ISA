@@ -30,8 +30,10 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state', functio
         $scope.rekviziti.forEach(function (value) {
             if(value.oficijalni==true)
                 $scope.oficialni.push(value);
-            else
-                $scope.neoficialni.push(value);
+            else{
+                if(value.odobren==true)
+                    $scope.neoficialni.push(value);
+            }
         })
     });
 }]);

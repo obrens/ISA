@@ -1,6 +1,7 @@
 package isa.projekat.controller;
 
 import isa.projekat.model.Ustanova;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,8 +14,8 @@ public class MainController {
         System.out.println("helou");
         return "Hello";
     }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/usa")
+    @PreAuthorize("hasAnyRole('Administrator sistema')")
+    @RequestMapping(method = RequestMethod.GET, value = "/secured/usa")
     public Ustanova usa() {
         Ustanova usaar = new Ustanova();
         usaar.setNaziv("obika");

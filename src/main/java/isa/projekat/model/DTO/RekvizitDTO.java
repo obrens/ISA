@@ -1,35 +1,19 @@
-package isa.projekat.model;
+package isa.projekat.model.DTO;
 
-import javax.persistence.*;
+import isa.projekat.model.Korisnik;
+
 import javax.sql.rowset.serial.SerialBlob;
 import java.util.Date;
 
-
-@Entity
-public class Rekvizit {
-    @Id
-    @Column (name="rekvizit_id")
-    @GeneratedValue
+public class RekvizitDTO {
     private Long id;
-
-    @ManyToOne
-    @JoinColumn
     private Korisnik korisnik;
-
-    @Column
     private String naziv;
-    @Column
     private String opis;
-    @Column
     private Date aktivanDo;
-    @Column
     private SerialBlob slika;
-    @Column
     private boolean oficijalni;
-    @Column
     private boolean odobren;
-
-
 
     public Long getId() {
         return id;
