@@ -12,18 +12,14 @@
                 <div class="col">
                     <h4>Projekcija</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.nazivDela for projekcija in selectedList.projekcije " ng-model="selectedDelo"></select></div>
-            </div>
-
-            <div ng-repeat="user in _users | filter:isActive">
-                {{user.User.userid}}
+                <div class="col"><select class="form-control" ng-options="projekcija for projekcija in arejNaziva " ng-model="selectedDelo" ng-change="nadjiDatume()"></select></div>
             </div>
 
             <div class="form-row">
                 <div class="col">
                     <h4>Datum</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.datum | date for projekcija in selectedList.projekcije | filter:isActive" ng-model="selectedDatum"></select></div>
+                <div class="col"><select class="form-control" ng-options="datum | date for datum in arejDatuma " ng-model="selectedDatum" ng-change="nadjiVreme()"></select></div>
             </div>
             <div class="form-row">
                 <div class="col">
@@ -35,7 +31,7 @@
                 <div class="col">
                     <h4>Sala</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.nazivSale for projekcija in selectedList.projekcije" ng-model="selectedVreme" ></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.nazivSale for projekcija in selectedList.projekcije" ng-model="selectedSala" ></select></div>
             </div>
             <div class="form-row">
                 <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>

@@ -1,29 +1,8 @@
-ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http','$filter', function ($scope,$state,$http,$filter) {
-    var recnikDela={}
-    $scope._users = [
-        {
-            "User": {
-                "userid": "19571",
-                "status": "7",
-                "active": "1",
-                "lastlogin": "1339759025307",
-                "Stats": [
-                    {
-                        "active": "1",
-                        "catid": "10918",
-                        "typeid": "71",
-                        "Credits": [
-                            {
-                                "content": "917,65",
-                                "active": "1",
-                                "type": "C7"},
-                            {
-                                "content": "125,65",
-                                "active": "1",
-                                "type": "B2"}
-                        ]}
-                ]
-            }}];
+ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', function ($scope,$state,$http) {
+    $scope.arejNaziva=[];
+    $scope.arejDatuma=[];
+    $scope.arejVremena=[];
+    var nazivTr;
     $scope.selectedList={};
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -35,22 +14,40 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http','
         $scope.bioskopi = data;
     });
     $scope.nadjiProjekcije=function () {
+        $scope.arejNaziva=[];
+        $scope.arejDatuma=[];
+        $scope.arejVremena=[];
         $http.get('/api/projekcija/projekcijeUstanove/'+ $scope.selectedUstanova.id).success(function (data) {
             $scope.selectedList.projekcije = data;
+
+            $scope.selectedList.projekcije.forEach(function (value) {
+                if ($scope.arejNaziva.includes(value.nazivDela)){
+
+                }else{
+                    $scope.arejNaziva.push(value.nazivDela);
+                }
+            })
         });
-        /*angular.forEach($scope.selectedList.projekcije, function(value, key){
-            for(var keyK in recnikDela){
-                var valueK=recnikDela[key];
-                    if(value.nazivDela === valueK.nazivDela){
-
-                    }
-            }
-        });*/
-        $scope.isActive = function(projekcija) {
-            return projekcija[0].nazivDela === $scope.selectedDelo;
-        };
     }
-
-
+    $scope.nadjiDatume=function () {
+        $scope.arejDatuma=[];
+        $scope.arejVremena=[];
+        $scope.selectedList.projekcije.forEach(function (value) {
+            if(value.nazivDela===$scope.selectedDelo){
+                $scope.arejDatuma.push(value.datum);
+                nazivTr=$scope.selectedDelo;
+            }
+        })
+        console.log($scope.arejDatuma);
+    }
+    /*$scope.nadjiVreme=function () {
+        fLen = arejDatuma.length;
+        for (i = 0; i < fLen; i++) {
+            if(arejDatuma[i]==$scope.selectedDatum.datum){
+                arejVremena.push([$scope.selectedDatum.nazivDela,$scope.selectedDatum.datum,$scope.selectedDatum.datum]);
+            }
+        }
+        //console.log(arejVremena);
+    }*/
 
 }]);

@@ -22,17 +22,6 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
         $state.go("fanzona");
     }
     //endregion
-    $scope.names = [
-        'Jani',
-        'Carl',
-        'Margareth',
-        'Hege',
-        'Joe',
-        'Gustav',
-        'Birgit',
-        'Mary',
-        'Kai'
-    ];
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
     }
