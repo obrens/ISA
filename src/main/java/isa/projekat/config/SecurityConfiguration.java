@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .and()
                 .formLogin()/*.loginPage("/page/index.html#/login")*/.permitAll()
                 .and()
-                .logout().permitAll().and();
+                .logout().permitAll();
     }
 
     private PasswordEncoder getPasswordEncoder() {
