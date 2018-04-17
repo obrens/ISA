@@ -5,11 +5,13 @@ import isa.projekat.model.DTO.KartaNaPopustuDTO;
 import isa.projekat.model.DTO.PopustDTO;
 import isa.projekat.model.DTO.RezervacijaDTO;
 import isa.projekat.model.Karta;
+import isa.projekat.model.Korisnik;
 import isa.projekat.repository.KartaRepository;
 import isa.projekat.service.KartaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -27,8 +29,9 @@ public class KartaController {
 		return ResponseEntity.ok(karteDTO);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/rezervisi/{kartaId}/{korisnikId}")
-	public ResponseEntity rezervisiKartu(@PathVariable("kartaId") Long kartaId, @PathVariable("korisnikId") Long korisnikId) {
+	@RequestMapping(method = RequestMethod.POST, value = "/rezervisi/{kartaId}/")
+	public ResponseEntity rezervisiKartu(@PathVariable("kartaId") Long kartaId) {
+		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		if (kartaService.rezervisiKartu(kartaId, korisnikId)) {
 			return new ResponseEntity(HttpStatus.OK);
 		} else {
@@ -36,14 +39,16 @@ public class KartaController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/rezervacije/{korisnikId}")
-	public ResponseEntity rezervacijeKorisnika(@PathVariable Long korisnikId){
+	@RequestMapping(method = RequestMethod.GET, value = "/rezervacije")
+	public ResponseEntity rezervacijeKorisnika(){
+		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		List<RezervacijaDTO> rezervacije = kartaService.rezervacijeKorisnika(korisnikId);
 		return ResponseEntity.ok(rezervacije);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/posete/{korisnikId}")
-	public ResponseEntity posete(@PathVariable Long korisnikId){
+	@RequestMapping(method = RequestMethod.GET, value = "/posete")
+	public ResponseEntity posete(){
+		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		List<RezervacijaDTO> posete = kartaService.poseteKorisnika(korisnikId);
 		return ResponseEntity.ok(posete);
 	}
