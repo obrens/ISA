@@ -1,15 +1,12 @@
 package isa.projekat.repository;
 
-import isa.projekat.model.Delo;
 import isa.projekat.model.Ponuda;
-import isa.projekat.model.Ustanova;
+import isa.projekat.model.Rekvizit;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import javax.persistence.Id;
 import java.util.List;
 
-public interface PonudaRepository extends JpaRepository<Delo,Long> {
+public interface PonudaRepository extends JpaRepository<Ponuda,Long> {
     Ponuda findById(Long id);
 
-    List<Delo> findByUstanova(Ustanova ustanova);
+    List<Ponuda> findByOglas(Rekvizit rekvizit);
 }

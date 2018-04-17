@@ -20,4 +20,14 @@ public class RekvizitService {
         rekvizitDTO.setKorisnik(rekvizit.getKorisnik());
         return rekvizitDTO;
     }
+
+    public Rekvizit rekvizitZaPrimanje(RekvizitDTO rekvizitDTO){
+        Rekvizit rekvizit=new Rekvizit();
+        rekvizit.setId(rekvizitDTO.getId());
+        rekvizit.setNaziv(rekvizitDTO.getNaziv());
+        rekvizit.setOpis(rekvizitDTO.getOpis());
+        rekvizit.setAktivanDo(rekvizitDTO.getAktivanDo());
+        rekvizit.setKorisnik(rekvizitDTO.getKorisnik());
+        return rekvizit;
+    }
 }

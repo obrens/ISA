@@ -1,23 +1,13 @@
-package isa.projekat.model;
+package isa.projekat.model.DTO;
 
-import javax.persistence.*;
+import isa.projekat.model.Korisnik;
+import isa.projekat.model.Rekvizit;
 
-@Entity
-public class Ponuda {
-    @Id
-    @Column (name = "ponuda_id")
-    @GeneratedValue
+public class PonudaDTO {
+
     private long id;
-
-    @ManyToOne
-    @JoinColumn
-    private Rekvizit oglas;//oficijalni=false;
-
-    @ManyToOne
-    @JoinColumn
+    private Rekvizit oglas;
     private Korisnik ponudjac;
-
-    @Column
     private float cena;
 
     public long getId() {

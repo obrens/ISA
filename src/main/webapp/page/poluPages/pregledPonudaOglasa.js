@@ -28,4 +28,8 @@ ustanoveApp.controller('pregledPonudaOglasaController', ['$scope', '$http', '$st
     $http.get('/api/rekvizit/' + $stateParams.id).success(function (data) {
         $scope.rekvizit = data;
     });
+
+    $http.get('/api/ponuda/' + $stateParams.id).success(function (data) {
+        $scope.ponude = data;
+    });
 }]);
