@@ -5,6 +5,7 @@ public class KartaNaPopustuDTO {
 	private KartaDTO karta;
 	private ProjekcijaDTO projekcija;
 	private float cena;
+	private boolean rezervisana;
 	
 	public Long getId() {
 		return id;
@@ -36,5 +37,13 @@ public class KartaNaPopustuDTO {
 	
 	public void setCena(float cena) {
 		this.cena = cena;
+	}
+	
+	public boolean isRezervisana() {
+		return rezervisana;
+	}
+	
+	public void setRezervisana(boolean rezervisana) {
+		this.rezervisana = rezervisana;
 	}
 }

@@ -161,10 +161,51 @@ public class KartaService {
 		return popusti;
 	}
 	
-	/*@Transactional(isolation = Isolation.SERIALIZABLE)
+	@Transactional(isolation = Isolation.SERIALIZABLE)
 	public KartaNaPopustuDTO dodajPopust(PopustDTO popustDTO) {
+		Karta karta = kartaRepository.findOne(popustDTO.getKartaId());
+		karta.setRezervisana(true);
+		kartaRepository.save(karta);
+		
+		KartaNaPopustu kartaNaPopustu = new KartaNaPopustu();
+		kartaNaPopustu.setKarta(karta);
+		kartaNaPopustu.setCena(popustDTO.getCena());
+		kartaNaPopustu.setRezervisana(false);
+		kartaNaPopustuRepository.save(kartaNaPopustu);
+		
+		Projekcija projekcija = karta.getProjekcija();
+		
+		KartaNaPopustuDTO kartaNaPopustuDTO = new KartaNaPopustuDTO();
+		kartaNaPopustuDTO.setId(kartaNaPopustu.getId());
+		kartaNaPopustuDTO.setCena(popustDTO.getCena());
+		
+		KartaDTO kartaDTO = new KartaDTO();
+		kartaDTO.setId(karta.getId());
+		kartaDTO.setRed(karta.getRed());
+		kartaDTO.setSediste(karta.getSediste());
+		
+		ProjekcijaDTO projekcijaDTO = new ProjekcijaDTO();
+		projekcijaDTO.setId(projekcija.getId());
+		projekcijaDTO.setCena(projekcija.getCena());
+		projekcijaDTO.setNazivSale(projekcija.getSala().getNazivSale());
+		projekcijaDTO.setVreme(projekcija.getVreme());
+		projekcijaDTO.setDatum(projekcija.getDatum());
+		projekcijaDTO.setNazivDela(projekcija.getDelo().getNaziv());
+		
+		kartaNaPopustuDTO.setKarta(kartaDTO);
+		kartaNaPopustuDTO.setProjekcija(projekcijaDTO);
+		
+		return kartaNaPopustuDTO;
+	}
 	
-	}*/
+	@Transactional(isolation = Isolation.SERIALIZABLE)
+	public void obrisiPopust(Long idPopusta) {
+		KartaNaPopustu kartaNaPopustu = kartaNaPopustuRepository.findOne(idPopusta);
+		Karta karta = kartaNaPopustu.getKarta();
+		karta.setRezervisana(false);
+		kartaRepository.save(karta);
+		kartaNaPopustuRepository.delete(idPopusta);
+	}
 	
 	//endregion
 }

@@ -18,7 +18,7 @@ public class UstanovaController {
 	@Autowired
 	UstanovaService ustanovaService;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/sve")
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/sve")
 	public ResponseEntity getSveUstanove() {
 		return new ResponseEntity<>(ustanovaRepository.findAll(), HttpStatus.OK);    // Ovo je valjda...
 	}

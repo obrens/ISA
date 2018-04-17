@@ -17,7 +17,7 @@ public class ProjekcijaController {
 	@Autowired
 	ProjekcijaService projekcijaService;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/projekcijeUstanove/{id}")
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/projekcijeUstanove/{id}")
 	public ResponseEntity getProjekcijeUstanove(@PathVariable Long id) {
 		List<ProjekcijaDTO> projekcijaDTOs = projekcijaService.projekcijeUstanove(id);
 		return ResponseEntity.ok(projekcijaDTOs);

@@ -33,7 +33,7 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
         $state.go("register");
     };
 
-    $http.get('/api/ustanova/sve').success(function (data) {
+    $http.get('/api/ustanova/secured/sve').success(function (data) {
         $scope.bioskopi = data;
     });
     $scope.logout = function() {

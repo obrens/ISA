@@ -67,14 +67,17 @@ public class KartaController {
 		return ResponseEntity.ok(popusti);
 	}
 	
-	/*@RequestMapping(method = RequestMethod.POST, value = "/dodajPopust")
+	@RequestMapping(method = RequestMethod.POST, value = "/dodajPopust")
 	public ResponseEntity dodajPopust(@RequestBody PopustDTO popustDTO){
 		KartaNaPopustuDTO kartaNaPopustuDTO = kartaService.dodajPopust(popustDTO);
 		return ResponseEntity.ok(kartaNaPopustuDTO);
-	}*/
+	}
 	
-	//@RequestMapping(method = RequestMethod.DELETE, value = "/obrisiPopust/{id}")
-	//public ResponseEntity obrisiPopust(@PathVariable Long id)
+	@RequestMapping(method = RequestMethod.DELETE, value = "/obrisiPopust/{idPopusta}")
+	public ResponseEntity obrisiPopust(@PathVariable Long idPopusta){
+		kartaService.obrisiPopust(idPopusta);
+		return new ResponseEntity(HttpStatus.OK);
+	}
 	
 	//endregion
 	
