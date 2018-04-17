@@ -1,4 +1,4 @@
-ustanoveApp.controller('fController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+ustanoveApp.controller('fController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -20,6 +20,9 @@ ustanoveApp.controller('fController', ['$scope', '$http', '$state', function ($s
     $scope.toNoviOglas = function() {
         $state.go("noviOglas");
     }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    };
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];

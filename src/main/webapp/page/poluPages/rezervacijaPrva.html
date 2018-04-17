@@ -12,14 +12,18 @@
                 <div class="col">
                     <h4>Projekcija</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.nazivDela group by projekcija.nazivDela for projekcija in selectedList.projekcije " ng-model="selectedDelo"></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.nazivDela for projekcija in selectedList.projekcije " ng-model="selectedDelo"></select></div>
             </div>
-            {{selectedList.projekcije}}
+
+            <div ng-repeat="user in _users | filter:isActive">
+                {{user.User.userid}}
+            </div>
+
             <div class="form-row">
                 <div class="col">
                     <h4>Datum</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.datum | date for projekcija in selectedList.projekcije" ng-model="selectedDatum"></select></div>
+                <div class="col"><select class="form-control" ng-options="projekcija.datum | date for projekcija in selectedList.projekcije | filter:isActive" ng-model="selectedDatum"></select></div>
             </div>
             <div class="form-row">
                 <div class="col">

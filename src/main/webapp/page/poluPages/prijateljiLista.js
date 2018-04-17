@@ -1,4 +1,4 @@
-ustanoveApp.controller('prijateljiListaController', ['$scope','$state', function ($scope,$state) {
+ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window', function ($scope,$state,$window) {
 
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -21,5 +21,8 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state', function
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    };
 
 }]);

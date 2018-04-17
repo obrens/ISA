@@ -1,4 +1,4 @@
-ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -23,6 +23,9 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state', functio
     $scope.toOglasi = function () {
         $state.go("oglasi");
     }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    };
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];

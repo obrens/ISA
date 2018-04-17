@@ -1,4 +1,4 @@
-ustanoveApp.controller('istorijaPosetaController', ['$scope','$state', function ($scope,$state) {
+ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window', function ($scope,$state,$window) {
     //region meni
     $scope.toUserProfil = function() {
         $state.go("userProfil");
@@ -18,6 +18,9 @@ ustanoveApp.controller('istorijaPosetaController', ['$scope','$state', function 
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    };
     //endregion
     $scope.firstRate = 0;
 }]);
