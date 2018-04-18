@@ -88,6 +88,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'pregledPonudaOglasaController',
             templateUrl: 'poluPages/pregledPonudaOglasa.html'
         })
+        .state('odobravanjeOglasa',{
+            url:'/odobravanjeOglasa',
+            controller: 'odobravanjeOglasaController',
+            templateUrl: 'poluPages/odobravanjeOglasa.html'
+        })
         .state('azuriranjeProfila',{
             url:'/azuriranje',
             controller: 'azuriranjeProfilaController',
@@ -112,6 +117,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             url:'/karteNaPopustuIzmena/:idUstanove',
             controller: 'karteNaPopustuIzmenaController',
             templateUrl: 'poluPages/karteNaPopustuIzmena.html'
+        })
+        .state('registrujUstanovu',{
+            url:'/registrujUstanovu',
+            controller: 'registrujUstanovuController',
+            templateUrl: 'poluPages/registrujUstanovu.html'
         })
 
 }])

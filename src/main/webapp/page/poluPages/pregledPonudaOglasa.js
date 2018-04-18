@@ -24,7 +24,6 @@ ustanoveApp.controller('pregledPonudaOglasaController', ['$scope', '$http', '$st
         $scope.myOrderBy = x;
     }
 
-
     $http.get('/api/rekvizit/' + $stateParams.id).success(function (data) {
         $scope.rekvizit = data;
     });

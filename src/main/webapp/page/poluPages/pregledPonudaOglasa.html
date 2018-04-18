@@ -14,14 +14,14 @@
 <div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
     <div  class="span3">
         <div class="form-group pull-left">
-            <h1 class="text-center" style="height:70px;">{{rekvizit.naziv}}</h1>
+            <h1 class="text-center" style="height:70px;" ><b>{{rekvizit.naziv}}</b></h1>
             <h2 class="text-center" style="height:70px;">{{rekvizit.opis}}</h2>
         </div>
         <span class="counter pull-right"></span>
 
         <table data-toggle="table" class="table table-hover table-striped table-bordered results" >
             <tr>
-                <th ng-click="orderByMe('cena')" class="btn-link"> <b>Ponuda</b> </th>
+                <th ng-click="orderByMe('cena')" class="btn-link"> Ponuda </th>
                 <th ng-click="orderByMe('imejl')"class="btn-link"> Korisnik </th>
             </tr>
             <tr ng-repeat="ponuda in ponude | orderBy:myOrderBy | filter:pretraga">

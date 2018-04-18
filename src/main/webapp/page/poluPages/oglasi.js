@@ -26,6 +26,9 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $scope.toPregled = function(id) {
+        $state.go("pregledPonudaOglasa", {id: id});
+    }
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];

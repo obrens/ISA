@@ -21,8 +21,7 @@
             <div class="product">
                 <img src="http://placehold.it/295x190/333333/FFFFFF">
                 <div class="buttons">
-                    <a class="buy btn btn-large btn-info" href="#"><i class="icon-shopping-cart"></i> Add to Cart</a>
-                    <a class="preview btn btn-large btn-info" ng-click="toPregled(neofic.id)" href="#"><i class="icon-eye-open"></i> Pogledaj</a>
+                    <a class="preview btn btn-large btn-info"  ng-click="toPregled(neofic.id)" ><i class="icon-eye-open"></i> Pogledaj</a>
                 </div>
             </div>
 
@@ -31,8 +30,8 @@
                 <span class="description">
           {{neofic.opis}}
         </span>
-                <span class="price">{{}}</span>
-                <a class="btn btn-info pull-right" href="#"><i class="icon-shopping-cart"></i> Ponudi</a>
+                <span class="price">{{neofic.aktivanDo|date}}</span>
+                <a class="btn btn-info pull-right" ng-click="toPregled(neofic.id)" ><i class="icon-shopping-cart"></i> Ponudi</a>
             </div>
 
 
