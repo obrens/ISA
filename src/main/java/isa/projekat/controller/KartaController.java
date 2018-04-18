@@ -4,9 +4,7 @@ import isa.projekat.model.DTO.KartaDTO;
 import isa.projekat.model.DTO.KartaNaPopustuDTO;
 import isa.projekat.model.DTO.PopustDTO;
 import isa.projekat.model.DTO.RezervacijaDTO;
-import isa.projekat.model.Karta;
 import isa.projekat.model.Korisnik;
-import isa.projekat.repository.KartaRepository;
 import isa.projekat.service.KartaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.net.ssl.HttpsURLConnection;
 import java.util.List;
 
 @RestController
@@ -61,9 +58,9 @@ public class KartaController {
 	
 	//region Popusti
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/popusti/{ustanovaId}")
-	public ResponseEntity popusti(@PathVariable Long ustanovaId){
-		List<KartaNaPopustuDTO> popusti = kartaService.popusti(ustanovaId);
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/dostupniPopusti/{ustanovaId}")
+	public ResponseEntity dostupniPopusti(@PathVariable Long ustanovaId){
+		List<KartaNaPopustuDTO> popusti = kartaService.dostupniPopusti(ustanovaId);
 		return ResponseEntity.ok(popusti);
 	}
 	
@@ -73,10 +70,20 @@ public class KartaController {
 		return ResponseEntity.ok(kartaNaPopustuDTO);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, value = "/obrisiPopust/{idPopusta}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/secured/obrisiPopust/{idPopusta}")
 	public ResponseEntity obrisiPopust(@PathVariable Long idPopusta){
 		kartaService.obrisiPopust(idPopusta);
 		return new ResponseEntity(HttpStatus.OK);
+	}
+	
+	@RequestMapping(method = RequestMethod.POST, value = "/secured/brzoRezervisi/{popustId}")
+	public ResponseEntity brzoRezervisiKartu(@PathVariable("popustId") Long popustId) {
+		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
+		if (kartaService.brzoRezervisiKartu(popustId, korisnikId)) {
+			return new ResponseEntity(HttpStatus.OK);
+		} else {
+			return new ResponseEntity(HttpStatus.CONFLICT);
+		}
 	}
 	
 	//endregion

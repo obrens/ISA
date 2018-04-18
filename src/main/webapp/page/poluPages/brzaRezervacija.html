@@ -16,26 +16,28 @@
 					<tr></tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>Betmen</td>
-						<td>2018-9-27</td>
-						<td>14.00</td>
-						<td>2</td>
-						<td>5B</td>
-						<td>70</td>
-						<td>50</td>
-						<td><button class="btn btn-primary" type="button">Rezerviši</button></td>
-					</tr>
-					<tr ng-repeat="karta in karte">
-						<td>{{projekcija}}</td>
-						<td>{{datum}}</td>
-						<td>{{vreme}}</td>
-						<td>{{sala}}</td>
-						<td>{{sediste}}</td>
-						<td>{{originalna}}</td>
-						<td>{{snizena}}</td>
-						<td><button class="btn btn-primary" type="button">Rezerviši</button></td>
-					</tr>
+				<tr>
+					<td>Delo</td>
+					<td>Datum</td>
+					<td>Vreme</td>
+					<td>Sala</td>
+					<td>Red</td>
+					<td>Sedište</td>
+					<td>Stara cena</td>
+					<td>Nova cena</td>
+					<td>Dugme</td>
+				</tr>
+				<tr ng-repeat="popust in popusti">
+					<td>{{popust.projekcija.nazivDela}}</td>
+					<td>{{popust.projekcija.datum|date}}</td>
+					<td>{{popust.projekcija.vreme}}</td>
+					<td>{{popust.projekcija.nazivSale}}</td>
+					<td>{{popust.karta.red}}</td>
+					<td>{{popust.karta.sediste}}</td>
+					<td>{{popust.projekcija.cena}}</td>
+					<td>{{popust.cena}}</td>
+					<td><button class="btn btn-primary" type="button" ng-click="rezervisi(popust.id)">Rezerviši</button></td>
+				</tr>
 				</tbody>
 			</table>
 		</div>

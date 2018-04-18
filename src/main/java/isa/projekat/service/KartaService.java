@@ -132,7 +132,8 @@ public class KartaService {
 	}
 	
 	//region Popusti
-	public List<KartaNaPopustuDTO> popusti(Long ustanovaId) {
+	
+	public List<KartaNaPopustuDTO> dostupniPopusti(Long ustanovaId) {
 		List<ProjekcijaDTO> projekcije = projekcijaService.projekcijeUstanove(ustanovaId);
 		HashMap<Long, ProjekcijaDTO> idProjekcije = new HashMap<>();
 		List<KartaDTO> karte = new ArrayList<>();
@@ -147,12 +148,15 @@ public class KartaService {
 			if (kartaNaPopustu == null){
 				continue;
 			}
+			if (kartaNaPopustu.isRezervisana()){
+				continue;
+			}
 			KartaNaPopustuDTO kartaNaPopustuDTO = new KartaNaPopustuDTO();
 			
 			kartaNaPopustuDTO.setId(kartaNaPopustu.getId());
 			kartaNaPopustuDTO.setCena(kartaNaPopustu.getCena());
 			kartaNaPopustuDTO.setKarta(kartaDTO);
-			ProjekcijaDTO projekcijaDTO = idProjekcije.get(kartaNaPopustuDTO.getProjekcija().getId());
+			ProjekcijaDTO projekcijaDTO = idProjekcije.get(karta.getProjekcija().getId());
 			kartaNaPopustuDTO.setProjekcija(projekcijaDTO);
 			
 			popusti.add(kartaNaPopustuDTO);
@@ -205,6 +209,22 @@ public class KartaService {
 		karta.setRezervisana(false);
 		kartaRepository.save(karta);
 		kartaNaPopustuRepository.delete(idPopusta);
+	}
+	
+	@Transactional(isolation = Isolation.SERIALIZABLE)
+	public boolean brzoRezervisiKartu(Long popustId, Long korisnikId) {
+		KartaNaPopustu popust = kartaNaPopustuRepository.findOne(popustId);
+		Karta karta = popust.getKarta();
+		if (popust.isRezervisana()){
+			return false;
+		}
+		else{
+			popust.setRezervisana(true);
+			karta.setKupac(korisnikRepository.findOne(korisnikId));
+			kartaRepository.save(karta);
+			kartaNaPopustuRepository.save(popust);
+			return true;
+		}
 	}
 	
 	//endregion

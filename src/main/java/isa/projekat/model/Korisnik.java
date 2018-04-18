@@ -21,7 +21,7 @@ public class Korisnik {
     @Column
     private String grad;
     @Column
-    private int brojTelefona;
+    private Integer brojTelefona;
 
     //public enum Uloga { OBICAN, USTANOVAADMIN, FANZONAADMIN, SISTEMADMIN};
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

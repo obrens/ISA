@@ -1,4 +1,4 @@
-ustanoveApp.controller('karteNaPopustuIzmenaController', ['$scope', '$http','$state', '$stateParams', function ($scope, $http, $state, $stateParams) {
+ustanoveApp.controller('karteNaPopustuIzmenaController', ['$scope', '$http','$state', '$stateParams', '$window', function ($scope, $http, $state, $stateParams, $window) {
     //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -23,4 +23,14 @@ ustanoveApp.controller('karteNaPopustuIzmenaController', ['$scope', '$http','$st
     }
     //endregion
 
+    $http.get("/api/karta/secured/dostupniPopusti/" + $stateParams.idUstanove).success(function (data) {
+        $scope.popusti = data;
+    });
+
+    $scope.obrisiPopust = function (id) {
+        $http.delete("/api/karta/secured/obrisiPopust/" + id).success(function (){
+            //$state.go("karteNaPopustuIzmena", {idUstanove: $stateParams.idUstanove});
+            $window.location.reload();
+        });
+    };
 }]);

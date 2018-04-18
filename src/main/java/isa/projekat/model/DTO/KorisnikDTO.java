@@ -6,7 +6,7 @@ public class KorisnikDTO {
 	private String ime;
 	private String prezime;
 	private String grad;
-	private int brojTelefona;
+	private Integer brojTelefona;
 	
 	public String getImejl() {
 		return imejl;

@@ -17,35 +17,37 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>Betmen</td>
-						<td>2018-9-27</td>
-						<td>14.00</td>
-						<td>2</td>
-						<td>5B</td>
-						<td>70</td>
-						<td>50</td>
-						<td><button class="btn btn-primary" type="button">Obriši</button></td>
+						<td>Delo</td>
+						<td>Datum</td>
+						<td>Vreme</td>
+						<td>Sala</td>
+						<td>Red</td>
+						<td>Sedište</td>
+						<td>Stara cena</td>
+						<td>Nova cena</td>
+						<td>Dugme</td>
 					</tr>
-					<tr ng-repeat="karta in karte">
-						<td>{{projekcija}}</td>
-						<td>{{datum}}</td>
-						<td>{{vreme}}</td>
-						<td>{{sala}}</td>
-						<td>{{sediste}}</td>
-						<td>{{originalna}}</td>
-						<td>{{snizena}}</td>
-						<td><button class="btn btn-primary" type="button">Obriši</button></td>
+					<tr ng-repeat="popust in popusti">
+						<td>{{popust.projekcija.nazivDela}}</td>
+						<td>{{popust.projekcija.datum|date}}</td>
+						<td>{{popust.projekcija.vreme}}</td>
+						<td>{{popust.projekcija.nazivSale}}</td>
+						<td>{{popust.karta.red}}</td>
+						<td>{{popust.karta.sediste}}</td>
+						<td>{{popust.projekcija.cena}}</td>
+						<td>{{popust.cena}}</td>
+						<td><button class="btn btn-primary" type="button" ng-click="obrisiPopust(popust.id)">Obriši</button></td>
 					</tr>
-					<tr ng-repeat="karta in karte">
+					<tr>
 						<td><select><option value="14">Betmen</option></select></td>
 						<td colspan="2"><select><option value="12" selected="">2018-9-27</option></select></td>
 						<td colspan="2"><select><option value="">14:00</option></select></td>
 					</tr>
-					<tr ng-repeat="karta in karte">
+					<tr>
 						<td><select><optgroup label="Sala"><option value="">2</option></optgroup></select></td>
 						<td><select><optgroup label="Sedište"><option value="14">5B</option></optgroup></select></td>
 						<td colspan="2"><input type="number"></td>
-						<td><button class="btn btn-primary" type="button">Dodaj</button></td>
+						<td><button class="btn btn-primary" type="button" ng-click="dodajPopust()">Dodaj</button></td>
 					</tr>
 				</tbody>
 			</table>

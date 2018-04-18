@@ -30,13 +30,13 @@ public class Karta {
 	private boolean ocenjenaProjekcija;
 	
 	@Column
-	private int ocenaProjekcije;
+	private Integer ocenaProjekcije;
 	
 	@Column
 	private boolean ocenjenAmbijent;
 	
 	@Column
-	private int ocenaAmbijenta;
+	private Integer ocenaAmbijenta;
 	
 	public boolean isOcenjenaProjekcija() {
 		return ocenjenaProjekcija;
