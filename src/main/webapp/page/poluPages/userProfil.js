@@ -1,4 +1,4 @@
-ustanoveApp.controller('userProfilController', ['$scope','$state','$window', function ($scope,$state,$window) {
+ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
 
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -24,5 +24,8 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window', fun
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $http.get('/api/korisnik/secured/ja').success(function (data) {
+        $scope.ja = data;
+    });
 
 }]);

@@ -1,4 +1,4 @@
-ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window', function ($scope,$state,$window) {
+ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
 
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -24,5 +24,7 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
-
+    $http.get('/api/korisnik/secured/svi').success(function (data) {
+        $scope.prijatelji = data;
+    });
 }]);

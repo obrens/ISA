@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs">
-    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">{{ja.ime}}- profil </a></li>
     <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
     <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
     <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
@@ -11,11 +11,10 @@
 </ul>
 <div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
     <div class="col-3 d-flex flex-column">
-        <input type="text" placeholder="Isztvan" style="margin-top:10px;">
-        <input type="text" placeholder="Ige" style="margin-top:10px;">
-        <input type="text" placeholder="Pecz" style="margin-top:10px;">
-        <input type="tel" name="telephone" required="" placeholder="45534324"
-                                                                                                                                                                                                                                                maxlength="30" pattern="^[0-9\+]{6,30}$" style="margin-top:10px;background-color:rgb(255,255,255);">
+        <input type="text"  placeholder={{ja.ime}} style="margin-top:10px;">Ime
+        <input type="text" placeholder={{ja.prezime}} style="margin-top:10px;">Prezime
+        <input type="text" placeholder={{ja.grad}} style="margin-top:10px;">Grad
+        <input type="tel"  placeholder={{ja.brojTelefona}} maxlength="30" pattern="^[0-9\+]{6,30}$" style="margin-top:10px;background-color:rgb(255,255,255);">Telefon
         <div class="row" style="margin-top:10px;">
             <div class="col"><button class="btn btn-primary" type="button">Izmeni</button></div>
             <div class="col"><button class="btn btn-primary" type="button">Odustani</button></div>
