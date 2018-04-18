@@ -1,9 +1,22 @@
-    <div class="d-flex flex-column justify-content-center align-items-center" style="padding:100px;">
-        <form style="padding:0px;margin:0px;"><label class="d-flex flex-row justify-content-center" style="padding:0px;font-size:20px;">Kreiraj ustanovu</label><input class="form-control" type="text" placeholder="Naziv" style="margin:1px;padding:0px;"><input class="form-control" type="text"
-                placeholder="Adresa" style="margin:0px;padding:0px;"><textarea class="form-control form-control-lg" placeholder="Opis"></textarea><label class="d-flex flex-row justify-content-start" style="padding:0px;font-size:16px;">Vrsta ustanove:</label>
-            <div
+<div class="d-flex flex-column justify-content-center align-items-center" style="padding:100px;">
+    <form style="padding:0px;margin:0px;"><label class="d-flex flex-row justify-content-center"
+                                                 style="padding:0px;font-size:20px;">Kreiraj ustanovu</label><input
+            class="form-control" type="text" placeholder="Naziv" ng-model="ustanova.naziv" style="margin:1px;padding:0px;"><input
+            class="form-control" type="text"
+            placeholder="Adresa" ng-model="ustanova.adresa" style="margin:0px;padding:0px;"><textarea class="form-control form-control-lg" placeholder="Opis" ng-model="ustanova.opis"></textarea>
+        <label class="d-flex flex-row justify-content-start" style="padding:0px;font-size:16px;">Vrsta ustanove:</label>
+        <div
                 class="d-flex flex-row justify-content-around">
-                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Pozoriste</label></div>
-                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="formCheck-2">Biskop</label></div>
-    </div><label>Administrator ustanove:</label><select class="form-control"><optgroup label="This is a group"><option value="12" selected="">This is item 1</option></optgroup></select></form>
-    </div>
+            <div class="form-check"><input class="form-check-input" name="name" type="radio" ng-model="ustanovaTip" ng-value="false" id="ustanovaPozoriste">
+                <label class="form-check-label" >Pozoriste</label>
+            </div>
+            <div class="form-check"><input class="form-check-input" name="name" type="radio" ng-model="ustanovaTip" ng-value="true" id="ustanovaBioskop">
+                <label class="form-check-label" >Biskop</label>
+            </div>
+        </div>
+        <label>Administrator ustanove:</label>
+        <select class="form-control" ng-model="izabranAdmin" ng-options="korisnik.ime+' '+ korisnik.prezime for korisnik in korisnici" >
+        </select>
+        <button ng-click="kreirajUstanovu()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Kreiraj</button>
+    </form>
+</div>

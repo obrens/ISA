@@ -1,0 +1,54 @@
+ustanoveApp.controller('registrujUstanovuController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
+    $scope.ustanova={}
+    $scope.toUserProfil = function() {
+        $state.go("userProfil");
+    }
+    $scope.toListaRezervacija = function() {
+        $state.go("listaRezervacija");
+    }
+    $scope.toIstorijaPoseta = function() {
+        $state.go("istorijaPoseta");
+    }
+    $scope.toBioskopiLista = function() {
+        $state.go("bioskopiLista");
+    }
+    $scope.toPrijateljiLista = function() {
+        $state.go("prijateljiLista");
+    }
+    $scope.toFanzona = function() {
+        $state.go("fanzona");
+    }
+    $scope.toNoviOglas = function() {
+        $state.go("noviOglas");
+    }
+    $scope.toOglasi = function () {
+        $state.go("oglasi");
+    }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    }
+
+    $http.get('/api/korisnik/secured/svi').success(function (data) {
+        $scope.korisnici=data;
+    })
+    
+    $scope.kreirajUstanovu=function () {
+        if($scope.ustanovaTip)
+        {
+            $scope.ustanova.vrstaUstanove=true;
+        }else
+            $scope.ustanova.vrstaUstanove=false;
+
+        $http.get('/api/korisnik/' + $scope.izabranAdmin.id).success(function (data1) {
+            $scope.ustanova.admin=data1;
+            $http.post('/api/ustanova/dodaj',$scope.ustanova).success(function (data) {
+                console.log('Ustanova uspešno dodata');
+                alert('Restoran uspešno dodat');
+                //$scope.cancel();
+            }).error(function () {
+                alert('Greška pri dodavanju ustanove');
+            });
+        })
+
+    }
+}]);

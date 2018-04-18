@@ -1,11 +1,15 @@
 package isa.projekat.model.DTO;
 
+import isa.projekat.model.Korisnik;
+
 public class UstanovaDTO {
 	private Long id;
 	private String naziv;
 	private String opis;
 	private String adresa;
 	private float ocena;
+	private boolean vrstaUstanove;
+	private Korisnik admin;
 	
 	public Long getId() {
 		return id;
@@ -30,4 +34,20 @@ public class UstanovaDTO {
 	public float getOcena() { return ocena; }
 	
 	public void setOcena(float ocena) { this.ocena = ocena; }
+
+	public boolean isVrstaUstanove() {
+		return vrstaUstanove;
+	}
+
+	public void setVrstaUstanove(boolean vrstaUstanove) {
+		this.vrstaUstanove = vrstaUstanove;
+	}
+
+	public Korisnik getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Korisnik admin) {
+		this.admin = admin;
+	}
 }

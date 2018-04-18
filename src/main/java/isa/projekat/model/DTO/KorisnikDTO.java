@@ -1,13 +1,26 @@
 package isa.projekat.model.DTO;
 
 public class KorisnikDTO {
+	private Long id;
 	private String imejl;
 	private String lozinka;
 	private String ime;
 	private String prezime;
 	private String grad;
 	private Integer brojTelefona;
-	
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setBrojTelefona(Integer brojTelefona) {
+		this.brojTelefona = brojTelefona;
+	}
+
 	public String getImejl() {
 		return imejl;
 	}

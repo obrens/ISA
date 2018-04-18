@@ -21,7 +21,8 @@ public class UstanovaService {
 		ustanova.setAdresa(ustanovaDTO.getAdresa());
 		//ustanova.setRepertoar(new HashSet<>());
 		//ustanova.setSale(new HashSet<>());
-		ustanova.setVrstaUstanove(true);
+		ustanova.setVrstaUstanove(ustanovaDTO.isVrstaUstanove());
+		ustanova.setAdmin(ustanovaDTO.getAdmin());
 		ustanovaRepository.save(ustanova);
 		return ustanova;
 	}

@@ -62,6 +62,7 @@ public class Ustanova {
 		this.opis = opis;
 	}
 	
+
 	/*public Set<Delo> getRepertoar() {
 		return repertoar;
 	}

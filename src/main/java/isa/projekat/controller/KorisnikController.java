@@ -3,8 +3,10 @@ package isa.projekat.controller;
 import isa.projekat.model.DTO.KorisnikDTO;
 import isa.projekat.model.DTO.PrijateljDTO;
 import isa.projekat.model.Korisnik;
+import isa.projekat.repository.KorisnikRepository;
 import isa.projekat.service.KorisnikService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +19,9 @@ import java.util.List;
 public class KorisnikController {
 	@Autowired
 	KorisnikService korisnikService;
+
+	@Autowired
+	KorisnikRepository korisnikRepository;
 	
 	@PreAuthorize("hasAnyRole('Administrator sistema')")
 	@RequestMapping(method = RequestMethod.POST, value = "/secured/registruj")
@@ -24,7 +29,15 @@ public class KorisnikController {
 		Korisnik korisnik = korisnikService.napraviKorisnika(korisnikDTO);
 		return ResponseEntity.ok(korisnik);
 	}
-	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ResponseEntity getKorisnika(@PathVariable Long id){
+		KorisnikDTO korisnikDTO = korisnikService.korisnikDTO(korisnikRepository.findById(id));
+		if (korisnikDTO != null)
+			return ResponseEntity.ok(korisnikDTO);
+		else
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/svi")
 	public ResponseEntity getPrijateljiINeprijatelji() {
 		Korisnik korisnik = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

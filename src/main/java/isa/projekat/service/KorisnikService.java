@@ -20,7 +20,20 @@ public class KorisnikService {
 	
 	@Autowired
 	PrijateljstvoRepository prijateljstvoRepository;
-	
+
+
+	public KorisnikDTO korisnikDTO(Korisnik korisnik){
+		KorisnikDTO korisnikDTO= new KorisnikDTO();
+		korisnikDTO.setId(korisnik.getId());
+		korisnikDTO.setIme(korisnik.getIme());
+		korisnikDTO.setBrojTelefona(korisnik.getBrojTelefona());
+		korisnikDTO.setPrezime(korisnik.getPrezime());
+		korisnikDTO.setLozinka(korisnik.getLozinka());
+		korisnikDTO.setGrad(korisnik.getGrad());
+		korisnikDTO.setImejl(korisnik.getImejl());
+		return korisnikDTO;
+	}
+
 	public List<PrijateljDTO> prijateljiINeprijatelji(Korisnik korisnik) {
 		List<PrijateljDTO> prijateljDTOs = new ArrayList<>();
 		List<Long> ids = new ArrayList<>();
