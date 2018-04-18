@@ -25,18 +25,20 @@
                 <div class="col">
                     <h4>Vreme</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.vreme for projekcija in selectedList.projekcije" ng-model="selectedVreme" ></select></div>
+                <div class="col"><select class="form-control" ng-options="vreme for vreme in arejVremena " ng-model="selectedVreme" ng-change="nadjiSalu()"></select></div>
             </div>
             <div class="form-row">
                 <div class="col">
                     <h4>Sala</h4>
                 </div>
-                <div class="col"><select class="form-control" ng-options="projekcija.nazivSale for projekcija in selectedList.projekcije" ng-model="selectedSala" ></select></div>
+                <div class="col"><select class="form-control" ng-options="sala for sala in arejSala " ng-model="selectedSala" ng-change="kompletiraj()"></select></div>
             </div>
             <div class="form-row">
                 <div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
                 <div class="col"><button ng-click="toRez2()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></div>
             </div>
+            {{selectedList.projekcije}}
+            {{ide}}
         </form>
     </div>
 </div>
