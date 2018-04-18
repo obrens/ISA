@@ -43,7 +43,7 @@ public class UstanovaController {
 		}
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, value = "/izmeni/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/secured/izmeni")
 	public ResponseEntity izmeniUstanovu(@RequestBody UstanovaDTO ustanovaDTO){
 		//Long id =
 		ustanovaService.izmeniUstanovu(ustanovaDTO);

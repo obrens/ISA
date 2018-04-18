@@ -28,6 +28,7 @@ public class UstanovaService {
 	
 	public UstanovaDTO ustanovaZaSlanje(Ustanova ustanova){
 		UstanovaDTO ustanovaDTO = new UstanovaDTO();
+		ustanovaDTO.setId(ustanova.getId());
 		ustanovaDTO.setNaziv(ustanova.getNaziv());
 		ustanovaDTO.setAdresa(ustanova.getAdresa());
 		ustanovaDTO.setOpis(ustanova.getOpis());
