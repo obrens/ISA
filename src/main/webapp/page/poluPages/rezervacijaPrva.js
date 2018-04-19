@@ -5,13 +5,11 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
     var nazivTr,datumTr,vremeTr,salaTr,idTr;
     $scope.ide={};
     $scope.selectedList={};
-    $scope.toRez2 = function() {
-        $state.go("rezervacijaDruga");
-    }
+    $scope.ima=false;
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
-    $http.get('/api/ustanova/secured/sve').success(function (data) {
+    $http.get('/api/ustanova/secured/bioskopi').success(function (data) {
         $scope.bioskopi = data;
     });
     $scope.nadjiProjekcije=function () {
@@ -19,6 +17,7 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
         $scope.arejDatuma=[];
         $scope.arejVremena=[];
         $scope.arejSala=[];
+        $scope.ima=false;
         $http.get('/api/projekcija/secured/projekcijeUstanove/'+ $scope.selectedUstanova.id).success(function (data) {
             $scope.selectedList.projekcije = data;
 
@@ -35,6 +34,7 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
         $scope.arejDatuma=[];
         $scope.arejVremena=[];
         $scope.arejSala=[];
+        $scope.ima=false;
         $scope.selectedList.projekcije.forEach(function (value) {
             if(value.nazivDela===$scope.selectedDelo){
                 if ($scope.arejDatuma.includes(value.datum)){
@@ -50,6 +50,7 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
     $scope.nadjiVreme=function () {
        $scope.arejVremena=[];
        $scope.arejSala=[];
+        $scope.ima=false;
        $scope.selectedList.projekcije.forEach(function (value) {
            if(value.nazivDela===nazivTr && value.datum===$scope.selectedDatum){
                if ($scope.arejVremena.includes(value.vreme)){
@@ -63,6 +64,7 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
    }
     $scope.nadjiSalu=function () {
         $scope.arejSala=[];
+        $scope.ima=false;
         $scope.selectedList.projekcije.forEach(function (value) {
             if(value.nazivDela===nazivTr && value.datum===datumTr && value.vreme===$scope.selectedVreme){
                 if ($scope.arejSala.includes(value.nazivSale)){
@@ -80,8 +82,13 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
             if(value.nazivDela===nazivTr && value.datum===datumTr && value.vreme===vremeTr && value.nazivSale===salaTr){
                 idTr=value.id;
                 $scope.ide=idTr;
+                $scope.ima=true;
+                $scope.cenaTr=value.cena;
             }
         })
+    }
+    $scope.toRez2 = function(id) {
+        $state.go("rezervacijaDruga", {id: id});
     }
 
 }]);

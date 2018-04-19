@@ -23,7 +23,6 @@ public class KorisnikController {
 	@Autowired
 	KorisnikRepository korisnikRepository;
 	
-	@PreAuthorize("hasAnyRole('Administrator sistema')")
 	@RequestMapping(method = RequestMethod.POST, value = "/secured/registruj")
 	public ResponseEntity registruj(@RequestBody KorisnikDTO korisnikDTO){
 		Korisnik korisnik = korisnikService.napraviKorisnika(korisnikDTO);

@@ -30,13 +30,16 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
+    $http.get('/api/korisnik/secured/zahtevni').success(function (data) {
+        $scope.zahtevni= data;
+    });
     $http.get('/api/korisnik/secured/svi').success(function (data) {
         $scope.prijatelji = data;
         var arrayLength = $scope.prijatelji.length;
         for (var i = 0; i < arrayLength; i++) {
             if ($scope.prijatelji[i].id===$scope.ja.id){
                 console.log($scope.prijatelji[i].id+"aa"+$scope.ja.id)
-                $scope.prijatelji.items.splice(i,1);
+                $scope.prijatelji.splice(i,1);
             }
         }
     });
@@ -44,6 +47,12 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
     $scope.dodajPriku=function (id) {
         $http.put('/api/korisnik/secured/zahtevamPrijatelja/'+id).success(function () {
             alert("Zahtev za prijateljstvo poslat!");
+        })
+        $window.location.reload();
+    }
+    $scope.prihvatiPriku=function (id) {
+        $http.put('/api/korisnik/secured/prihvatamPrijatelja/'+id).success(function () {
+            alert("Prijateljstvo se radja!");
         })
         $window.location.reload();
     }

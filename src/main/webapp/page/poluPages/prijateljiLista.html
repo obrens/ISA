@@ -34,4 +34,23 @@
             </tr>
         </table>
     </div>
+    <div  class="span3">
+        <div class="form-group pull-left">
+            <h4> Pristigli zahtevi </h4>
+        </div>
+        <span class="counter pull-right"></span>
+
+        <table data-toggle="table" class="table table-hover table-striped table-bordered results">
+            <tr>
+                <th> Ime i Prezime </th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="zahtev in zahtevni | orderBy:ime ">
+                <td >{{zahtev.ime}}&nbsp{{zahtev.prezime}}</td>
+                <td >
+                    <button class="btn btn-primary" type="button" ng-click="prihvatiPriku(zahtev.prijateljstvoId)" >Prihvati</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
