@@ -19,6 +19,7 @@ public class MainController {
         System.out.println("helou");
         return "Hello";
     }
+    
     @PreAuthorize("hasAnyRole('Administrator sistema')")
     @RequestMapping(method = RequestMethod.GET, value = "/secured/usa")
     public Ustanova usa() {

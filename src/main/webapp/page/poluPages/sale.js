@@ -23,11 +23,14 @@ ustanoveApp.controller('saleController', ['$scope', '$http','$state', '$statePar
     };
     //endregion
 
-    /*$http.get("/api/karta/secured/dostupniPopusti/" + $stateParams.idUstanove).success(function (data) {
-        $scope.popusti = data;
+    $http.get("/api/sala/secured/saleUstanove/" + $stateParams.idUstanove).success(function (data) {
+        $scope.sale = data;
+        $scope.sale.forEach(function (value) {
+            Console.log(value.nazivSale);
+        })
     });
 
-    $scope.obrisiPopust = function (id) {
+    /*$scope.obrisiPopust = function (id) {
         $http.delete("/api/karta/secured/obrisiPopust/" + id).success(function (){
             //$state.go("karteNaPopustuIzmena", {idUstanove: $stateParams.idUstanove});
             $window.location.reload();
