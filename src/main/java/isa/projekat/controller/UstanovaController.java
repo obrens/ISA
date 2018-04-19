@@ -18,9 +18,14 @@ public class UstanovaController {
 	@Autowired
 	UstanovaService ustanovaService;
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/secured/sve")
-	public ResponseEntity getSveUstanove() {
-		return new ResponseEntity<>(ustanovaRepository.findAll(), HttpStatus.OK);    // Ovo je valjda...
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/bioskopi")
+	public ResponseEntity getSveBioskope() {
+		return new ResponseEntity<>(ustanovaService.bioskopi(), HttpStatus.OK);    // Ovo je valjda...
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/pozorista")
+	public ResponseEntity getSvePozoriste() {
+		return new ResponseEntity<>(ustanovaService.pozorista(), HttpStatus.OK);    // Ovo je valjda...
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class UstanovaService {
@@ -48,5 +50,29 @@ public class UstanovaService {
 		ustanovaRepository.save(ustanova);
 		//ustanovaRepository.updateUstanova(ustanovaDTO.getId(), ustanovaDTO.getNaziv(), ustanovaDTO.getOpis(), ustanovaDTO.getAdresa());
 		//return ustanovaDTO.getId();
+	}
+	
+	public List<Ustanova> bioskopi() {
+		List<Ustanova> ustanove = ustanovaRepository.findAll();
+		List<Ustanova> bioskopi = new ArrayList<>();
+		for (Ustanova ustanova : ustanove){
+			if (ustanova.isVrstaUstanove()){
+				bioskopi.add(ustanova);
+			}
+		}
+		
+		return bioskopi;
+	}
+	
+	public List<Ustanova> pozorista() {
+		List<Ustanova> ustanove = ustanovaRepository.findAll();
+		List<Ustanova> pozorista = new ArrayList<>();
+		for (Ustanova ustanova : ustanove){
+			if (!ustanova.isVrstaUstanove()){
+				pozorista.add(ustanova);
+			}
+		}
+		
+		return pozorista;
 	}
 }
