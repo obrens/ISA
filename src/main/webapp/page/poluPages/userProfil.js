@@ -48,5 +48,14 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
         })
 
     }
+    $scope.azurirajCoveka=function () {
+        console.log($scope.ja);
+        $http.put('/api/korisnik/secured/izmeni', $scope.ja).success(function (data) {
+            //$window.location.reload();
+        });
+    }
+    $scope.rifresuj=function () {
+        $window.location.reload();
+    }
 
 }]);
