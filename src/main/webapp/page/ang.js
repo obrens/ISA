@@ -118,6 +118,16 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'karteNaPopustuIzmenaController',
             templateUrl: 'poluPages/karteNaPopustuIzmena.html'
         })
+        .state('projekcijeIzmena',{
+            url:'/projekcijeIzmena/:idUstanove',
+            controller: 'projekcijeIzmenaController',
+            templateUrl: 'poluPages/projekcijeIzmena.html'
+        })
+        .state('sale',{
+            url:'/sale/:idUstanove',
+            controller: 'saleController',
+            templateUrl: 'poluPages/sale.html'
+        })
         .state('registrujUstanovu',{
             url:'/registrujUstanovu',
             controller: 'registrujUstanovuController',

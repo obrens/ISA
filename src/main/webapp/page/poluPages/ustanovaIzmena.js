@@ -24,7 +24,15 @@ ustanoveApp.controller('ustanovaIzmenaController', ['$scope', '$http', '$state',
     //endregion
 
     $scope.popusti = function () {
-        $state.go("karteNaPopustuIzmena", {id: $scope.ustanova.id});
+        $state.go("karteNaPopustuIzmena", {idUstanove: $scope.ustanova.id});
+    };
+
+    $scope.projekcijeIzmena = function () {
+        $state.go("projekcijeIzmena", {idUstanove: $scope.ustanova.id});
+    };
+
+    $scope.sale = function () {
+        $state.go("sale", {idUstanove: $scope.ustanova.id});
     };
 
     $http.get('/api/ustanova/' + $stateParams.id).success(function (data) {
