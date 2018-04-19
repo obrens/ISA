@@ -29,6 +29,9 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window
     $scope.toPregled = function(id) {
         $state.go("pregledPonudaOglasa", {id: id});
     }
+    $scope.toPonudi = function (id) {
+        $state.go("ponudi",{id: id});
+    }
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });

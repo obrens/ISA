@@ -18,6 +18,9 @@ ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$win
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    $scope.toOglasi = function() {
+        $state.go("oglasi");
+    }
     $scope.logout = function() {
         $window.location.href = '/logout';
     }
@@ -30,9 +33,9 @@ ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$win
         $scope.rekvizit.odobren=false;
         $scope.rekvizit.korisnik=$scope.ja;
         $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
-            console.log('Rekvizit uspeho dodat');
+            console.log('Rekvizit uspeho dodat, sacekajte na odobrenje');
             alert('Rekvizit uspešno dodat');
-            //$scope.cancel();
+            $scope.toOglasi();
         }).error(function () {
             alert('Greška pri dodavanju rekvizita');
         })

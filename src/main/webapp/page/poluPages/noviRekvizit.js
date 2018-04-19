@@ -28,11 +28,12 @@ ustanoveApp.controller('noviRekvizitOglasaController', ['$scope', '$http', '$sta
     $scope.napraviRekvizit=function () {
         $scope.rekvizit.oficijalni=true;
         $scope.rekvizit.odobren=true;
+        $scope.rekvizit.preuzet=true;
         $scope.rekvizit.korisnik=$scope.ja;
         $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
-            console.log('Rekvizit uspeho dodat');
+            console.log('Rekvizit uspeho dodat'+$scope.rekvizit.korisnik.ime);
             alert('Rekvizit uspešno dodat');
-            //$scope.cancel();
+            $scope.toFanzona();
         }).error(function () {
             alert('Greška pri dodavanju rekvizita');
         })

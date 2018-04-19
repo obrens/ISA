@@ -88,6 +88,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'pregledPonudaOglasaController',
             templateUrl: 'poluPages/pregledPonudaOglasa.html'
         })
+        .state('ponudi',{
+            url:'/ponudi/:id',
+            controller: 'ponudiController',
+            templateUrl: 'poluPages/ponudi.html'
+        })
         .state('odobravanjeOglasa',{
             url:'/odobravanjeOglasa',
             controller: 'odobravanjeOglasaController',
