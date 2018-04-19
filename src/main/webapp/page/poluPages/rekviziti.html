@@ -18,7 +18,7 @@
             <div class="product">
                 <img src="http://placehold.it/295x190/333333/FFFFFF">
                 <div class="buttons">
-                    <a class="buy btn btn-large btn-info" href="#"><i class="icon-shopping-cart"></i> Add to Cart</a>
+                    <a class="buy btn btn-large btn-info" ><i class="icon-shopping-cart"></i> Add to Cart</a>
                     <a class="preview btn btn-large btn-info" href="#"><i class="icon-eye-open"></i> Pregledaj</a>
                 </div>
             </div>
@@ -29,7 +29,7 @@
           {{ofici.opis}}
         </span>
                 <span class="price">{{ofici.aktivanDo|date}}</span>
-                <a class="btn btn-info pull-right" href="#"><i class="icon-shopping-cart"></i> Rezerviši</a>
+                <a class="btn btn-info pull-right" ng-click="rezervisi(ofici.id)"><i class="icon-shopping-cart"></i> Rezerviši</a>
             </div>
         </div>
     </div>

@@ -40,4 +40,19 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state','$windo
                 $scope.neoficialni.push(value);
         })
     });
+    $scope.rezervisi = function (x) {
+        $http.delete('/api/rekvizit/izbrisi/' + x).success(function (data) {
+            $http.get('/api/rekvizit/svi').success(function (data) {
+                $scope.rekviziti = data;
+                $scope.oficialni=[];
+                $scope.neoficialni=[];
+                $scope.rekviziti.forEach(function (value) {
+                    if(value.oficijalni==true)
+                        $scope.oficialni.push(value);
+                    else
+                        $scope.neoficialni.push(value);
+                })
+            });
+        })
+    }
 }]);

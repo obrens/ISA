@@ -138,6 +138,7 @@ public class KorisnikService {
 		korisnik.setGrad(korisnikDTO.getGrad());
 		korisnik.setImejl(korisnikDTO.getImejl());
 		korisnik.setLozinka(korisnikDTO.getLozinka());
+		korisnik.setUloge(korisnikDTO.getUloge());
 		korisnikRepository.save(korisnik);
 	}
 	@Transactional

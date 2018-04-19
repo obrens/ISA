@@ -1,5 +1,9 @@
 package isa.projekat.model.DTO;
 
+import isa.projekat.model.TipKorisnika;
+
+import java.util.Set;
+
 public class KorisnikDTO {
 	private Long id;
 	private String imejl;
@@ -8,6 +12,7 @@ public class KorisnikDTO {
 	private String prezime;
 	private String grad;
 	private Integer brojTelefona;
+	private Set<TipKorisnika> uloge;
 
 	public Long getId() {
 		return id;
@@ -67,5 +72,13 @@ public class KorisnikDTO {
 	
 	public void setBrojTelefona(int brojTelefona) {
 		this.brojTelefona = brojTelefona;
+	}
+
+	public Set<TipKorisnika> getUloge() {
+		return uloge;
+	}
+
+	public void setUloge(Set<TipKorisnika> uloge) {
+		this.uloge = uloge;
 	}
 }
