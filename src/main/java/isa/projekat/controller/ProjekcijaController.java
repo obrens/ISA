@@ -1,5 +1,6 @@
 package isa.projekat.controller;
 
+import isa.projekat.model.DTO.DimenzijeSaleDTO;
 import isa.projekat.model.DTO.ProjekcijaDTO;
 import isa.projekat.service.ProjekcijaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,11 @@ public class ProjekcijaController {
 	public ResponseEntity getProjekcijeUstanove(@PathVariable Long id) {
 		List<ProjekcijaDTO> projekcijaDTOs = projekcijaService.projekcijeUstanove(id);
 		return ResponseEntity.ok(projekcijaDTOs);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/dimenzijeSale/{idProjekcije}")
+	public ResponseEntity dimenzijeSale(@PathVariable Long idProjekcije){
+		DimenzijeSaleDTO dimenzijeSaleDTO = projekcijaService.dimenzijeSale(idProjekcije);
+		return ResponseEntity.ok(dimenzijeSaleDTO);
 	}
 }
