@@ -108,11 +108,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'noviRekvizitOglasaController',
             templateUrl: 'poluPages/noviRekvizit.html'
         })
-        /*.state('azuriranjeProfila',{
+        .state('azuriranjeProfila',{
             url:'/azuriranje',
             controller: 'azuriranjeProfilaController',
             templateUrl: 'poluPages/azuriranjeProfila.html'
-        })*/
+        })
         .state('noviOglas',{
             url:'/noviOglas',
             controller: 'noviOglasController',
