@@ -21,9 +21,23 @@ ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window',
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    //endregion
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
-    //endregion
-    $scope.firstRate = 0;
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
+    $http.get('/api/karta/posete').success(function (data) {
+        $scope.posete = data;
+        $scope.firstRate = 2;
+        $scope.secondRate = data.ocenaProjekcije;
+    });
+    $scope.oceniAmbijent=function () {
+        
+    }
+    $scope.oceniProjekciju=function () {
+        
+    }
+
 }]);

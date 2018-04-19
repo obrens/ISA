@@ -13,56 +13,34 @@
 <div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
     <div  class="span3">
         <div class="form-group pull-left">
-            <input type="text" class="search form-control" placeholder="Pretražite posete">
+            <input type="text" class="search form-control" placeholder="Pretražite posete" ng-model="pretraga">
         </div>
         <span class="counter pull-right"></span>
 
         <table data-toggle="table" class="table table-hover table-striped table-bordered results">
-            <thead>
             <tr>
-                <th > Datum </th>
-                <th > Film/predstava </th>
-                <th > Lokacija </th>
-                <th > Ocena ambijenta </th>
-                <th > Ocena filma/predstave </th>
+                <th ng-click="orderByMe('datum')" class="btn-link"> Datum </th>
+                <th ng-click="orderByMe('nazivDela')" class="btn-link"> Događaj </th>
+                <th ng-click="orderByMe('nazivUstanove')" class="btn-link"> Lokacija </th>
+                <th ng-click="orderByMe('ocenaAmbijenta')" class="btn-link"> Ocena ambijenta </th>
+                <th ng-click="orderByMe('ocenaProjekcije')" class="btn-link"> Ocena filma/predstave </th>
             </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>21.12.2015</td>
-                <td>Hari Poter</td>
-                <td>Arena</td>
-                <td><jk-rating-stars rating="firstRate" ></jk-rating-stars></td>
-                <td><jk-rating-stars rating="firstRatea" ></jk-rating-stars></td>
-            </tr>
-            <tr>
-                <td>21.12.2015</td>
-                <td >Hari Poter 2</td>
-                <td >Carena</td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
-            </tr>
-            <tr>
-                <td>21.12.2015</td>
-                <td >Hari Poter 3</td>
-                <td >Barena</td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></
-            </tr>
-            <tr>
-                <td>21.12.2015</td>
-                <td >Hari Poter 4</td>
-                <td >Darena</td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></td>
-                <td><input type="number" name="your_awesome_parameter" id="rating1" class="rating" data-clearable="remove"/></
+            <tr ng-repeat="poseta in posete | orderBy:myOrderBy | filter:pretraga">
+                <td>{{poseta.datum |date}}</td>
+                <td>{{poseta.nazivDela}}</td>
+                <td>{{poseta.nazivUstanove}}</td>
+                <td>
+                    <jk-rating-stars rating="poseta.ocenaAmbijenta" ></jk-rating-stars>
+                    <button class="btn btn-primary" ng-click="oceniAmbijent(poseta.ocenaAmbijenta)" type="button" >Oceni</button>
+                </td>
+                <td>
+                    <jk-rating-stars rating="poseta.ocenaProjekcije" ></jk-rating-stars>
+                    <button class="btn btn-primary" ng-click="oceniProjekciju(poseta.ocenaProjekcije)" type="button" >Oceni</button>
+                </td>
+
             </tr>
 
-            </tbody>
         </table>
     </div>
 </div>
 
-<div layout="column">
-    <jk-rating-stars rating="firstRate" ></jk-rating-stars>
-    <div style="width: 100px">{{firstRate}} Stars</div>
-</div>

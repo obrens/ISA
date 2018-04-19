@@ -2,6 +2,7 @@ package isa.projekat.controller;
 
 import isa.projekat.model.DTO.KorisnikDTO;
 import isa.projekat.model.DTO.PrijateljDTO;
+import isa.projekat.model.DTO.UstanovaDTO;
 import isa.projekat.model.Korisnik;
 import isa.projekat.repository.KorisnikRepository;
 import isa.projekat.service.KorisnikService;
@@ -71,5 +72,10 @@ public class KorisnikController {
 	public ResponseEntity gubimPrijatelja(@PathVariable Long prijateljstvoId){
 		korisnikService.gubimPrijatelja(prijateljstvoId);
 		return new ResponseEntity(HttpStatus.OK);
+	}
+	@RequestMapping(method = RequestMethod.PUT, value = "/secured/izmeni")
+	public ResponseEntity izmeniKorisnika(@RequestBody KorisnikDTO korisnikDTO){
+		korisnikService.izmeniKorisnika(korisnikDTO);
+		return ResponseEntity.ok(korisnikDTO);
 	}
 }
