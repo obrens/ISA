@@ -143,6 +143,21 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'saleController',
             templateUrl: 'poluPages/sale.html'
         })
+        .state('noviPopustPrva',{
+            url:'/noviPopustPrva/:id',
+            controller: 'noviPopustPrvaController',
+            templateUrl:'poluPages/noviPopustPrva.html'
+        })
+        .state('noviPopustDruga',{
+            url:'/noviPopustDruga/:id',
+            controller: 'noviPopustDrugaController',
+            templateUrl:'poluPages/noviPopustDruga.html'
+        })
+        .state('noviPopustTreca',{
+            url:'/noviPopustTreca/:id',
+            controller: 'noviPopustTrecaController',
+            templateUrl:'poluPages/noviPopustTreca.html'
+        })
         .state('registrujUstanovu',{
             url:'/registrujUstanovu',
             controller: 'registrujUstanovuController',

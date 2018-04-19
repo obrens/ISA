@@ -1,0 +1,27 @@
+<div class="register-photo" style="background-color:rgb(255,255,255);">
+	<div class="form-container">
+		<form method="post" style="background-color:rgb(241,247,252);">
+			<h1 class="text-center" style="height:70px;">Mesto</h1>
+			<div class="form-row">
+				<div class="col">
+					<h4>Red</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="red for red in arejRedova" ng-model="selectedRed" ng-change="nadjiSediste()"></select></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Sediste</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="sediste.sediste for sediste in arejSedista"  ng-model="selectedSediste" ng-change="kompletiraj()"></select></div>
+			</div>
+			<div class="form-row">
+				<div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
+				<div class="col">
+					<span ng-if="ima==true"><button ng-click="toRez3(ide)" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+					<span ng-if="ima==false"><button ng-click="toRez3(ide)" class="btn btn-primary btn-block" disabled type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>

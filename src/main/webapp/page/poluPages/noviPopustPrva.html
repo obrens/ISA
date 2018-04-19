@@ -1,0 +1,52 @@
+<div class="register-photo" style="background-color:rgb(255,255,255);">
+	<div class="form-container">
+		<form method="post" style="background-color:rgb(241,247,252);">
+			<h1 class="text-center" style="height:70px;">Projekcija</h1>
+			<!--<div class="form-row">
+				<div class="col">
+					<h4>Bioskop</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="bioskop.naziv for bioskop in bioskopi" ng-model="selectedUstanova" ng-change="nadjiProjekcije()"></select></div>
+			</div>-->
+			<div class="form-row">
+				<div class="col">
+					<h4>Delo</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="projekcija for projekcija in arejNaziva " ng-model="selectedDelo" ng-change="nadjiDatume()"></select></div>
+			</div>
+
+			<div class="form-row">
+				<div class="col">
+					<h4>Datum</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="datum | date for datum in arejDatuma " ng-model="selectedDatum" ng-change="nadjiVreme()"></select></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Vreme</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="vreme for vreme in arejVremena " ng-model="selectedVreme" ng-change="nadjiSalu()"></select></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Sala</h4>
+				</div>
+				<div class="col"><select class="form-control" ng-options="sala for sala in arejSala " ng-model="selectedSala" ng-change="kompletiraj()"></select></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Cena:</h4>
+				</div>
+				<div class="col"><span ng-if="ima==true">&nbsp{{cenaTr}}&nbsp novih dinara</span></div>
+			</div>
+			<div class="form-row">
+				<div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
+				<div class="col">
+					<span ng-if="ima==true"><button ng-click="toRez2(ide)" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+					<span ng-if="ima==false"><button ng-click="toRez2(ide)" class="btn btn-primary btn-block" disabled type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>

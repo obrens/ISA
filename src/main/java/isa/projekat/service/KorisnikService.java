@@ -42,6 +42,10 @@ public class KorisnikService {
 		for (Prijateljstvo prijateljstvo : prijatelji) {
 			PrijateljDTO prijateljDTO = new PrijateljDTO();
 			Korisnik prijatelj = prijateljstvo.getZahtevni();
+			if(!prijateljstvo.isPrihvaceno()){
+				ids.add(prijatelj.getId());
+				continue;
+			}
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
@@ -55,6 +59,10 @@ public class KorisnikService {
 		for (Prijateljstvo prijateljstvo : prijatelji) {
 			PrijateljDTO prijateljDTO = new PrijateljDTO();
 			Korisnik prijatelj = prijateljstvo.getPrihvatni();
+			if(!prijateljstvo.isPrihvaceno()){
+				ids.add(prijatelj.getId());
+				continue;
+			}
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
