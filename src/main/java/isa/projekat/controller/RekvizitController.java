@@ -48,4 +48,14 @@ public class RekvizitController {
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @RequestMapping(method = RequestMethod.DELETE, value = "/izbrisi/{id}")
+    public  ResponseEntity izbrisiRekvizit(@PathVariable Long id){
+        Rekvizit rekvizit = rekvizitRepository.findById(id);
+        if (rekvizit != null) {
+            rekvizitService.izbrisiRekvizit(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+    }
 }

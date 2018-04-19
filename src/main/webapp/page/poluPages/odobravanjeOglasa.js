@@ -26,8 +26,8 @@ ustanoveApp.controller('odobravanjeOglasaController', ['$scope', '$http', '$stat
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
-    $scope.toPregled = function(id) {
-        $state.go("pregledPonudaOglasa", {id: id});
+    $scope.toOdobri = function(id) {
+        $state.go("odobriOglas", {id: id});
     }
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
@@ -37,16 +37,18 @@ ustanoveApp.controller('odobravanjeOglasaController', ['$scope', '$http', '$stat
             if(value.oficijalni==true)
                 $scope.oficialni.push(value);
             else{
-                if(value.odobren==false)
+                if(value.odobren==false && value.preuzet==false)
                     $scope.neoficialni.push(value);
             }
         })
     });
-    $scope.odobri=function (x) {
-        x.odobren=true;
+    $scope.preuzmi=function (x) {
+        //x.odobren=true;
+        x.preuzet=true;
         $http.put('/api/rekvizit/secured/izmeni', x).success(function (data) {
             var index = $scope.neoficialni.indexOf(x);
             $scope.neoficialni.splice(index,1);
+            $scope.toOdobri(x.id);
         })
     }
 }]);

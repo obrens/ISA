@@ -14,6 +14,7 @@ public class RekvizitDTO {
     private SerialBlob slika;
     private boolean oficijalni;
     private boolean odobren;
+    private boolean preuzet;
 
     public Long getId() {
         return id;
@@ -77,5 +78,13 @@ public class RekvizitDTO {
 
     public void setOdobren(boolean odobren) {
         this.odobren = odobren;
+    }
+
+    public boolean isPreuzet() {
+        return preuzet;
+    }
+
+    public void setPreuzet(boolean preuzet) {
+        this.preuzet = preuzet;
     }
 }

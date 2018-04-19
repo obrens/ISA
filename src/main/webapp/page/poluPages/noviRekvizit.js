@@ -1,4 +1,4 @@
-ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state, $window) {
+ustanoveApp.controller('noviRekvizitOglasaController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state, $window) {
     $scope.rekvizit={}
     $scope.toUserProfil = function() {
         $state.go("userProfil");
@@ -26,8 +26,8 @@ ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$win
     });
 
     $scope.napraviRekvizit=function () {
-        $scope.rekvizit.oficijalni=false;
-        $scope.rekvizit.odobren=false;
+        $scope.rekvizit.oficijalni=true;
+        $scope.rekvizit.odobren=true;
         $scope.rekvizit.korisnik=$scope.ja;
         $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
             console.log('Rekvizit uspeho dodat');

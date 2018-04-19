@@ -28,6 +28,8 @@ public class Rekvizit {
     private boolean oficijalni;
     @Column
     private boolean odobren;
+    @Column
+    private boolean preuzet;
 
 
 
@@ -93,5 +95,13 @@ public class Rekvizit {
 
     public void setOdobren(boolean odobren) {
         this.odobren = odobren;
+    }
+
+    public boolean isPreuzet() {
+        return preuzet;
+    }
+
+    public void setPreuzet(boolean preuzet) {
+        this.preuzet = preuzet;
     }
 }

@@ -43,6 +43,7 @@ public class RekvizitService {
         rekvizit.setOdobren(rekvizitDTO.isOdobren());
         rekvizit.setOficijalni(rekvizitDTO.isOficijalni());
         rekvizit.setSlika(rekvizitDTO.getSlika());
+        rekvizit.setPreuzet(rekvizitDTO.isPreuzet());
         rekvizitRepository.save(rekvizit);
     }
 
@@ -56,7 +57,15 @@ public class RekvizitService {
         rekvizit.setOdobren(rekvizitDTO.isOdobren());
         rekvizit.setOficijalni(rekvizitDTO.isOficijalni());
         rekvizit.setSlika(rekvizitDTO.getSlika());
+        rekvizit.setPreuzet(rekvizitDTO.isPreuzet());
         rekvizitRepository.save(rekvizit);
         return rekvizit;
+    }
+
+    public void izbrisiRekvizit(Long id){
+        Rekvizit rekvizit = rekvizitRepository.findById(id);
+        rekvizit.setKorisnik(null);
+        rekvizit=rekvizitRepository.save(rekvizit);
+        rekvizitRepository.delete(rekvizit);
     }
 }

@@ -12,20 +12,18 @@
     <li class="nav-item"><a ng-click="toFanzona()" class="btn">Rekviziti</a></li>
     <li class="nav-item"><a ng-click="toOglasi()" class="btn">Oglasi</a></li>
 </ul>
-<div class="d-flex flex-row justify-content-center align-items-start" style="font-size:25px;">
-    <div><label class="d-flex justify-content-center" style="font-size:36px;">Preuzmi oglas za odobravanje</label>
-        <div ng-repeat="neofic in neoficialni" class="block span3">
-            <div class="product">
-                <img src="http://placehold.it/295x190/333333/FFFFFF">
-            </div>
-            <div class="info">
-                <h4>{{neofic.naziv}}</h4>
-                <span class="description">
-          {{neofic.opis}}
-        </span>
-                <span class="price">{{neofic.aktivanDo | date}}</span>
-                <a class="btn btn-info pull-right" ng-click="preuzmi(neofic)"><i class="icon-shopping-cart"></i> Preuzmi</a>
-            </div>
+<div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
+    <div class="span3">
+        <div class="form-group pull-left">
+            <h1 class="text-center" style="height:70px;"><b>{{rekvizit.naziv}}</b></h1>
+            <h2 class="text-center" style="height:70px;">{{rekvizit.opis}}</h2>
         </div>
+        <span class="counter pull-right"></span>
+        <button class="btn btn-primary btn-block" ng-click="odobri(rekvizit)" type="submit"
+                style="background-color:rgb(244,133,71);">Odobri oglas
+        </button>
+        <button class="btn btn-primary btn-block" ng-click="odbij(rekvizit)" type="submit"
+                style="background-color:rgb(244,133,71);">Odbij oglas
+        </button>
     </div>
 </div>

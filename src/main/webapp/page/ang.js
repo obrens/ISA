@@ -93,6 +93,16 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'odobravanjeOglasaController',
             templateUrl: 'poluPages/odobravanjeOglasa.html'
         })
+        .state('odobriOglas',{
+            url:'/odobriOglas/:id',
+            controller: 'odobriOglasController',
+            templateUrl: 'poluPages/odobriOglas.html'
+        })
+        .state('noviRekvizit',{
+            url:'/noviRekvizit',
+            controller: 'noviRekvizitOglasaController',
+            templateUrl: 'poluPages/noviRekvizit.html'
+        })
         .state('azuriranjeProfila',{
             url:'/azuriranje',
             controller: 'azuriranjeProfilaController',
