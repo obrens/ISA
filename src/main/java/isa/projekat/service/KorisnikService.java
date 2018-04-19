@@ -131,14 +131,13 @@ public class KorisnikService {
 	@Transactional
 	public void izmeniKorisnika(KorisnikDTO korisnikDTO){
 		Korisnik korisnik = korisnikRepository.findOne(korisnikDTO.getId());
-		korisnik.setId(korisnik.getId());
-		korisnik.setBrojTelefona(korisnik.getBrojTelefona());
-		korisnik.setIme(korisnik.getIme());
-		korisnik.setPrezime(korisnik.getPrezime());
-		korisnik.setGrad(korisnik.getGrad());
-		korisnik.setImejl(korisnik.getImejl());
-		korisnik.setLozinka(korisnik.getLozinka());
-		korisnik.setUloge(korisnik.getUloge());
+		korisnik.setId(korisnikDTO.getId());
+		korisnik.setBrojTelefona(korisnikDTO.getBrojTelefona());
+		korisnik.setIme(korisnikDTO.getIme());
+		korisnik.setPrezime(korisnikDTO.getPrezime());
+		korisnik.setGrad(korisnikDTO.getGrad());
+		korisnik.setImejl(korisnikDTO.getImejl());
+		korisnik.setLozinka(korisnikDTO.getLozinka());
 		korisnikRepository.save(korisnik);
 	}
 	@Transactional
