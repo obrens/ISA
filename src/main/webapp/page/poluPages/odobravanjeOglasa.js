@@ -42,4 +42,11 @@ ustanoveApp.controller('odobravanjeOglasaController', ['$scope', '$http', '$stat
             }
         })
     });
+    $scope.odobri=function (x) {
+        x.odobren=true;
+        $http.put('/api/rekvizit/secured/izmeni', x).success(function (data) {
+            var index = $scope.neoficialni.indexOf(x);
+            $scope.neoficialni.splice(index,1);
+        })
+    }
 }]);
