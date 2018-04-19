@@ -22,13 +22,13 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
 
         })
         .state('rezervacijaDruga',{
-            url:'/rezervacijaDruga',
+            url:'/rezervacijaDruga/:id',
             controller: 'rezervacijaDrugaController',
             templateUrl:'poluPages/rezervacijaDruga.html'
 
         })
         .state('rezervacijaTreca',{
-            url:'/rezervacijaTreca',
+            url:'/rezervacijaTreca/:id',
             controller: 'rezervacijaTrecaController',
             templateUrl:'poluPages/rezervacijaTreca.html'
 
