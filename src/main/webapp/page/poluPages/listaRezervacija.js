@@ -24,11 +24,21 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    //endregion
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
-    //endregion
+    $http.get('/api/karta/rezervacije').success(function (data) {
+        $scope.rezervacije = data;
+    });
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
     }
+    $scope.otkazi = function(id) {
+        $http.put('/api/karta/otkazi/'+id).success(function () {
+            $window.location.reload();
+        })
+
+    }
+
 }]);

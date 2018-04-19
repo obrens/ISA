@@ -38,12 +38,11 @@ ustanoveApp.controller('rezervacijaDrugaController', ['$scope', '$http', '$state
                 value.sediste= value.sediste+" - Rezervisano";
             }
         })
-        console.log($scope.arejDatuma);
     }
     $scope.kompletiraj=function () {
-        sedisteTr=$scope.selectedSediste.sediste;
+        sedisteTr=$scope.selectedSediste;
         $scope.karte.forEach(function (value) {
-            if(value.red===redTr && value.sediste===sedisteTr){
+            if(value.red==redTr && value.sediste==sedisteTr){
                 idTr=value.id;
                 $scope.ide=idTr;
                 $scope.ima=true;

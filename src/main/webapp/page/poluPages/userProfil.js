@@ -37,14 +37,16 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
     $scope.dodajPriku=function (id) {
         $http.put('/api/korisnik/secured/zahtevamPrijatelja/'+id).success(function () {
             alert("Zahtev za prijateljstvo poslat!");
+            $window.location.reload();
         })
-        $window.location.reload();
+
     }
     $scope.obrisiPriku=function (id) {
         $http.delete('/api/korisnik/secured/gubimPrijatelja/'+id).success(function () {
             alert("Prijatelj obrisan iz liste prijatelja");
+            $window.location.reload();
         })
-        $window.location.reload();
+
     }
 
 }]);

@@ -26,7 +26,7 @@ public class KartaController {
 		return ResponseEntity.ok(karteDTO);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/rezervisi/{kartaId}/")
+	@RequestMapping(method = RequestMethod.POST, value = "/rezervisi/{kartaId}")
 	public ResponseEntity rezervisiKartu(@PathVariable("kartaId") Long kartaId) {
 		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		if (kartaService.rezervisiKartu(kartaId, korisnikId)) {
