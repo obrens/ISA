@@ -26,6 +26,9 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state','$windo
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $http.get('/api/korisnik/secured/ja').success(function (data) {
+        $scope.ja = data;
+    });
     $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];

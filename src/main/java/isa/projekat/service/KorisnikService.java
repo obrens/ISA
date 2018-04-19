@@ -45,6 +45,7 @@ public class KorisnikService {
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
+			prijateljDTO.setPrijateljstvoId(prijateljstvo.getId());
 			prijateljDTO.setPrijatelj(true);
 			prijateljDTOs.add(prijateljDTO);
 			ids.add(prijatelj.getId());
@@ -57,6 +58,7 @@ public class KorisnikService {
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
+            prijateljDTO.setPrijateljstvoId(prijateljstvo.getId());
 			prijateljDTO.setPrijatelj(true);
 			prijateljDTOs.add(prijateljDTO);
 			ids.add(prijatelj.getId());
@@ -117,7 +119,13 @@ public class KorisnikService {
 		prijateljstvoRepository.save(prijateljstvo);
 		return prijatelj;
 	}
-	
+
+	@Transactional
+	public void gubimPrijatelja(Long idPrijateljstva) {
+		Prijateljstvo prijateljstvo = prijateljstvoRepository.findOne(idPrijateljstva);
+		prijateljstvoRepository.delete(prijateljstvo);
+	}
+
 	@Transactional
 	public Korisnik prihvatamTePrijateljuOberucke(Long prijateljstvoId) {
 		Prijateljstvo prijateljstvo = prijateljstvoRepository.findOne(prijateljstvoId);

@@ -1,4 +1,4 @@
-ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window', function ($scope,$state,$window) {
+ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
     //region meni
     $scope.toUserProfil = function() {
         $state.go("userProfil");
@@ -21,6 +21,9 @@ ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window',
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $http.get('/api/korisnik/secured/ja').success(function (data) {
+        $scope.ja = data;
+    });
     //endregion
     $scope.firstRate = 0;
 }]);

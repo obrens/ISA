@@ -68,4 +68,9 @@ public class KorisnikController {
 		Korisnik korisnik = korisnikService.prihvatamTePrijateljuOberucke(prijateljstvoId);
 		return ResponseEntity.ok(korisnik);
 	}
+	@RequestMapping(method = RequestMethod.DELETE, value = "/secured/gubimPrijatelja/{prijateljstvoId}")
+	public ResponseEntity gubimPrijatelja(@PathVariable Long prijateljstvoId){
+		korisnikService.gubimPrijatelja(prijateljstvoId);
+		return new ResponseEntity(HttpStatus.OK);
+	}
 }

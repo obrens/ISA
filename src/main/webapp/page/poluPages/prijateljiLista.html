@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs">
-    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">{{ja.ime}}- profil </a></li>
     <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
     <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
     <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
@@ -12,24 +12,26 @@
 <div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
     <div  class="span3">
         <div class="form-group pull-left">
-            <input type="text" class="search form-control" placeholder="Pretražite korisnike">
+            <input type="text" class="search form-control" placeholder="Pretražite korisnike" ng-model="pretraga">
         </div>
         <span class="counter pull-right"></span>
 
         <table data-toggle="table" class="table table-hover table-striped table-bordered results">
             <tr>
-                <th></th>
-                <th> Ime i Prezime </th>
-                <th></th>
+                <th ng-click="orderByMe('prijatelj')" class="btn-link"><i class="fa fa-arrow-circle-o-up"  style="color: #369cda"></i></th>
+                <th ng-click="orderByMe('ime')" class="btn-link"> Ime i Prezime </th>
                 <th></th>
             </tr>
-            <tr>
-                <td align="center"><i class="fa fa-user"  style="color:rgb(10,187,28)"></i></td>
-                <td align="center">Balázs Barta</td>
-                <td align="center"><button class="btn btn-success" type="button" disabled >Dodaj</button></td>
-                <td align="center"><button class="btn btn-danger" type="button" >Obriši</button></td>
+            <tr ng-repeat="prika in prijatelji | orderBy:myOrderBy | filter:pretraga">
+                <td >
+                    <span ng-if="prika.prijatelj==true"><i class="fa fa-user"  style="color:rgb(10,187,28)"></i></span>
+                </td>
+                <td >{{prika.ime}}&nbsp{{prika.prezime}}</td>
+                <td >
+                    <span ng-if="prika.prijatelj==true"><button class="btn btn-danger" type="button" ng-click="obrisiPriku(prika.prijateljstvoId)" >Obriši</button></span>
+                    <span ng-if="prika.prijatelj==false"><button class="btn btn-success" type="button" ng-click="dodajPriku(prika.id)" >Dodaj</button></span>
+                </td>
             </tr>
         </table>
-    {{prijatelji}}
     </div>
 </div>

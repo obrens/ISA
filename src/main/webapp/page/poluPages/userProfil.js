@@ -24,8 +24,27 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $scope.orderByMe = function(x) {
+        $scope.myOrderBy = x;
+    }
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
+    $http.get('/api/korisnik/secured/svi').success(function (data) {
+        $scope.prijatelji = data;
+    });
+
+    $scope.dodajPriku=function (id) {
+        $http.put('/api/korisnik/secured/zahtevamPrijatelja/'+id).success(function () {
+            alert("Zahtev za prijateljstvo poslat!");
+        })
+        $window.location.reload();
+    }
+    $scope.obrisiPriku=function (id) {
+        $http.delete('/api/korisnik/secured/gubimPrijatelja/'+id).success(function () {
+            alert("Prijatelj obrisan iz liste prijatelja");
+        })
+        $window.location.reload();
+    }
 
 }]);

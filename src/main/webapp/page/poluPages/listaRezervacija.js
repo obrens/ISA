@@ -1,4 +1,4 @@
-ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window', function ($scope,$state,$window) {
+ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
     //region meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -24,6 +24,9 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $http.get('/api/korisnik/secured/ja').success(function (data) {
+        $scope.ja = data;
+    });
     //endregion
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
