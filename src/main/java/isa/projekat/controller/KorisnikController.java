@@ -24,7 +24,7 @@ public class KorisnikController {
 	@Autowired
 	KorisnikRepository korisnikRepository;
 	
-	@RequestMapping(method = RequestMethod.POST, value = "/secured/registruj")
+	@RequestMapping(method = RequestMethod.POST, value = "/registruj")
 	public ResponseEntity registruj(@RequestBody KorisnikDTO korisnikDTO){
 		Korisnik korisnik = korisnikService.napraviKorisnika(korisnikDTO);
 		return ResponseEntity.ok(korisnik);
@@ -48,6 +48,15 @@ public class KorisnikController {
 	public ResponseEntity getJa() {
 		Korisnik korisnik = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return ResponseEntity.ok(korisnik);
+	}
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/jaDto")
+	public ResponseEntity getJaDto() {
+		Korisnik korisnik = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		KorisnikDTO korisnikDTO = korisnikService.korisnikDTO(korisnik);
+		if (korisnikDTO != null)
+			return ResponseEntity.ok(korisnikDTO);
+		else
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/zahtevni")
 	public ResponseEntity getZahtevni() {

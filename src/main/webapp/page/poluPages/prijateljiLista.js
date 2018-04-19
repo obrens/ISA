@@ -27,7 +27,7 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
     }
-    $http.get('/api/korisnik/secured/ja').success(function (data) {
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
     $http.get('/api/korisnik/secured/zahtevni').success(function (data) {
@@ -38,7 +38,6 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
         var arrayLength = $scope.prijatelji.length;
         for (var i = 0; i < arrayLength; i++) {
             if ($scope.prijatelji[i].id===$scope.ja.id){
-                console.log($scope.prijatelji[i].id+"aa"+$scope.ja.id)
                 $scope.prijatelji.splice(i,1);
             }
         }

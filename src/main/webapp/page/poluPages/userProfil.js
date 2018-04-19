@@ -27,7 +27,7 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
     }
-    $http.get('/api/korisnik/secured/ja').success(function (data) {
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
     $http.get('/api/korisnik/secured/svi').success(function (data) {
@@ -51,7 +51,7 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
     $scope.azurirajCoveka=function () {
         console.log($scope.ja);
         $http.put('/api/korisnik/secured/izmeni', $scope.ja).success(function (data) {
-            //$window.location.reload();
+            $window.location.reload();
         });
     }
     $scope.rifresuj=function () {
