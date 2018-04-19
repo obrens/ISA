@@ -5,6 +5,7 @@ import isa.projekat.model.Rekvizit;
 import isa.projekat.repository.RekvizitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class RekvizitService {
@@ -29,5 +30,19 @@ public class RekvizitService {
         rekvizit.setAktivanDo(rekvizitDTO.getAktivanDo());
         rekvizit.setKorisnik(rekvizitDTO.getKorisnik());
         return rekvizit;
+    }
+
+    @Transactional
+    public void izmeniRekvizit(RekvizitDTO rekvizitDTO){
+        Rekvizit rekvizit = rekvizitRepository.findOne(rekvizitDTO.getId());
+        rekvizit.setId(rekvizitDTO.getId());
+        rekvizit.setKorisnik(rekvizitDTO.getKorisnik());
+        rekvizit.setAktivanDo(rekvizitDTO.getAktivanDo());
+        rekvizit.setNaziv(rekvizitDTO.getNaziv());
+        rekvizit.setOpis(rekvizitDTO.getOpis());
+        rekvizit.setOdobren(rekvizitDTO.isOdobren());
+        rekvizit.setOficijalni(rekvizitDTO.isOficijalni());
+        rekvizit.setSlika(rekvizitDTO.getSlika());
+        rekvizitRepository.save(rekvizit);
     }
 }
