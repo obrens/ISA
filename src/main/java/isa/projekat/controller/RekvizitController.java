@@ -2,6 +2,7 @@ package isa.projekat.controller;
 
 
 import isa.projekat.model.DTO.RekvizitDTO;
+import isa.projekat.model.Rekvizit;
 import isa.projekat.repository.RekvizitRepository;
 import isa.projekat.service.RekvizitService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ public class RekvizitController {
     public ResponseEntity getSveRekvizite() {
         return new ResponseEntity<>(rekvizitRepository.findAll(), HttpStatus.OK);
     }
+
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity getRekvizit(@PathVariable Long id) {
         RekvizitDTO rekvizitDTO = rekvizitService.rekvizitZaSlanje(rekvizitRepository.findById(id));
@@ -31,9 +33,19 @@ public class RekvizitController {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
-    @RequestMapping(method = RequestMethod.PUT,value = "/secured/izmeni")
+    @RequestMapping(method = RequestMethod.PUT, value = "/secured/izmeni")
     public ResponseEntity izmeniRekvizit(@RequestBody RekvizitDTO rekvizitDTO) {
         rekvizitService.izmeniRekvizit(rekvizitDTO);
         return ResponseEntity.ok(rekvizitDTO);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/dodaj")
+    public ResponseEntity dodajRekvizit(@RequestBody RekvizitDTO rekvizitDTO) {
+        Rekvizit rekvizit = rekvizitService.napraviRekvizit(rekvizitDTO);
+        if (rekvizit != null) {
+            return ResponseEntity.ok(rekvizit);
+        } else {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

@@ -45,4 +45,18 @@ public class RekvizitService {
         rekvizit.setSlika(rekvizitDTO.getSlika());
         rekvizitRepository.save(rekvizit);
     }
+
+    public Rekvizit napraviRekvizit(RekvizitDTO rekvizitDTO){
+        Rekvizit rekvizit = new Rekvizit();
+        rekvizit.setId(rekvizitDTO.getId());
+        rekvizit.setKorisnik(rekvizitDTO.getKorisnik());
+        rekvizit.setAktivanDo(rekvizitDTO.getAktivanDo());
+        rekvizit.setNaziv(rekvizitDTO.getNaziv());
+        rekvizit.setOpis(rekvizitDTO.getOpis());
+        rekvizit.setOdobren(rekvizitDTO.isOdobren());
+        rekvizit.setOficijalni(rekvizitDTO.isOficijalni());
+        rekvizit.setSlika(rekvizitDTO.getSlika());
+        rekvizitRepository.save(rekvizit);
+        return rekvizit;
+    }
 }

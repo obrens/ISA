@@ -1,4 +1,6 @@
-ustanoveApp.controller('noviOglasController', ['$scope', '$state', function ($scope, $state) {
+ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state, $window) {
+    $scope.rekvizit={}
+    $scope.image={}
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -16,5 +18,25 @@ ustanoveApp.controller('noviOglasController', ['$scope', '$state', function ($sc
     }
     $scope.toFanzona = function() {
         $state.go("fanzona");
+    }
+    $scope.logout = function() {
+        $window.location.href = '/logout';
+    }
+    $http.get('/api/korisnik/secured/ja').success(function (data) {
+        $scope.ja = data;
+    });
+
+    $scope.napraviRekvizit=function () {
+        $scope.rekvizit.oficijalni=false;
+        $scope.rekvizit.odobren=false;
+        $scope.rekvizit.korisnik=$scope.ja;
+        $scope.rekvizit.slika=$scope.image.src;
+        $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
+            console.log('Rekvizit uspeho dodat'+$scope.image.src);
+            alert('Rekvizit uspešno dodat');
+            //$scope.cancel();
+        }).error(function () {
+            alert('Greška pri dodavanju rekvizita');
+        })
     }
 }]);
