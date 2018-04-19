@@ -14,7 +14,7 @@
         <input type="text"  placeholder={{ja.ime}} style="margin-top:10px;" ng-model="ja.ime">Ime
         <input type="text" placeholder={{ja.prezime}} style="margin-top:10px;"ng-model="ja.prezime">Prezime
         <input type="text" placeholder={{ja.grad}} style="margin-top:10px;"ng-model="ja.grad">Grad
-        <input type="tel"  placeholder={{ja.brojTelefona}} maxlength="30" pattern="^[0-9\+]{6,30}$" style="margin-top:10px;background-color:rgb(255,255,255);"ng-model="ja.brojTelefona">Telefon
+        <input type="number"  placeholder={{ja.brojTelefona}} maxlength="9" style="margin-top:10px;background-color:rgb(255,255,255);"ng-model="ja.brojTelefona">Telefon
         <div class="row" style="margin-top:10px;">
             <div class="col"><button class="btn btn-primary" type="button" ng-click="azurirajCoveka()">Izmeni</button></div>
             <div class="col"><button class="btn btn-primary" type="button" ng-click="rifresuj()">Odustani</button></div>

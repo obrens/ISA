@@ -25,7 +25,7 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window
         $window.location.href = '/logout';
     };
     //endregion
-    $http.get('/api/korisnik/secured/ja').success(function (data) {
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
     $http.get('/api/karta/rezervacije').success(function (data) {

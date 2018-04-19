@@ -22,7 +22,7 @@ ustanoveApp.controller('istorijaPosetaController', ['$scope','$state','$window',
         $window.location.href = '/logout';
     };
     //endregion
-    $http.get('/api/korisnik/secured/ja').success(function (data) {
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
     $scope.orderByMe = function(x) {

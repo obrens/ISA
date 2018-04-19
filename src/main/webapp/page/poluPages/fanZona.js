@@ -23,7 +23,7 @@ ustanoveApp.controller('fController', ['$scope', '$http', '$state','$window', fu
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
-    $http.get('/api/korisnik/secured/ja').success(function (data) {
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
     $http.get('/api/rekvizit/svi').success(function (data) {
