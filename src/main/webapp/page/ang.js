@@ -16,7 +16,7 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
 
         })
         .state('rezervacijaPrva',{
-            url:'/rezervacijaPrva/:d',
+            url:'/rezervacijaPrva/:id',
             controller: 'rezervacijaPrvaController',
             templateUrl:'poluPages/rezervacijaPrva.html'
 
@@ -107,6 +107,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             url:'/noviRekvizit',
             controller: 'noviRekvizitOglasaController',
             templateUrl: 'poluPages/noviRekvizit.html'
+        })
+        .state('promeniUlogu',{
+            url:'/promeniUlogu',
+            controller: 'promeniUloguController',
+            templateUrl: 'poluPages/promeniUlogu.html'
         })
         .state('azuriranjeProfila',{
             url:'/azuriranje',
