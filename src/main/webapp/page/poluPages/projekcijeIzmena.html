@@ -1,2 +1,40 @@
-projekcijee
-izmenaa
+<ul class="nav nav-tabs">
+	<li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
+	<li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
+	<li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
+	<li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
+	<li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
+	<li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
+	<li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
+
+</ul>
+<div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
+	<div  class="span3">
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+				<tr></tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>Delo</td>
+					<td>Datum</td>
+					<td>Vreme</td>
+					<td>Sala</td>
+					<td>Cena</td>
+				</tr>
+				<tr ng-repeat="projekcija in projekcije">
+					<td>{{projekcija.nazivDela}}</td>
+					<td>{{projekcija.datum|date}}</td>
+					<td>{{projekcija.vreme}}</td>
+					<td>{{projekcija.nazivSale}}</td>
+					<td>{{projekcija.cena}}</td>
+				</tr>
+				<tr>
+					<td><button class="btn btn-primary" type="button" ng-click="dodaj()">Dodaj</button></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

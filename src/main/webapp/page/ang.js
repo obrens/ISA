@@ -159,6 +159,11 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'projekcijeIzmenaController',
             templateUrl: 'poluPages/projekcijeIzmena.html'
         })
+        .state('novaProjekcija',{
+            url:'/novaProjekcija/:id',
+            controller: 'novaProjekcijaController',
+            templateUrl: 'poluPages/novaProjekcija.html'
+        })
         .state('sale',{
             url:'/sale/:idUstanove',
             controller: 'saleController',

@@ -23,14 +23,9 @@ ustanoveApp.controller('projekcijeIzmenaController', ['$scope', '$http','$state'
     };
     //endregion
 
-    /*$http.get("/api/karta/secured/dostupniPopusti/" + $stateParams.idUstanove).success(function (data) {
-        $scope.popusti = data;
-    });
+    $http.get('/api/projekcija/secured/projekcijeUstanove/' + $stateParams.idUstanove)
 
-    $scope.obrisiPopust = function (id) {
-        $http.delete("/api/karta/secured/obrisiPopust/" + id).success(function (){
-            //$state.go("karteNaPopustuIzmena", {idUstanove: $stateParams.idUstanove});
-            $window.location.reload();
-        });
-    };*/
+    $scope.dodaj = function () {
+        $state.go('novaProjekcija', {id: $stateParams.idUstanove});
+    };
 }]);
