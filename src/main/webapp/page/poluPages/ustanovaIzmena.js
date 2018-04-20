@@ -35,7 +35,7 @@ ustanoveApp.controller('ustanovaIzmenaController', ['$scope', '$http', '$state',
         $state.go("sale", {idUstanove: $scope.ustanova.id});
     };
 
-    $http.get('/api/ustanova/' + $stateParams.id).success(function (data) {
+    $http.get('/api/ustanova/secured/moja').success(function (data) {
         $scope.ustanova = data;
     });
 

@@ -124,7 +124,7 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             templateUrl: 'poluPages/noviOglas.html'
         })
         .state('ustanovaIzmena',{
-            url:'/ustanovaIzmena/:id',
+            url:'/ustanovaIzmena',
             controller: 'ustanovaIzmenaController',
             templateUrl: 'poluPages/ustanovaIzmena.html'
         })

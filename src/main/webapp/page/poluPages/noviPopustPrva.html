@@ -34,12 +34,6 @@
 				<div class="col"><select class="form-control" ng-options="sala for sala in arejSala " ng-model="selectedSala" ng-change="kompletiraj()"></select></div>
 			</div>
 			<div class="form-row">
-				<div class="col">
-					<h4>Cena:</h4>
-				</div>
-				<div class="col"><span ng-if="ima==true">&nbsp{{cenaTr}}&nbsp novih dinara</span></div>
-			</div>
-			<div class="form-row">
 				<div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
 				<div class="col">
 					<span ng-if="ima==true"><button ng-click="toRez2(ide)" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>

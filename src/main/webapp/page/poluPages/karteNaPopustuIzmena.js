@@ -33,4 +33,8 @@ ustanoveApp.controller('karteNaPopustuIzmenaController', ['$scope', '$http','$st
             $window.location.reload();
         });
     };
+
+    $scope.dodajPopust = function () {
+        $state.go('noviPopustPrva', {id: $stateParams.idUstanove});
+    };
 }]);

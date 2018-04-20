@@ -5,10 +5,7 @@ import isa.projekat.service.SalaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +20,19 @@ public class SalaController {
 	public ResponseEntity saleUstanove(@PathVariable Long idUstanove){
 		List<Sala> sale = salaService.saleUstanove(idUstanove);
 		return ResponseEntity.ok(sale);
+	}
+	
+	@PreAuthorize("hasAnyRole('Administrator ustanove')")
+	@RequestMapping(method = RequestMethod.PUT, value = "/secured/promeni")
+	public ResponseEntity promeni(@RequestBody Sala sala){
+		salaService.promeni(sala);
+		return ResponseEntity.ok(sala);
+	}
+	
+	@PreAuthorize("hasAnyRole('Administrator ustanove')")
+	@RequestMapping(method = RequestMethod.POST, value = "/secured/dodaj/{idUstanove}")
+	public ResponseEntity dodaj(@PathVariable Long idUstanove, @RequestBody Sala sala){
+		salaService.dodaj(sala, idUstanove);
+		return ResponseEntity.ok(sala);
 	}
 }
