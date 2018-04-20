@@ -1,5 +1,6 @@
 ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
-     //region Meni
+    $scope.jesamAdmin = false;
+    //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -31,6 +32,9 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
     $scope.toUstanova = function(id) {
         $state.go("ustanova", {id: id});
     };
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
 
     $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
@@ -44,6 +48,18 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
     $scope.toRezervacija=function (id) {
         $state.go("rezervacijaPrva", {id: id});
     }
+
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+
+    })
 }]);
 
 

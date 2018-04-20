@@ -81,6 +81,7 @@ ustanoveApp.controller('promeniUloguController', ['$scope', '$http', '$state', '
             data1.uloge.push($scope.izabranaUloga);
             $http.put('/api/korisnik/secured/izmeni', data1).success(function (data5) {
                 alert('Uloga uspešno promenjena');
+                $state.go("sistemStranica");
             })
         })
     }

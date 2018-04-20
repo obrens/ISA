@@ -1,4 +1,5 @@
 ustanoveApp.controller('pozoristaListaController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
+    $scope.jesamAdmin = false;
     //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
@@ -31,6 +32,9 @@ ustanoveApp.controller('pozoristaListaController', ['$scope', '$http', '$state',
     $scope.toUstanova = function(id) {
         $state.go("ustanova", {id: id});
     };
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
 
     $scope.toRegister = function() {
         $state.go("register");
@@ -47,6 +51,18 @@ ustanoveApp.controller('pozoristaListaController', ['$scope', '$http', '$state',
     $scope.toRezervacija=function (id) {
         $state.go("rezervacijaPrva", {id: id});
     }
+
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+
+    })
 }]);
 
 

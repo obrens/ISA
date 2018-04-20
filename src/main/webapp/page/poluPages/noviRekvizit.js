@@ -33,6 +33,7 @@ ustanoveApp.controller('noviRekvizitOglasaController', ['$scope', '$http', '$sta
         $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
             console.log('Rekvizit uspeho dodat'+$scope.rekvizit.korisnik.ime);
             alert('Rekvizit uspešno dodat');
+            $state.go("fanAdmin");
             $scope.toFanzona();
         }).error(function () {
             alert('Greška pri dodavanju rekvizita');

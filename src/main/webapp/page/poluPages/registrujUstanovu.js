@@ -50,6 +50,7 @@ ustanoveApp.controller('registrujUstanovuController', ['$scope', '$http', '$stat
                 //alert('Ustanova uspešno dodata');
                 $http.put('/api/korisnik/secured/izmeni', data1).success(function (data5) {
                     alert('Ustanova uspešno dodata');
+                    $state.go("sistemStranica");
                 })
             }).error(function () {
                 alert('Greška pri dodavanju ustanove');

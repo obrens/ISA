@@ -1,5 +1,5 @@
 ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
-
+    $scope.jesamAdmin = false;
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -29,6 +29,9 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
     };
     $scope.orderByMe = function(x) {
         $scope.myOrderBy = x;
+    }
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
     }
     $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
@@ -64,4 +67,15 @@ ustanoveApp.controller('prijateljiListaController', ['$scope','$state','$window'
         })
         $window.location.reload();
     }
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+
+    })
 }]);

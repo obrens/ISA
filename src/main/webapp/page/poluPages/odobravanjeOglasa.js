@@ -29,7 +29,7 @@ ustanoveApp.controller('odobravanjeOglasaController', ['$scope', '$http', '$stat
     $scope.toOdobri = function(id) {
         $state.go("odobriOglas", {id: id});
     }
-    $http.get('/api/rekvizit/secured/svi').success(function (data) {
+    $http.get('/api/rekvizit/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];
         $scope.neoficialni=[];

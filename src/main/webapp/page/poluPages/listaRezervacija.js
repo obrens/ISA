@@ -1,5 +1,6 @@
 ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window','$http', function ($scope,$state,$window,$http) {
     //region meni
+    $scope.jesamAdmin = false;
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -24,6 +25,12 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window
     $scope.toFanzona = function() {
         $state.go("fanzona");
     }
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
@@ -31,6 +38,19 @@ ustanoveApp.controller('listaRezervacijaController', ['$scope','$state','$window
     $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });
+
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+    })
+
+
     $http.get('/api/karta/rezervacije').success(function (data) {
         $scope.rezervacije = data;
     });

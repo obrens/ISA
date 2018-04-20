@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<ul class="nav nav-tabs">
+    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">{{ja.ime}}- profil </a></li>
+    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
+    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
+    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
+    <li class="nav-item"><a ng-click="toPozoristaLista()"  class="btn">Pozorišta</a></li>
+    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
+    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
+    <li class="nav-item" style="color: #bd2130;"><a ng-click="logout()"  class="btn">Izloguj se</a></li>
+</ul>
+<div class="d-flex flex-column justify-content-center align-items-center" style="padding:100px;">
+    <form style="padding:0px;margin:0px;"><label class="d-flex flex-row justify-content-center"
+                                                 style="padding:0px;font-size:20px;">Opcije Fan zona administratora</label>
 
-</body>
-</html>
+        <label>Izmeni ulogu korisniku</label>
+        <button ng-click="toPromeni()" class="btn btn-primary btn-block" style="background-color:rgb(244,133,71);">Oglasi za odobravanje</button>
+        <label>Registruj ustanovu</label>
+        <button ng-click="toRegistruj()" class="btn btn-primary btn-block" style="background-color:rgb(244,133,71);">Dodaj rekvizit</button>
+    </form>
+</div>
