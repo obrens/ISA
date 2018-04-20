@@ -6,9 +6,11 @@ import isa.projekat.model.DTO.UstanovaDTO;
 import isa.projekat.model.Korisnik;
 import isa.projekat.repository.KorisnikRepository;
 import isa.projekat.service.KorisnikService;
+import isa.projekat.service.NotificationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.MailException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -23,10 +25,18 @@ public class KorisnikController {
 
 	@Autowired
 	KorisnikRepository korisnikRepository;
-	
+
+	@Autowired
+	NotificationService notificationService;
+
 	@RequestMapping(method = RequestMethod.POST, value = "/registruj")
 	public ResponseEntity registruj(@RequestBody KorisnikDTO korisnikDTO){
 		Korisnik korisnik = korisnikService.napraviKorisnika(korisnikDTO);
+		try {
+			notificationService.sendNotification(korisnik);
+		}catch (MailException e ){
+			System.out.println("greska: "+e);
+		}
 		return ResponseEntity.ok(korisnik);
 	}
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
