@@ -26,4 +26,10 @@ ustanoveApp.controller('ustanovaController', ['$scope', '$http', '$state', '$sta
     $http.get('/api/ustanova/' + $stateParams.id).success(function (data) {
         $scope.ustanova = data;
     });
+    $scope.toPrvaRez=function (id) {
+        $state.go("rezervacijaPrva", {id: id});
+    }
+    $scope.toBrzaRez=function (id) {
+        $state.go("brzaRezervacija", {idUstanove: id});
+    }
 }]);

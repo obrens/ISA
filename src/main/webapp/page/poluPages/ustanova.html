@@ -8,30 +8,17 @@
     <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
 
 </ul>
-<div class="d-flex flex-row justify-content-around" style="padding-top:30px;background-color:rgb(241,247,252);">
-    <div  class="span3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col">
-                            <h1>{{ustanova.naziv}}</h1>
-                        </div>
-                        <div class="col">
-                            <p>prosečna ocena {{ustanova.ocena}}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>{{ustanova.opis}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="intro">
-                        <p class="text-center">{{ustanova.adresa}}</p>
-                    </div><iframe allowfullscreen="" frameborder="0" width="100%" height="450" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaEw6o8OhJvRQnTF3gI_tibMejtfasOlY&amp;q=Paris%2C+France&amp;zoom=15"></iframe></div>
-            </div>
+<div class="d-flex flex-row " style="padding-top:30px;background-color:rgb(241,247,252);">
+    <div class="col-6 d-flex flex-column ">
+        <p style="margin-top:10px;">Naziv Ustanove - {{ustanova.naziv}}
+        <p style="margin-top:10px;">Prosečna ocena ustanove - {{ustanova.ocena}}
+        <p style="margin-top:10px;">Opis ustanove - {{ustanova.opis}}
+        <p style="margin-top:10px;margin-bottom: 40px;">Adresa ustanove - {{ustanova.adresa}}
+    </div>
+    <div class="col-6 d-flex flex-column">
+            <div class="col"><button class="btn btn-primary" type="button" ng-click="toPrvaRez(ustanova.id)">Rezerviši karte</button></div>
+            <div class="col"><button class="btn btn-primary" type="button" ng-click="toBrzaRez(ustanova.id)">Brze rezervacije</button></div>
         </div>
     </div>
-</div>
+</div><iframe allowfullscreen="" frameborder="0" width="100%" height="450" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaEw6o8OhJvRQnTF3gI_tibMejtfasOlY&amp;q=Paris%2C+France&amp;zoom=15"></iframe></div>
+
