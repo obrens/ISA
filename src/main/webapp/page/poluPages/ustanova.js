@@ -29,6 +29,16 @@ ustanoveApp.controller('ustanovaController', ['$scope', '$http', '$state', '$sta
                     console.log("Ne moze se pronaci lokacija");
                 }
             });
+        $http.get('/api/korisnik/secured/jaDto').success(function (data) {
+            $scope.ja = data;
+            $scope.nekoJe = true;
+            console.log($scope.ja.grad);
+            console.log($scope.ustanova.adresa)
+            $http.get('https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC0kCWQwk3j56sFoNrh2Cb35l6u1xKJ6e0').success(function (denda) {
+                $scope.odgovor=denda;
+                console.log($scope.odgovor);
+            })
+        });
     });
 
     $scope.toPrvaRez = function (id) {
