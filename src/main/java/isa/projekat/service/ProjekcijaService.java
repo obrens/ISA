@@ -11,6 +11,8 @@ import isa.projekat.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Time;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +66,8 @@ public class ProjekcijaService {
 		projekcija.setDelo(delo);
 		projekcija.setSala(salaRepository.findOne(novaProjekcijaDTO.getIdSale()));
 		projekcija.setDatum(novaProjekcijaDTO.getDatum());
-		projekcija.setVreme(novaProjekcijaDTO.getVreme());
+		//projekcija.setVreme(novaProjekcijaDTO.getVreme());
+		projekcija.setVreme(new Time(0));
 		Float cena = novaProjekcijaDTO.getCena();
 		if (cena == null || cena == 0) {
 			projekcija.setCena(delo.getCena());

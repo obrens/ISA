@@ -1,0 +1,49 @@
+<div class="register-photo" style="background-color:rgb(255,255,255);">
+	<div class="form-container">
+		<form method="post" style="background-color:rgb(241,247,252);">
+			<h1 class="text-center" style="height:70px;">Projekcija</h1>
+			<div class="form-row">
+				<div class="col">
+					<h4>Delo</h4>
+				</div>
+				<div class="col">
+					<select class="form-control" ng-options="delo.id as delo.naziv for delo in dela" ng-model="dto.idDela"></select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Sala</h4>
+				</div>
+				<div class="col">
+					<select class="form-control" ng-options="sala.id as sala.nazivSale for sala in sale" ng-model="dto.idSale"></select>
+				</div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Datum</h4>
+				</div>
+				<div class="col"><input type="date" ng-model="dto.datum"></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Vreme</h4>
+				</div>
+				<div class="col"><input type="time"> <!--ng-model="dto.vreme"--></div>
+			</div>
+			<div class="form-row">
+				<div class="col">
+					<h4>Cena</h4>
+				</div>
+				<div class="col"><input type="number" ng-model="dto.cena"></div>
+			</div>
+			<div class="form-row">
+				<div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>
+				<div class="col">
+					<span ng-if="ima==true"><button ng-click="napravi()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+					<span ng-if="ima==false"><button ng-click="napravi()" class="btn btn-primary btn-block" disabled type="submit" style="background-color:rgb(244,133,71);">Dalje</button></span>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</div>

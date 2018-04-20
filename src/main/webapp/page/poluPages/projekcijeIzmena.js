@@ -23,7 +23,9 @@ ustanoveApp.controller('projekcijeIzmenaController', ['$scope', '$http','$state'
     };
     //endregion
 
-    $http.get('/api/projekcija/secured/projekcijeUstanove/' + $stateParams.idUstanove)
+    $http.get('/api/projekcija/secured/projekcijeUstanove/' + $stateParams.idUstanove).success(function (data) {
+        $scope.projekcije = data;
+    })
 
     $scope.dodaj = function () {
         $state.go('novaProjekcija', {id: $stateParams.idUstanove});

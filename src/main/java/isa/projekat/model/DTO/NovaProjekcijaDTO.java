@@ -7,7 +7,7 @@ public class NovaProjekcijaDTO {
 	private Long idDela;
 	private Long idSale;
 	private Date datum;
-	private Time vreme;
+	//private Time vreme;
 	private Float cena;
 	
 	public Long getIdDela() {
@@ -34,13 +34,13 @@ public class NovaProjekcijaDTO {
 		this.datum = datum;
 	}
 	
-	public Time getVreme() {
+	/*public Time getVreme() {
 		return vreme;
 	}
 	
 	public void setVreme(Time vreme) {
 		this.vreme = vreme;
-	}
+	}*/
 	
 	public Float getCena() {
 		return cena;
