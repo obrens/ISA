@@ -41,6 +41,9 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
     $scope.logout = function() {
         $window.location.href = '/logout';
     };
+    $scope.toRezervacija=function (id) {
+        $state.go("rezervacijaPrva", {id: id});
+    }
 }]);
 
 

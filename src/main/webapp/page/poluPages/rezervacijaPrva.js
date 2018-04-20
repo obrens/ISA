@@ -1,4 +1,4 @@
-ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', function ($scope,$state,$http) {
+ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http','$stateParams', function ($scope,$state,$http,$stateParams) {
     $scope.arejNaziva=[];
     $scope.arejDatuma=[];
     $scope.arejVremena=[];
@@ -9,8 +9,16 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http', 
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
+
     $http.get('/api/ustanova/secured/bioskopi').success(function (data) {
         $scope.bioskopi = data;
+        $scope.bioskopi.forEach(function (value) {
+            if ($stateParams.id==value.id){
+                console.log(value);
+                $scope.selectedUstanova=value;
+                $scope.nadjiProjekcije();
+            }
+        })
     });
     $scope.nadjiProjekcije=function () {
         $scope.arejNaziva=[];

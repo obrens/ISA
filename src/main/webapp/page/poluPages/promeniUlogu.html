@@ -13,10 +13,10 @@
                                                  style="padding:0px;font-size:20px;">Menjaj ulogu korisnika</label>
 
         <label>Korisnik:</label>
-        <select class="form-control" ng-model="izabranKorisnik" ng-options="korisnik.ime+' '+ korisnik.prezime for korisnik in korisnici" >
+        <select class="form-control" ng-model="izabranKorisnik" ng-options="korisnik.ime+' '+ korisnik.prezime for korisnik in korisnici" ng-change="nadjiUloge()" >
         </select>
         <label>Uloga korisnika:</label>
-        <select class="form-control" ng-model="izabranaUloga" ng-options="uloga.naziv for uloga in ulogeKojeNema" >
+        <select class="form-control" ng-model="izabranaUloga" ng-options="uloga.naziv for uloga in uloge" >
         </select>
         <button ng-click="izmeni()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Izmeni</button>
     </form>
