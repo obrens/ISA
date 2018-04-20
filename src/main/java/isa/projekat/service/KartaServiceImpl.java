@@ -235,22 +235,22 @@ public class KartaServiceImpl implements KartaService {
 	}
 	
 	//endregion
-
-		@Override
-		@Transactional
-		public void oceniProjekciju(RezervacijaDTO rezervacijaDTO) {
-			Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
-			karta.setOcenaProjekcije(rezervacijaDTO.getOcenaProjekcije());
-
-			kartaRepository.save(karta);
-		}
-
-		@Override
-		@Transactional
-		public void oceniAmbijent(RezervacijaDTO rezervacijaDTO) {
-			Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
-			karta.setOcenaAmbijenta(rezervacijaDTO.getOcenaAmbijenta());
-
-			kartaRepository.save(karta);
-		}
+	
+	@Override
+	@Transactional
+	public void oceniProjekciju(RezervacijaDTO rezervacijaDTO) {
+		Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
+		karta.setOcenaProjekcije(rezervacijaDTO.getOcenaProjekcije());
+		
+		kartaRepository.save(karta);
+	}
+	
+	@Override
+	@Transactional
+	public void oceniAmbijent(RezervacijaDTO rezervacijaDTO) {
+		Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
+		karta.setOcenaAmbijenta(rezervacijaDTO.getOcenaAmbijenta());
+		
+		kartaRepository.save(karta);
+	}
 }

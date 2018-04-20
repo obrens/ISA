@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -55,7 +54,7 @@ public class UstanovaServiceTest {
 	}
 	
 	@Test
-	public void test() {
+	public void testVezaSaBazom() {
 		when(ustanovaRepository.findAll()).thenReturn(ustanove);
 		/*List<Ustanova> ustanovije = new ArrayList<>();
 		ustanovije.add(ustanove.get(0));
@@ -64,4 +63,28 @@ public class UstanovaServiceTest {
 		verify(ustanovaRepository).findAll();
 		//verify(ustanovaRepository).findOne((long) 3);
 	}
+	
+	@Test
+	public void testBioskopi() {
+		when(ustanovaRepository.findAll()).thenReturn(ustanove);
+		List<Ustanova> ustanovije = new ArrayList<>();
+		ustanovije.add(ustanove.get(0));
+		assertArrayEquals(ustanovije.toArray(), ustanovaService.bioskopi().toArray());
+		verify(ustanovaRepository).findAll();
+	}
+	
+	@Test
+	public void testPozorista() {
+		when(ustanovaRepository.findAll()).thenReturn(ustanove);
+		List<Ustanova> ustanovije = new ArrayList<>();
+		ustanovije.add(ustanove.get(1));
+		assertArrayEquals(ustanovije.toArray(), ustanovaService.pozorista().toArray());
+		verify(ustanovaRepository).findAll();
+	}
+	
+	/*@Test
+	public void testUstanovaZaSlanje(){
+		Ustanova ustanova = ustanove.get(0);
+		assertEquals(ustanova.getNaziv(), ustanovaService.ustanovaZaSlanje(ustanova).getNaziv());
+	}*/
 }
