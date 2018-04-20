@@ -124,6 +124,16 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
             controller: 'azuriranjeProfilaController',
             templateUrl: 'poluPages/azuriranjeProfila.html'
         })
+        .state('sistemStranica',{
+            url:'/sistemStranica',
+            controller: 'sistemStranicaController',
+            templateUrl: 'poluPages/sistemStranica.html'
+        })
+        .state('fanAdmin',{
+            url:'/fanAdmin',
+            controller: 'fanAdminController',
+            templateUrl: 'poluPages/fanAdmin.html'
+        })
         .state('noviOglas',{
             url:'/noviOglas',
             controller: 'noviOglasController',
