@@ -23,6 +23,11 @@ public class UstanovaController {
 	@Autowired
 	UstanovaService ustanovaService;
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/svi")
+	public ResponseEntity getSve() {
+		return new ResponseEntity<>(ustanovaService.svi(), HttpStatus.OK);    // Ovo je valjda...
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/bioskopi")
 	public ResponseEntity getSveBioskope() {
 		return new ResponseEntity<>(ustanovaService.bioskopi(), HttpStatus.OK);    // Ovo je valjda...
@@ -31,6 +36,15 @@ public class UstanovaController {
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/pozorista")
 	public ResponseEntity getSvePozoriste() {
 		return new ResponseEntity<>(ustanovaService.pozorista(), HttpStatus.OK);    // Ovo je valjda...
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	public ResponseEntity jednaUstanova(@PathVariable Long id) {
+		UstanovaDTO ustanovaDTO = ustanovaService.ustanovaZaSlanje(ustanovaRepository.findOne(id));
+		if (ustanovaDTO != null)
+			return ResponseEntity.ok(ustanovaDTO);
+		else
+			return new ResponseEntity(HttpStatus.NO_CONTENT);
 	}
 	
 	@PreAuthorize("hasAnyRole('Administrator ustanove')")

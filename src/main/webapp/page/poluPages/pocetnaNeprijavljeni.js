@@ -15,6 +15,9 @@ ustanoveApp.controller('pocetnaNeprijavljeniController', ['$scope','$state', fun
     $scope.toBioskopiLista = function() {
         $state.go("bioskopiLista");
     }
+    $scope.toPozoristaLista = function() {
+        $state.go("pozoristaLista");
+    }
     $scope.toPrijateljiLista = function() {
         $state.go("prijateljiLista");
     }

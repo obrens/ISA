@@ -10,7 +10,7 @@ ustanoveApp.controller('rezervacijaPrvaController', ['$scope','$state','$http','
         $state.go("userProfil");
     }
 
-    $http.get('/api/ustanova/secured/bioskopi').success(function (data) {
+    $http.get('/api/ustanova/secured/svi').success(function (data) {
         $scope.bioskopi = data;
         $scope.bioskopi.forEach(function (value) {
             if ($stateParams.id==value.id){

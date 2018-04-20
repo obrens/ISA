@@ -110,4 +110,9 @@ public class UstanovaService {
 		
 		return pozorista;
 	}
+	
+	public List<Ustanova> svi() {
+		List<Ustanova> ustanove = ustanovaRepository.findAll();
+		return ustanove;
+	}
 }
