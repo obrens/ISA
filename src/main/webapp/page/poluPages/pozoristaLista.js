@@ -52,6 +52,7 @@ ustanoveApp.controller('pozoristaListaController', ['$scope', '$http', '$state',
         $state.go("rezervacijaPrva", {id: id});
     }
 
+    $scope.adminu = false;
     $http.get('/api/tip/1').success(function (data2) {
         $scope.uloga = data2;
         $scope.ja.uloge.forEach(function (value) {
@@ -60,9 +61,16 @@ ustanoveApp.controller('pozoristaListaController', ['$scope', '$http', '$state',
                 $scope.jesamAdmin = true;
             } else
                 console.log("nema")
+            if (value.naziv == "Administrator ustanove"){
+                $scope.adminu = true;
+            }
         })
 
     })
+
+    $scope.mojaUstanova = function () {
+        $state.go('ustanovaIzmena');
+    }
 }]);
 
 

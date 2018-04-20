@@ -15,6 +15,7 @@
 			<input type="text" class="search form-control" placeholder="Pretražite pozorišta" ng-model="pretraga">
 		</div>
 		<span class="counter pull-right"></span>
+		<span ng-if="adminu"><button ng-click="mojaUstanova()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Moja ustanova</button></span>
 
 		<table data-toggle="table" class="table table-hover table-striped table-bordered results" >
 			<tr>
