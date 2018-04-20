@@ -45,7 +45,8 @@ public class KorisnikController {
 		System.out.println("sad: "+mejlovi);
 		mejlovi = mejlovi.replace("[", "");
 		mejlovi = mejlovi.replace("]", "");
-		//mejlovi = mejlovi.replace("\"", "");
+		mejlovi = mejlovi.replace("\"", "");
+		mejlovi="\""+mejlovi+"\"";
 		System.out.println("aj sad: "+mejlovi);
 		try {
 			notificationService.inviteDrugove(mejlovi);

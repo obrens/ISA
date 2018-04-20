@@ -31,6 +31,7 @@ public class NotificationService {
 
         SimpleMailMessage mail=new SimpleMailMessage();
         mail.setTo(mejlovi);
+
         mail.setSubject("Pozivnica");
         mail.setText("Ima dobar film!");
 
