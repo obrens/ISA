@@ -35,7 +35,7 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
-    $http.get('/api/rekvizit/svi').success(function (data) {
+    $http.get('/api/rekvizit/secured/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];
         $scope.neoficialni=[];

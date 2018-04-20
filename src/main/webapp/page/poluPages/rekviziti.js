@@ -29,7 +29,7 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state','$windo
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
-    $http.get('/api/rekvizit/svi').success(function (data) {
+    $http.get('/api/rekvizit/secured/svi').success(function (data) {
         $scope.rekviziti = data;
         $scope.oficialni=[];
         $scope.neoficialni=[];
@@ -42,7 +42,7 @@ ustanoveApp.controller('fanzonaController', ['$scope', '$http', '$state','$windo
     });
     $scope.rezervisi = function (x) {
         $http.delete('/api/rekvizit/izbrisi/' + x).success(function (data) {
-            $http.get('/api/rekvizit/svi').success(function (data) {
+            $http.get('/api/rekvizit/secured/svi').success(function (data) {
                 $scope.rekviziti = data;
                 $scope.oficialni=[];
                 $scope.neoficialni=[];
