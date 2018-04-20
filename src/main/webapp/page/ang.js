@@ -16,7 +16,7 @@ ustanoveApp.config(['$urlRouterProvider','$stateProvider',function($urlRouterPro
 
         })
         .state('rezervacijaPrva',{
-            url:'/rezervacijaPrva',
+            url:'/rezervacijaPrva/:d',
             controller: 'rezervacijaPrvaController',
             templateUrl:'poluPages/rezervacijaPrva.html'
 
