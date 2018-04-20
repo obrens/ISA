@@ -23,10 +23,10 @@
                 <th ng-click="orderByMe('udaljenost')" class="btn-link"> Udaljenost </th>
             </tr>
             <tr ng-repeat="bioskop in bioskopi | orderBy:myOrderBy | filter:pretraga">
-                <td><a ng-click="toUstanova(bioskop.id)" class="btn-link">{{bioskop.naziv}}</a></td>
+                <td ng-click="toUstanova(bioskop.id)" class="btn-link" >{{bioskop.naziv}}</td>
                 <td>{{bioskop.adresa}}</td>
                 <td>250</td>
-                <td ><a class="btn" ng-click="toRezervacija(bioskop.id)" type="button" >Repertoar</a></td>
+                <td ><a class="btn" ng-click="toRezervacija(bioskop.id)" type="button" >Rezerviši</a></td>
             </tr>
         </table>
     </div>
