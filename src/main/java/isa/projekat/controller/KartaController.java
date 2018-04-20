@@ -9,6 +9,7 @@ import isa.projekat.service.KartaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,21 +38,21 @@ public class KartaController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/rezervacije")
-	public ResponseEntity rezervacijeKorisnika(){
+	public ResponseEntity rezervacijeKorisnika() {
 		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		List<RezervacijaDTO> rezervacije = kartaService.rezervacijeKorisnika(korisnikId);
 		return ResponseEntity.ok(rezervacije);
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/posete")
-	public ResponseEntity posete(){
+	public ResponseEntity posete() {
 		Long korisnikId = ((Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getId();
 		List<RezervacijaDTO> posete = kartaService.poseteKorisnika(korisnikId);
 		return ResponseEntity.ok(posete);
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/otkazi/{id}")
-	public ResponseEntity otkazi(@PathVariable Long id){
+	public ResponseEntity otkazi(@PathVariable Long id) {
 		kartaService.otkazi(id);
 		return new ResponseEntity(HttpStatus.OK);
 	}
@@ -59,19 +60,19 @@ public class KartaController {
 	//region Popusti
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/dostupniPopusti/{ustanovaId}")
-	public ResponseEntity dostupniPopusti(@PathVariable Long ustanovaId){
+	public ResponseEntity dostupniPopusti(@PathVariable Long ustanovaId) {
 		List<KartaNaPopustuDTO> popusti = kartaService.dostupniPopusti(ustanovaId);
 		return ResponseEntity.ok(popusti);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/dodajPopust")
-	public ResponseEntity dodajPopust(@RequestBody PopustDTO popustDTO){
+	public ResponseEntity dodajPopust(@RequestBody PopustDTO popustDTO) {
 		KartaNaPopustuDTO kartaNaPopustuDTO = kartaService.dodajPopust(popustDTO);
 		return ResponseEntity.ok(kartaNaPopustuDTO);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value = "/secured/obrisiPopust/{idPopusta}")
-	public ResponseEntity obrisiPopust(@PathVariable Long idPopusta){
+	public ResponseEntity obrisiPopust(@PathVariable Long idPopusta) {
 		kartaService.obrisiPopust(idPopusta);
 		return new ResponseEntity(HttpStatus.OK);
 	}
@@ -88,4 +89,17 @@ public class KartaController {
 	
 	//endregion
 	
+	@PreAuthorize("hasAnyRole('Registrovani korisnik')")
+	@RequestMapping(method = RequestMethod.PUT, value = "/secured/oceniProjekciju")
+	public ResponseEntity oceniProjekciju(@RequestBody RezervacijaDTO rezervacijaDTO) {
+		kartaService.oceniProjekciju(rezervacijaDTO);
+		return ResponseEntity.ok(rezervacijaDTO);
+	}
+	
+	@PreAuthorize("hasAnyRole('Registrovani korisnik')")
+	@RequestMapping(method = RequestMethod.PUT, value = "/secured/oceniAmbijent")
+	public ResponseEntity oceniAmbijent(@RequestBody RezervacijaDTO rezervacijaDTO) {
+		kartaService.oceniAmbijent(rezervacijaDTO);
+		return ResponseEntity.ok(rezervacijaDTO);
+	}
 }

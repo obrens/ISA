@@ -12,7 +12,13 @@
 				<div class="col">
 					<h4>Sediste</h4>
 				</div>
-				<div class="col"><select class="form-control" ng-options="sediste.sediste for sediste in arejSedista"  ng-model="selectedSediste" ng-change="kompletiraj()"></select></div>
+				<div class="col">
+					<!--<select class="form-control" ng-options="sediste.sediste for sediste in arejSedista" ng-disabled="sediste.rezervisana" ng-model="selectedSediste" ng-change="kompletiraj()"></select>-->
+					<select class="form-control"  ng-model="selectedSediste"  ng-change="kompletiraj()">
+						<option ng-repeat="sediste in arejSedista" ng-disabled="sediste.rezervisana">{{sediste.sediste}}</option>
+					</select>
+
+				</div>
 			</div>
 			<div class="form-row">
 				<div class="col"><button ng-click="toUserProfil()" class="btn btn-primary btn-block" type="submit" style="background-color:rgb(244,133,71);">Odustani</button></div>

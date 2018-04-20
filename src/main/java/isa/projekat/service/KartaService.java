@@ -34,7 +34,7 @@ public class KartaService {
 	@Autowired
 	KartaNaPopustuRepository kartaNaPopustuRepository;
 	
-	public List<KartaDTO> karteZaProjekciju(Long id){
+	public List<KartaDTO> karteZaProjekciju(Long id) {
 		List<Karta> karte = kartaRepository.findByProjekcija(projekcijaRepository.findById(id));
 		ArrayList<KartaDTO> karteDTO = new ArrayList<>();
 		
@@ -53,10 +53,9 @@ public class KartaService {
 	@Transactional(isolation = Isolation.SERIALIZABLE)
 	public synchronized boolean rezervisiKartu(Long kartaId, Long korisnikId) {
 		Karta karta = kartaRepository.findOne(kartaId);
-		if (karta.isRezervisana()){
+		if (karta.isRezervisana()) {
 			return false;
-		}
-		else{
+		} else {
 			karta.setRezervisana(true);
 			karta.setKupac(korisnikRepository.findOne(korisnikId));
 			kartaRepository.save(karta);
@@ -64,7 +63,7 @@ public class KartaService {
 		}
 	}
 	
-	public List<RezervacijaDTO> rezervacijeKorisnika(Long korisnikId){
+	public List<RezervacijaDTO> rezervacijeKorisnika(Long korisnikId) {
 		Korisnik korisnik = korisnikRepository.findOne(korisnikId);
 		List<Karta> karte = kartaRepository.findByKupac(korisnik);
 		List<RezervacijaDTO> rezervacije = new ArrayList<>();
@@ -92,7 +91,7 @@ public class KartaService {
 		return posete;
 	}
 	
-	private RezervacijaDTO rezervacijaOdKarte(Karta karta){
+	private RezervacijaDTO rezervacijaOdKarte(Karta karta) {
 		RezervacijaDTO rezervacija = new RezervacijaDTO();
 		//region Ajdijevi
 		rezervacija.setKartaId(karta.getId());
@@ -145,10 +144,10 @@ public class KartaService {
 		for (KartaDTO kartaDTO : karte) {
 			Karta karta = kartaRepository.findOne(kartaDTO.getId());
 			KartaNaPopustu kartaNaPopustu = kartaNaPopustuRepository.findByKarta(karta);
-			if (kartaNaPopustu == null){
+			if (kartaNaPopustu == null) {
 				continue;
 			}
-			if (kartaNaPopustu.isRezervisana()){
+			if (kartaNaPopustu.isRezervisana()) {
 				continue;
 			}
 			KartaNaPopustuDTO kartaNaPopustuDTO = new KartaNaPopustuDTO();
@@ -215,10 +214,9 @@ public class KartaService {
 	public boolean brzoRezervisiKartu(Long popustId, Long korisnikId) {
 		KartaNaPopustu popust = kartaNaPopustuRepository.findOne(popustId);
 		Karta karta = popust.getKarta();
-		if (popust.isRezervisana()){
+		if (popust.isRezervisana()) {
 			return false;
-		}
-		else{
+		} else {
 			popust.setRezervisana(true);
 			karta.setKupac(korisnikRepository.findOne(korisnikId));
 			kartaRepository.save(karta);
@@ -228,4 +226,20 @@ public class KartaService {
 	}
 	
 	//endregion
+
+		@Transactional
+		public void oceniProjekciju(RezervacijaDTO rezervacijaDTO) {
+			Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
+			karta.setOcenaProjekcije(rezervacijaDTO.getOcenaProjekcije());
+
+			kartaRepository.save(karta);
+		}
+
+		@Transactional
+		public void oceniAmbijent(RezervacijaDTO rezervacijaDTO) {
+			Karta karta = kartaRepository.findOne(rezervacijaDTO.getKartaId());
+			karta.setOcenaAmbijenta(rezervacijaDTO.getOcenaAmbijenta());
+
+			kartaRepository.save(karta);
+		}
 }

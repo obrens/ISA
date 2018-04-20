@@ -1,7 +1,13 @@
 package isa.projekat.service;
 
 import isa.projekat.model.DTO.UstanovaDTO;
+import isa.projekat.model.Delo;
+import isa.projekat.model.Karta;
+import isa.projekat.model.Projekcija;
 import isa.projekat.model.Ustanova;
+import isa.projekat.repository.DeloRepository;
+import isa.projekat.repository.KartaRepository;
+import isa.projekat.repository.ProjekcijaRepository;
 import isa.projekat.repository.UstanovaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +19,15 @@ import java.util.List;
 
 @Service
 public class UstanovaService {
+	@Autowired
+	KartaRepository kartaRepository;
+	
+	@Autowired
+	ProjekcijaRepository projekcijaRepository;
+	
+	@Autowired
+	DeloRepository deloRepository;
+	
 	@Autowired
 	UstanovaRepository ustanovaRepository;
 	
@@ -36,7 +51,27 @@ public class UstanovaService {
 		ustanovaDTO.setAdresa(ustanova.getAdresa());
 		ustanovaDTO.setOpis(ustanova.getOpis());
 		//TODO Izračunati ocenu
-		ustanovaDTO.setOcena(4.5f);
+		List<Delo> dela = deloRepository.findByUstanova(ustanova);
+		List<Projekcija> projekcije = new ArrayList<>();
+		for (Delo delo : dela){
+			projekcije.addAll(projekcijaRepository.findByDelo(delo));
+		}
+		List<Karta> karte = new ArrayList<>();
+		for (Projekcija projekcija : projekcije){
+			karte.addAll(kartaRepository.findByProjekcija(projekcija));
+		}
+		List<Integer> ocene = new ArrayList<>();
+		for (Karta karta : karte){
+			if (karta.getOcenaAmbijenta() != 0){
+				ocene.add(karta.getOcenaAmbijenta());
+			}
+		}
+		float prosecnaOcena = 0;
+		for(Integer ocena : ocene){
+			prosecnaOcena += ocena;
+		}
+		prosecnaOcena /= ocene.size();
+		ustanovaDTO.setOcena(prosecnaOcena);
 		return ustanovaDTO;
 	}
 	
