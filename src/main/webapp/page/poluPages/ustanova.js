@@ -3,15 +3,17 @@ ustanoveApp.controller('ustanovaController', ['$scope', '$http', '$state', '$sta
         $scope.ustanova = data;
     });
 
-    $scope.toPrvaRez=function (id) {
+    $scope.toPrvaRez = function (id) {
         $state.go("rezervacijaPrva", {id: id});
-    }
-    $scope.toBrzaRez=function (id) {
+    };
+    $scope.toBrzaRez = function (id) {
         $state.go("brzaRezervacija", {idUstanove: id});
-    }
+    };
+
+    $scope.nekoJe = false;
+    console.log("prelog");
     $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
-    }).error(function () {
-        $scope.nijeNiko=true;
+        $scope.nekoJe = true;
     });
 }]);

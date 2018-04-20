@@ -6,8 +6,9 @@
         <p style="margin-top:10px;margin-bottom: 40px;">Adresa ustanove - {{ustanova.adresa}}
     </div>
     <div class="col-6 d-flex flex-column">
-        <span ng-if="nijeNiko==false">
+        <span ng-if="nekoJe">
             <div class="col"><button class="btn btn-primary" type="button" ng-click="toPrvaRez(ustanova.id)">Rezerviši karte</button></div>
+            <br/><br/>
             <div class="col"><button class="btn btn-primary" type="button" ng-click="toBrzaRez(ustanova.id)">Brze rezervacije</button></div>
         </span>
 
