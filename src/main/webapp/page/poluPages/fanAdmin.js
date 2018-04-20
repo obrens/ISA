@@ -1,5 +1,6 @@
-ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
-    $scope.jesamAdmin = true;
+ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state, $window) {
+    $scope.jesamAdmin = false;
+    $scope.jesamFan = false;
     $scope.toRez2 = function () {
         $state.go("rezervacijaDruga");
     }
@@ -24,6 +25,12 @@ ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state', funct
     $scope.toFanzona = function () {
         $state.go("fanzona");
     }
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
+    $scope.toFanAdmin=function () {
+        $state.go("fanAdmin");
+    }
     $scope.logout = function () {
         $window.location.href = '/logout';
     };
@@ -33,6 +40,10 @@ ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state', funct
     $scope.toSistem=function () {
         $state.go("fanAdmin");
     }
+    $http.get('/api/korisnik/secured/jaDto').success(function (data) {
+        $scope.ja = data;
+        console.log($scope.ja);
+    });
 
     $scope.toPromeni = function () {
         $http.get('/api/korisnik/' + $scope.ja.id).success(function (dada) {
@@ -54,7 +65,7 @@ ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state', funct
     $scope.toRegistruj = function () {
         $http.get('/api/korisnik/' + $scope.ja.id).success(function (dada) {
             $scope.praviJa = dada;
-            $http.get('/api/tip/1').success(function (data2) {
+            $http.get('/api/tip/4').success(function (data2) {
                 $scope.uloga = data2;
                 $scope.praviJa.uloge.forEach(function (value) {
                     console.log(value);
@@ -75,5 +86,27 @@ ustanoveApp.controller('fanAdminController', ['$scope', '$http', '$state', funct
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
+    $http.get('/api/tip/4').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamFan = true;
+            } else
+                console.log("nema")
+        })
 
+    })
+
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga1 = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga1.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+
+    })
 }])

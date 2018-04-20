@@ -1,4 +1,4 @@
-ustanoveApp.controller('sistemStranicaController', ['$scope', '$http', '$state', function ($scope, $http, $state) {
+ustanoveApp.controller('sistemStranicaController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state, $window) {
     $scope.jesamAdmin = true;
     $scope.toRez2 = function () {
         $state.go("rezervacijaDruga");

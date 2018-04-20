@@ -1,4 +1,6 @@
 ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
+    $scope.jesamAdmin = false;
+    $scope.jesamFan = false;
     $scope.toUserProfil = function() {
         $state.go("userProfil");
     }
@@ -32,6 +34,13 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window
     $scope.toPonudi = function (id) {
         $state.go("ponudi",{id: id});
     }
+    $scope.toSistem=function () {
+        $state.go("sistemStranica");
+    }
+    $scope.toFanAdmin=function () {
+        $state.go("fanAdmin");
+    }
+
     $http.get('/api/korisnik/secured/ja').success(function (data) {
         $scope.ja = data;
     });
@@ -48,4 +57,28 @@ ustanoveApp.controller('oglasiController', ['$scope', '$http', '$state','$window
             }
         })
     });
+
+    $http.get('/api/tip/4').success(function (data2) {
+        $scope.uloga = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga.naziv) {
+                $scope.jesamFan = true;
+            } else
+                console.log("nema")
+        })
+
+    })
+
+    $http.get('/api/tip/1').success(function (data2) {
+        $scope.uloga1 = data2;
+        $scope.ja.uloge.forEach(function (value) {
+            console.log(value);
+            if (value.naziv == $scope.uloga1.naziv) {
+                $scope.jesamAdmin = true;
+            } else
+                console.log("nema")
+        })
+
+    })
 }]);

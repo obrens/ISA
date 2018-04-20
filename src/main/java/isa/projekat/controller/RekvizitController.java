@@ -20,7 +20,7 @@ public class RekvizitController {
     @Autowired
     RekvizitService rekvizitService;
 
-    @PreAuthorize("hasAnyRole('Administrator sistema','Administrator Fan zone')")
+    @PreAuthorize("hasAnyRole('Administrator sistema','Administrator Fan zone','Registrovani korisnik','Administrator ustanove')")
     @RequestMapping(method = RequestMethod.GET, value = "/secured/svi")
     public ResponseEntity getSveRekvizite() {
         return new ResponseEntity<>(rekvizitRepository.findAll(), HttpStatus.OK);

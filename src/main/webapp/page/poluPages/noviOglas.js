@@ -34,7 +34,7 @@ ustanoveApp.controller('noviOglasController', ['$scope', '$http', '$state','$win
         $scope.rekvizit.korisnik=$scope.ja;
         $http.post('/api/rekvizit/dodaj',$scope.rekvizit).success(function (data) {
             console.log('Rekvizit uspeho dodat, sacekajte na odobrenje');
-            alert('Rekvizit uspešno dodat');
+            alert('Rekvizit uspeho dodat, sacekajte na odobrenje');
             $scope.toOglasi();
         }).error(function () {
             alert('Greška pri dodavanju rekvizita');

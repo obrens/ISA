@@ -71,6 +71,7 @@ ustanoveApp.controller('userProfilController', ['$scope', '$state', '$window', '
             console.log(value);
             if (value.naziv == $scope.uloga.naziv) {
                 $scope.jesamAdmin = true;
+                //$state.go("sistemStranica");
             } else
                 console.log("nema")
         })
