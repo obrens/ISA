@@ -9,6 +9,7 @@ ustanoveApp.controller('registerController', ['$scope','$state','$http','$window
         }else{
             $http.post('/api/korisnik/registruj',$scope.korisnik).success(function () {
                 alert('Korisnik uspešno dodat');
+                $window.location.href = '/login';
             }).error(function () {
                 alert('Greška pri dodavanju korisnika');
             });
