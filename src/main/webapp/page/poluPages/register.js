@@ -1,7 +1,7 @@
-ustanoveApp.controller('registerController', ['$scope','$state','$http', function ($scope,$state,$http) {
+ustanoveApp.controller('registerController', ['$scope','$state','$http','$window', function ($scope,$state,$http,$window) {
     $scope.korisnik={}
     $scope.toLogin = function() {
-        $state.go("login");
+        $window.location.href = '/login';
     }
     $scope.registruj=function () {
         if($scope.korisnik.lozinka!==$scope.passwordR){

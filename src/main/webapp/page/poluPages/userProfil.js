@@ -15,6 +15,9 @@ ustanoveApp.controller('userProfilController', ['$scope','$state','$window','$ht
     $scope.toBioskopiLista = function() {
         $state.go("bioskopiLista");
     }
+    $scope.toPozoristaLista = function() {
+        $state.go("pozoristaLista");
+    }
     $scope.toPrijateljiLista = function() {
         $state.go("prijateljiLista");
     }
