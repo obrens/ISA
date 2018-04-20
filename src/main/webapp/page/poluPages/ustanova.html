@@ -1,13 +1,3 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item"><a ng-click="toUserProfil()" class="btn">Moj profil</a></li>
-    <li class="nav-item"><a ng-click="toListaRezervacija()" class="btn">Moje rezervacije</a></li>
-    <li class="nav-item"><a ng-click="toIstorijaPoseta()"  class="btn">Istorija poseta</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Bioskopi</a></li>
-    <li class="nav-item"><a ng-click="toBioskopiLista()"  class="btn">Pozorišta</a></li>
-    <li class="nav-item"><a ng-click="toPrijateljiLista()"  class="btn">Prijatelji</a></li>
-    <li class="nav-item"><a ng-click="toFanzona()"  class="btn">Fan zona</a></li>
-
-</ul>
 <div class="d-flex flex-row " style="padding-top:30px;background-color:rgb(241,247,252);">
     <div class="col-6 d-flex flex-column ">
         <p style="margin-top:10px;">Naziv Ustanove - {{ustanova.naziv}}
@@ -16,9 +6,12 @@
         <p style="margin-top:10px;margin-bottom: 40px;">Adresa ustanove - {{ustanova.adresa}}
     </div>
     <div class="col-6 d-flex flex-column">
+        <span ng-if="nijeNiko==false">
             <div class="col"><button class="btn btn-primary" type="button" ng-click="toPrvaRez(ustanova.id)">Rezerviši karte</button></div>
             <div class="col"><button class="btn btn-primary" type="button" ng-click="toBrzaRez(ustanova.id)">Brze rezervacije</button></div>
-        </div>
+        </span>
+
     </div>
+</div>
 </div><iframe allowfullscreen="" frameborder="0" width="100%" height="450" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaEw6o8OhJvRQnTF3gI_tibMejtfasOlY&amp;q=Paris%2C+France&amp;zoom=15"></iframe></div>
 

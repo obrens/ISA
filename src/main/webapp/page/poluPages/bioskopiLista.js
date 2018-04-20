@@ -1,5 +1,5 @@
 ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','$window', function ($scope, $http, $state,$window) {
-    //region Meni
+     //region Meni
     $scope.toRez2 = function() {
         $state.go("rezervacijaDruga");
     }
@@ -32,9 +32,6 @@ ustanoveApp.controller('bioskopiListaController', ['$scope', '$http', '$state','
         $state.go("ustanova", {id: id});
     };
 
-    $scope.toRegister = function() {
-        $state.go("register");
-    };
     $http.get('/api/korisnik/secured/jaDto').success(function (data) {
         $scope.ja = data;
     });

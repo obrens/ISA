@@ -1,9 +1,9 @@
 ustanoveApp.controller('pocetnaNeprijavljeniController', ['$scope','$state','$window', function ($scope,$state,$window) {
     $scope.toBioskopiLista = function() {
-        $state.go("bioskopiLista");
+        $state.go("lazniBioskopi");
     }
     $scope.toPozoristaLista = function() {
-        $state.go("pozoristaLista");
+        $state.go("laznaPozorista");
     }
     $scope.toLogin = function() {
         $window.location.href = '/login';
