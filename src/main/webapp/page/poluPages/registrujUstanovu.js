@@ -31,7 +31,7 @@ ustanoveApp.controller('registrujUstanovuController', ['$scope', '$http', '$stat
         $scope.uloga=data2;
     })
 
-    $http.get('/api/korisnik/secured/svi').success(function (data) {
+    $http.get('/api/korisnik/secured/svikorisnici').success(function (data) {
         $scope.korisnici=data;
     })
     
@@ -45,7 +45,6 @@ ustanoveApp.controller('registrujUstanovuController', ['$scope', '$http', '$stat
         $http.get('/api/korisnik/' + $scope.izabranAdmin.id).success(function (data1) {
             $scope.ustanova.admin=data1;
             data1.uloge.push($scope.uloga);
-            console.log($scope.uloga);
             $http.post('/api/ustanova/dodaj',$scope.ustanova).success(function (data) {
                 console.log('Ustanova uspešno dodata');
                 //alert('Ustanova uspešno dodata');

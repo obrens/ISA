@@ -44,6 +44,12 @@ public class KorisnikController {
 		List<PrijateljDTO> prijatelji = korisnikService.prijateljiINeprijatelji(korisnik);
 		return ResponseEntity.ok(prijatelji);
 	}
+
+	@RequestMapping(method = RequestMethod.GET, value = "/secured/svikorisnici")
+	public ResponseEntity getSveKorisnike(){
+		return new ResponseEntity<>(korisnikRepository.findAll(),HttpStatus.OK);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, value = "/secured/ja")
 	public ResponseEntity getJa() {
 		Korisnik korisnik = (Korisnik) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

@@ -31,6 +31,7 @@ public class KorisnikService {
 		korisnikDTO.setLozinka(korisnik.getLozinka());
 		korisnikDTO.setGrad(korisnik.getGrad());
 		korisnikDTO.setImejl(korisnik.getImejl());
+		korisnikDTO.setUloge(korisnik.getUloge());
 		return korisnikDTO;
 	}
 
