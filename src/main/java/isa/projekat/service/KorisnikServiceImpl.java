@@ -52,6 +52,7 @@ public class KorisnikServiceImpl implements KorisnikService {
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
+			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setPrijateljstvoId(prijateljstvo.getId());
 			prijateljDTO.setPrijatelj(true);
 			prijateljDTOs.add(prijateljDTO);
@@ -69,6 +70,7 @@ public class KorisnikServiceImpl implements KorisnikService {
 			prijateljDTO.setId(prijatelj.getId());
 			prijateljDTO.setIme(prijatelj.getIme());
 			prijateljDTO.setPrezime(prijatelj.getPrezime());
+			prijateljDTO.setImejl(prijatelj.getImejl());
             prijateljDTO.setPrijateljstvoId(prijateljstvo.getId());
 			prijateljDTO.setPrijatelj(true);
 			prijateljDTOs.add(prijateljDTO);
@@ -82,6 +84,7 @@ public class KorisnikServiceImpl implements KorisnikService {
 			neprijateljDTO.setId(k.getId());
 			neprijateljDTO.setIme(k.getIme());
 			neprijateljDTO.setPrezime(k.getPrezime());
+			neprijateljDTO.setImejl(k.getImejl());
 			neprijateljDTO.setPrijatelj(false);
 			prijateljDTOs.add(neprijateljDTO);
 		}

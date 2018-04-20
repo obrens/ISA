@@ -39,6 +39,22 @@ public class KorisnikController {
 		}
 		return ResponseEntity.ok(korisnik);
 	}
+
+	@RequestMapping(method = RequestMethod.POST, value="/invite")
+	public ResponseEntity invite(@RequestBody String mejlovi){
+		System.out.println("sad: "+mejlovi);
+		mejlovi = mejlovi.replace("[", "");
+		mejlovi = mejlovi.replace("]", "");
+		//mejlovi = mejlovi.replace("\"", "");
+		System.out.println("aj sad: "+mejlovi);
+		try {
+			notificationService.inviteDrugove(mejlovi);
+		}catch (MailException e ){
+			System.out.println("greska: "+e);
+		}
+		return ResponseEntity.ok(mejlovi);
+	}
+
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity getKorisnika(@PathVariable Long id){
 		KorisnikDTO korisnikDTO = korisnikService.korisnikDTO(korisnikRepository.findById(id));

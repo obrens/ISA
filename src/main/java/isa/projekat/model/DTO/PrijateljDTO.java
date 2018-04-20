@@ -6,7 +6,12 @@ public class PrijateljDTO {
 	private String prezime;
 	private boolean prijatelj;
 	private Long prijateljstvoId;
-	
+	private String imejl;
+
+	public String getImejl() {return imejl;}
+
+	public void setImejl(String imejl) {this.imejl = imejl;	}
+
 	public Long getId() {
 		return id;
 	}

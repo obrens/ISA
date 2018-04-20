@@ -4,10 +4,10 @@
         <form method="post" style="background-color:rgb(241,247,252);">
             <h1 class="text-center" style="height:70px;">Rezervacija</h1>
             <div class="form-row">
-                <div class="col"><select class="form-control" ng-options="prika.ime as prika.ime+' '+prika.prezime for prika in praviDrugari" ng-model="selectedPrika" ></select></div>
+                <div class="col"><select class="form-control" ng-options="prika.imejl as prika.ime+' '+prika.prezime for prika in praviDrugari" ng-model="selectedPrika" ></select></div>
                 <div class="col"><button class="btn btn-primary" type="button" style="margin-top:0px;padding:11px;background-color:rgb(71,161,244);padding-top:6px;padding-bottom:6px;" ng-click="dodajGaNaListu()">Pozovi prijatelja</button></div>
             </div>
-            <p style="padding-top:25px;">Pozvani prijateji:</p>
+            <p style="padding-top:25px;">Pošalji na:</p>
             <ul class="list-group d-inline-block" ng-repeat="drugar in zaZvanje">
                 <li class="list-group-item" style="padding-top:0px;padding-right:8px;padding-bottom:4px;padding-left:8px;">{{drugar}}</li>
 

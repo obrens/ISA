@@ -27,4 +27,14 @@ public class NotificationService {
         javaMailSender.send(mail);
     }
 
+    public void inviteDrugove(String mejlovi) throws MailException{
+
+        SimpleMailMessage mail=new SimpleMailMessage();
+        mail.setTo(mejlovi);
+        mail.setSubject("Pozivnica");
+        mail.setText("Ima dobar film!");
+
+        javaMailSender.send(mail);
+    }
+
 }
