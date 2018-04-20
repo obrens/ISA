@@ -56,6 +56,8 @@ insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) va
 insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) values (8,350,'Montevideo 7','Stanojev pubertet','Cerka Radosa Bajica',100,'krimi drama',8);
 insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) values (9,300,'Selo gori, a baba se ceslja','Remek delo Radosa Bajica','Opet Rados',100,'komedija',9);
 insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) values (10,200,'Neunistivi','Film po romanu Rambo 2','Radosev brat',110,'triler',5);
+insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) values (11,200,'Ptice neke','Poljsko-francuski','Zan',210,'dosadan',10);
+insert into delo (delo_id,cena,naziv,opis,reditelj,trajanje,zanr,ustanova_id) values (12,200,'Brzi','Auta se trkaju, a jedan je brz','Rados Bajic',90,'trkacina',10);
 
 insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (1,10,10,'A1',3);
 insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (2,9,9,'A2',3);
@@ -63,6 +65,8 @@ insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values
 insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (4,6,9,'C1',3);
 insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (5,8,8,'Sala 1',5);
 insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (6,10,9,'Sala 1',5);
+insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (7,3,4,'Mala',10);
+insert into sala (sala_id,broj_kolona,broj_redova,naziv_sale,ustanova_id) values (8,6,6,'Velika',10);
 
 insert into projekcija (projekcija_id,cena,datum,vreme,delo_delo_id,sala_sala_id) values (1, 350, '20180620','20:00',5,1);
 insert into projekcija (projekcija_id,cena,datum,vreme,delo_delo_id,sala_sala_id) values (2, 250, '20180620','12:00',6,2);
